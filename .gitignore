@@ -1,0 +1,14 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local tooling / agent state
+.omc/
+.playwright-mcp/
+
+# Logs
+*.log
+
+# Local mockups / scratch images (not part of the deployed site)
+platform-desktop.png
+platform-new.png
