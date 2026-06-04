@@ -37,14 +37,7 @@
     .home-flyer-wrap.is-loaded {
       animation: flyerReveal 1.15s cubic-bezier(.2,.6,.2,1) both;
     }
-    /* Cursor-driven 3D parallax layer */
-    .home-flyer-tilt {
-      display: block; width: 100%;
-      transform: none;
-      transition: transform .35s cubic-bezier(.2,.6,.2,1);
-      transform-style: preserve-3d;
-      will-change: transform;
-    }
+    .home-flyer-tilt { display: block; width: 100%; }
     /* Positioning context for the clickable hotspots; stays at 1:1 for crisp pixels */
     .home-flyer-stage {
       position: relative; display: block; width: 100%;
@@ -73,7 +66,6 @@
     @media (prefers-reduced-motion: reduce) {
       .home-flyer-wrap { opacity: 1; animation: none; }
       .home-flyer-wrap.is-loaded .home-flyer { animation: none; }
-      .home-flyer-tilt { transition: none; }
     }
   </style>
 </head>
@@ -149,27 +141,6 @@
       if (img && img.complete && img.naturalWidth) { reveal(); }
       else if (img) { img.addEventListener('load', reveal); img.addEventListener('error', reveal); }
       setTimeout(reveal, 3000); /* safety: never leave the page hidden */
-
-      /* Cursor-driven 3D parallax tilt (desktop pointers only) */
-      var tilt = document.querySelector('.home-flyer-tilt');
-      var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (tilt && fine && !reduce) {
-        var MAX_ROT = 3.5, MAX_SHIFT = 9, raf = null, pend = null;
-        function apply() {
-          raf = null;
-          var px = pend.x, py = pend.y;
-          tilt.style.transform =
-            'perspective(1500px) scale(1.03) rotateY(' + (px * MAX_ROT) + 'deg) rotateX(' + (-py * MAX_ROT) +
-            'deg) translate(' + (px * MAX_SHIFT) + 'px,' + (py * MAX_SHIFT) + 'px)';
-        }
-        wrap.addEventListener('mousemove', function (e) {
-          var r = wrap.getBoundingClientRect();
-          pend = { x: ((e.clientX - r.left) / r.width - 0.5) * 2, y: ((e.clientY - r.top) / r.height - 0.5) * 2 };
-          if (!raf) raf = requestAnimationFrame(apply);
-        });
-        wrap.addEventListener('mouseleave', function () { tilt.style.transform = ''; });
-      }
     })();
   </script>
 </body>
