@@ -718,3 +718,135 @@ a:focus-visible { outline: 2px solid rgba(255,255,255,.55); outline-offset: 2px;
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================
+   HOME LANDING PAGE (lh-) — Page 1
+   ============================================================ */
+.lh { position: relative; background: var(--black); overflow: hidden; }
+.lh > .site-header {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 20; background: transparent;
+}
+
+/* ---- Hero ---- */
+.lh-hero { position: relative; background: #07080c; }
+/* Full-width hero photo at natural aspect ratio (no stretch); height capped so the
+   band keeps reference-like proportions, trimming only sky/terrain margins. */
+.lh-hero-img {
+  display: block; width: 100%; height: auto;
+  max-height: 92vh; object-fit: cover; object-position: 70% 44%;
+}
+.lh-hero-overlay {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(7,9,15,.5) 0%, rgba(7,9,15,.28) 26%, rgba(7,9,15,.08) 46%, rgba(7,9,15,0) 64%),
+    linear-gradient(0deg, rgba(8,9,12,.34) 0%, rgba(8,9,12,0) 28%);
+}
+.lh-hero-inner { position: absolute; inset: 0; display: flex; align-items: center; }
+.lh-hero-inner .container { width: 100%; }
+.lh-hero-content { max-width: 600px; }
+/* Hero entrance animation — matches the platform/capabilities pages */
+.lh-hero-img { animation: lbFadeUp .9s cubic-bezier(.2,.6,.2,1) both; animation-delay: .05s; }
+.lh-hero-content > * { animation: lbFadeUp .7s both; }
+.lh-hero-content > *:nth-child(1) { animation-delay: .12s; }
+.lh-hero-content > *:nth-child(2) { animation-delay: .22s; }
+.lh-hero-content > *:nth-child(3) { animation-delay: .32s; }
+.lh-hero-content > *:nth-child(4) { animation-delay: .42s; }
+.lh-hero-title {
+  font-family: "Oswald", sans-serif; font-weight: 700; text-transform: uppercase; color: #fff;
+  font-size: clamp(38px, 5vw, 66px); line-height: 1.06; letter-spacing: 1px;
+}
+.lh-hero .hero-rule { margin: 26px 0 28px; }
+.lh-hero-copy { max-width: 470px; font-size: clamp(16px, 1.4vw, 19px); color: var(--muted); line-height: 1.7; margin-bottom: 36px; }
+.lh-accent { color: var(--red); font-weight: 600; }
+
+/* ---- Keyword strip ---- */
+.lh-strip { background: #0c0d11; border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+.lh-strip-row {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 22px;
+  padding: 20px 0; font-family: "Oswald", sans-serif; font-weight: 600; letter-spacing: 1.6px;
+  font-size: clamp(13px, 1.2vw, 16px); color: #eaebed; text-transform: uppercase; text-align: center;
+}
+.lh-strip-row .sep { color: var(--red); font-weight: 700; }
+
+/* ---- Feature grid ---- */
+.lh-features { padding: 56px 0 42px; }
+.lh-feature-grid { list-style: none; display: grid; grid-template-columns: repeat(6, 1fr); }
+.feature { text-align: center; padding: 6px 22px; position: relative; }
+.feature + .feature::before {
+  content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: var(--line-soft);
+}
+.lh-feature-icon { color: var(--red); display: inline-flex; height: 48px; align-items: center; margin-bottom: 16px; }
+.lh-feature-icon svg { width: 42px; height: 42px; }
+.feature h3 { font-family: "Oswald", sans-serif; font-weight: 700; font-size: 16px; letter-spacing: .6px; color: #fff; margin-bottom: 12px; line-height: 1.16; }
+.feature p { font-size: 14px; color: var(--muted-2); line-height: 1.55; }
+
+/* ---- Engineered for mission success ---- */
+.lh-engineered { padding: 34px 0 54px; }
+.lh-engineered-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(30px, 4vw, 66px); align-items: center; }
+.lh-h2 { font-family: "Oswald", sans-serif; font-weight: 700; text-transform: uppercase; color: #fff; font-size: clamp(30px, 3.4vw, 48px); line-height: 1.05; }
+.lh-engineered .hero-rule { margin: 22px 0 24px; }
+.lh-eng-copy { font-size: 17px; color: var(--muted); line-height: 1.7; margin-bottom: 26px; max-width: 420px; }
+.lh-checklist { list-style: none; display: grid; gap: 15px; }
+.lh-checklist li {
+  position: relative; padding-left: 34px; font-family: "Oswald", sans-serif; font-weight: 500;
+  letter-spacing: .5px; font-size: 17px; color: #f1f2f4;
+}
+.lh-checklist li::before {
+  content: ""; position: absolute; left: 4px; top: 2px; width: 8px; height: 14px;
+  border: solid var(--red); border-width: 0 3px 3px 0; transform: rotate(45deg);
+}
+
+/* ---- Mission systems mosaic (pre-composed angled-panel image) ---- */
+.lh-mosaic-img { display: block; width: 100%; height: auto; }
+
+/* ---- Events banner ---- */
+.lh-events { position: relative; min-height: 300px; display: flex; align-items: center; overflow: hidden; }
+.lh-events-bg { position: absolute; inset: 0; background: #1a0608 url("../assets/img/hangar.jpg") no-repeat center center; background-size: cover; }
+.lh-events-overlay {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(150,17,21,.93) 0%, rgba(128,15,19,.8) 26%, rgba(70,9,11,.46) 50%, rgba(12,12,14,.12) 72%, rgba(12,12,14,0) 88%);
+}
+.events-content { position: relative; z-index: 5; max-width: 560px; padding: 50px 0; }
+.lh-events-icon { color: #fff; display: inline-flex; margin-bottom: 14px; }
+.lh-events-icon svg { width: 40px; height: 40px; }
+.lh-events-title { font-family: "Oswald", sans-serif; font-weight: 700; text-transform: uppercase; color: #fff; font-size: clamp(24px, 3vw, 40px); letter-spacing: .6px; margin-bottom: 14px; }
+.lh-events-title .dot { color: #fff; }
+.lh-events-copy { font-size: 16px; color: #f5e6e7; line-height: 1.6; margin-bottom: 24px; max-width: 430px; }
+
+/* ---- Footer strip ---- */
+.lh-footer { background: #0c0d11; border-top: 1px solid var(--line); }
+.lh-footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; padding: 30px 0; }
+.footer-item { display: flex; align-items: center; gap: 14px; position: relative; }
+.footer-item + .footer-item::before {
+  content: ""; position: absolute; left: -10px; top: 4px; bottom: 4px; width: 1px; background: var(--line-soft);
+}
+.lh-footer-icon { color: var(--red); flex-shrink: 0; display: inline-flex; }
+.lh-footer-icon svg { width: 30px; height: 30px; }
+.lh-footer-text h4 { font-family: "Oswald", sans-serif; font-weight: 700; font-size: 14px; letter-spacing: .6px; color: #fff; line-height: 1.2; }
+.lh-footer-text p { font-size: 12.5px; color: var(--muted-2); margin-top: 3px; }
+.lh-footer-text a { transition: color .2s ease; }
+.lh-footer-text a:hover { color: var(--red); }
+
+/* ---- Home landing responsive ---- */
+@media (max-width: 1040px) {
+  .lh-feature-grid { grid-template-columns: repeat(3, 1fr); row-gap: 42px; }
+  .feature:nth-child(4)::before, .feature:nth-child(1)::before { display: none; }
+  .lh-engineered-grid { grid-template-columns: 1fr; gap: 34px; }
+  .lh-footer-grid { grid-template-columns: repeat(3, 1fr); gap: 28px 20px; }
+  .footer-item:nth-child(4)::before, .footer-item:nth-child(1)::before { display: none; }
+}
+@media (max-width: 760px) {
+  .lh-hero-img { height: 78vh; max-height: none; object-position: 58% 40%; }
+  .lh-hero-overlay {
+    background: linear-gradient(0deg, rgba(6,7,10,.86) 0%, rgba(6,7,10,.34) 52%, rgba(6,7,10,.2) 100%);
+  }
+  .lh-feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .feature::before { display: none !important; }
+  .lh-footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-item::before { display: none !important; }
+}
+@media (max-width: 480px) {
+  .lh-feature-grid { grid-template-columns: 1fr; }
+  .lh-footer-grid { grid-template-columns: 1fr; }
+  .lh-hero-content { max-width: 100%; }
+}
