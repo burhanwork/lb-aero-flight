@@ -3,227 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LBAeroFlight.com — Airborne Test. Proven Results.</title>
-  <meta name="description" content="LB Aero provides affordable, flexible, and efficient airborne flight test platforms for aerospace, defense, and technology innovators. Based in New Mexico. Veteran operated. Ready to fly." />
+  <title>LBAeroFlight.com — Aerospace Innovation Open House</title>
+  <meta name="description" content="Aerospace Innovation Open House — Flight Test, Flight Training, Innovation. Saturday 29 Aug 2026, 10:00 AM – 12:00 PM at Double Eagle Airport (KAEG), Albuquerque, New Mexico. Tour two operational L-29 jet aircraft." />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/img/home-hero.jpg?v=5" as="image" />
+  <link rel="preload" href="assets/img/home-flyer.png?v=4" as="image" />
   <link rel="stylesheet" href="css/styles.css?v=83" />
+  <style>
+    html, body { height: 100%; background: #000; }
+    body { height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+    .home-flyer-wrap {
+      flex: 1 1 auto; min-height: 0;
+      display: flex; align-items: center; justify-content: center;
+      padding: clamp(8px, 1.5vw, 20px) clamp(12px, 4vw, 64px) clamp(16px, 2.5vw, 32px);
+    }
+    .home-flyer {
+      display: block;
+      max-width: 100%; max-height: 100%;
+      width: auto; height: auto;
+      object-fit: contain;
+      image-rendering: -webkit-optimize-contrast;
+      box-shadow: 0 18px 60px rgba(0,0,0,.6);
+    }
+  </style>
 </head>
 <body>
 
-  <main class="lh" id="top">
+  <!-- ---------- HEADER ---------- -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="LB AeroFlight dot com — home">
+        <svg class="brand-jet" viewBox="0 0 120 22" aria-hidden="true">
+          <path d="M2 17 L74 13 L96 3 C100 1 104 2 101 5 L88 14 L116 13 L108 17 L86 17 L96 21 L92 22 L74 18 L2 19 Z"/>
+        </svg>
+        <span class="brand-mark"><span class="brand-lb">LB</span><span class="brand-aero">AeroFlight</span><span class="brand-dot">.com</span></span>
+      </a>
 
-    <!-- ---------- HEADER ---------- -->
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="index.html" class="brand" aria-label="LB AeroFlight dot com — home">
-          <svg class="brand-jet" viewBox="0 0 120 22" aria-hidden="true">
-            <path d="M2 17 L74 13 L96 3 C100 1 104 2 101 5 L88 14 L116 13 L108 17 L86 17 L96 21 L92 22 L74 18 L2 19 Z"/>
-          </svg>
-          <span class="brand-mark"><span class="brand-lb">LB</span><span class="brand-aero">AeroFlight</span><span class="brand-dot">.com</span></span>
-        </a>
-
-        <nav class="main-nav" aria-label="Primary">
-          <ul>
-            <li><a href="index.html" class="active">HOME</a></li>
-            <li><a href="about.html">ABOUT US</a></li>
-            <li><a href="team.html">TEAM</a></li>
-            <li><a href="capabilities.html">CAPABILITIES</a></li>
-            <li><a href="platform.html">PLATFORM</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-          </ul>
-        </nav>
-
-        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </header>
-
-    <!-- ---------- HERO ---------- -->
-    <section class="lh-hero">
-      <img class="lh-hero-img" src="assets/img/home-hero.jpg?v=5" alt="Two LB Aero L-29 Delfín jets in formation flight over the New Mexico mountains" />
-      <div class="lh-hero-overlay"></div>
-      <div class="lh-hero-inner">
-        <div class="container">
-          <div class="lh-hero-content">
-            <h1 class="lh-hero-title">AIRBORNE TEST<span class="dot">.</span><br />PROVEN RESULTS<span class="dot">.</span></h1>
-            <span class="hero-rule" aria-hidden="true"></span>
-            <p class="lh-hero-copy">
-              LB Aero provides affordable, flexible, and efficient
-              airborne flight test platforms for aerospace,
-              defense, and technology innovators.
-              Based in New Mexico. <span class="lh-accent">Ready to fly.</span>
-            </p>
-            <div class="hero-actions">
-              <a href="capabilities.html" class="btn btn-primary">OUR CAPABILITIES</a>
-              <a href="contact.html" class="btn btn-outline">CONTACT US</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ---------- KEYWORD STRIP ---------- -->
-    <section class="lh-strip">
-      <div class="container">
-        <p class="lh-strip-row">
-          <span>VETERAN OPERATED</span>
-          <span class="sep" aria-hidden="true">/</span>
-          <span>L-29 PLATFORMS</span>
-          <span class="sep" aria-hidden="true">/</span>
-          <span>FLIGHT TEST EXPERTISE</span>
-          <span class="sep" aria-hidden="true">/</span>
-          <span>NEW MEXICO ADVANTAGE</span>
-        </p>
-      </div>
-    </section>
-
-    <!-- ---------- FEATURES ---------- -->
-    <section class="lh-features">
-      <div class="container">
-        <ul class="lh-feature-grid">
-          <li class="feature">
-            <span class="lh-feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><path d="M24 4c-2 0-3 4-3 11l-17 11v4l17-5v8l-5 4v3l8-2 8 2v-3l-5-4v-8l17 5v-4l-17-11c0-7-1-11-3-11z" fill="currentColor"/></svg>
-            </span>
-            <h3>FLIGHT TEST<br />PLATFORMS</h3>
-            <p>L-29 aircraft configured for a wide range of airborne test missions.</p>
-          </li>
-          <li class="feature">
-            <span class="lh-feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><rect x="7" y="28" width="7" height="13" rx="1" fill="currentColor"/><rect x="20.5" y="20" width="7" height="21" rx="1" fill="currentColor"/><rect x="34" y="10" width="7" height="31" rx="1" fill="currentColor"/></svg>
-            </span>
-            <h3>LOW COST.<br />HIGH VALUE.</h3>
-            <p>Significant cost savings compared to traditional government assets.</p>
-          </li>
-          <li class="feature">
-            <span class="lh-feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="14" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="24" cy="24" r="5" fill="currentColor"/><path d="M24 4v8M24 36v8M4 24h8M36 24h8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-            </span>
-            <h3>TEST APPARATUS<br />INTEGRATION</h3>
-            <p>Flexible payload integration for sensors, avionics, data collection and more.</p>
-          </li>
-          <li class="feature">
-            <span class="lh-feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="8" fill="currentColor"/><path d="M9 41c0-9 7-15 15-15s15 6 15 15z" fill="currentColor"/><path d="M33 18a6 6 0 0 0-6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-            </span>
-            <h3>QUALIFIED PILOTS.<br />EXPERIENCED TEAM.</h3>
-            <p>Military and test pilot backgrounds with a mission-first mindset.</p>
-          </li>
-          <li class="feature">
-            <span class="lh-feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><path d="M5 13l11-4 16 4 11-3v25l-11 3-16-4-11 4z M16 9v25 M32 13v25" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
-            </span>
-            <h3>NEW MEXICO<br />ADVANTAGE</h3>
-            <p>Unrestricted airspace, ideal weather, and proven test range proximity.</p>
-          </li>
-          <li class="feature">
-            <span class="lh-feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><path d="M4 22l7-7 6 2 7 7-4 4-3-3M44 22l-7-7-6 2-7 7 4 4 3-3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><path d="M20 31l3 3 3-3 3 3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></svg>
-            </span>
-            <h3>PARTNERSHIPS<br />THAT PERFORM</h3>
-            <p>Supporting government, industry, academia, and innovators.</p>
-          </li>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html" class="active">HOME</a></li>
+          <li><a href="about.html">ABOUT US</a></li>
+          <li><a href="team.html">TEAM</a></li>
+          <li><a href="capabilities.html">CAPABILITIES</a></li>
+          <li><a href="platform.html">PLATFORM</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
         </ul>
-      </div>
-    </section>
+      </nav>
 
-    <!-- ---------- ENGINEERED FOR MISSION SUCCESS ---------- -->
-    <section class="lh-engineered">
-      <div class="container lh-engineered-grid">
-        <div class="engineered-text">
-          <h2 class="lh-h2">ENGINEERED FOR<br />MISSION SUCCESS</h2>
-          <span class="hero-rule" aria-hidden="true"></span>
-          <p class="lh-eng-copy">
-            From concept to data, we deliver the
-            airborne capability you need to test,
-            evaluate, and innovate.
-          </p>
-          <ul class="lh-checklist">
-            <li>Test Planning &amp; Support</li>
-            <li>Airborne Data Collection</li>
-            <li>Payload integration</li>
-            <li>Real-World Results</li>
-          </ul>
-        </div>
-        <div class="engineered-mosaic">
-          <img class="lh-mosaic-img" src="assets/img/mosaic.jpg?v=3" alt="L-29 mission systems: cockpit instruments, jet engine, avionics rack, and an L-29 Delfín at sunset" loading="lazy" />
-        </div>
-      </div>
-    </section>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-    <!-- ---------- EVENTS BANNER ---------- -->
-    <section class="lh-events">
-      <div class="lh-events-bg" role="img" aria-label="Two LB Aero L-29 jets parked outside the hangar at Double Eagle Airport"></div>
-      <div class="lh-events-overlay"></div>
-      <div class="container events-content">
-        <span class="lh-events-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><rect x="7" y="10" width="34" height="31" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M7 18h34" stroke="currentColor" stroke-width="2.4"/><path d="M16 5v8M32 5v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-        </span>
-        <h2 class="lh-events-title">CONNECT<span class="dot">.</span> COLLABORATE<span class="dot">.</span> INNOVATE<span class="dot">.</span></h2>
-        <p class="lh-events-copy">
-          Join us at upcoming networking events and open houses
-          at Double Eagle Airport and beyond.
-        </p>
-        <a href="contact.html" class="btn btn-outline">VIEW EVENTS</a>
-      </div>
-    </section>
-
-    <!-- ---------- FOOTER STRIP ---------- -->
-    <footer class="lh-footer">
-      <div class="container lh-footer-grid">
-        <div class="footer-item">
-          <span class="lh-footer-icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32"><path d="M16 2c-6 0-10 4-10 10 0 7 10 18 10 18s10-11 10-18c0-6-4-10-10-10z" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="16" cy="12" r="3.6" fill="currentColor"/></svg>
-          </span>
-          <div class="lh-footer-text">
-            <h4>DOUBLE EAGLE AIRPORT (AEG)</h4>
-            <p>Albuquerque, New Mexico</p>
-          </div>
-        </div>
-        <div class="footer-item">
-          <span class="lh-footer-icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="16" cy="16" r="4" fill="currentColor"/><path d="M16 1v6M16 25v6M1 16h6M25 16h6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-          </span>
-          <div class="lh-footer-text">
-            <h4>L-29 PLATFORMS</h4>
-            <p>Proven. Reliable. Ready.</p>
-          </div>
-        </div>
-        <div class="footer-item">
-          <span class="lh-footer-icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32"><path d="M16 2 5 6v9c0 8 5 13 11 15 6-2 11-7 11-15V6z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M11 16l3.4 3.4L21 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <div class="lh-footer-text">
-            <h4>SAFETY DRIVEN</h4>
-            <p>Mission Focused</p>
-          </div>
-        </div>
-        <div class="footer-item">
-          <span class="lh-footer-icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="2.2"/><ellipse cx="16" cy="16" rx="6" ry="13" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M3 16h26M5 9h22M5 23h22" stroke="currentColor" stroke-width="2.2"/></svg>
-          </span>
-          <div class="lh-footer-text">
-            <h4><a href="https://lbaero.com">LBAERO.COM</a></h4>
-          </div>
-        </div>
-        <div class="footer-item">
-          <span class="lh-footer-icon" aria-hidden="true">
-            <svg viewBox="0 0 32 32"><rect x="3" y="7" width="26" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M4 9l12 9 12-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
-          </span>
-          <div class="lh-footer-text">
-            <h4><a href="mailto:info@lbaero.com">INFO@LBAERO.COM</a></h4>
-          </div>
-        </div>
-      </div>
-    </footer>
-
+  <!-- ---------- HOME FLYER ---------- -->
+  <main class="home-flyer-wrap">
+    <img
+      class="home-flyer"
+      src="assets/img/home-flyer.png?v=4"
+      alt="LB AeroFlight — Aerospace Innovation Open House. Flight Test, Flight Training, Innovation. Saturday 29 August 2026, 10:00 AM to 12:00 PM at Double Eagle Airport (KAEG), Albuquerque, New Mexico. Tour two operational L-29 jet aircraft. RSVP info@LBAeroFlight.com, Scott Hurler Weaver 301-437-8728."
+    />
   </main>
 
   <script src="js/main.js"></script>
