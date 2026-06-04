@@ -26,6 +26,8 @@
       background: linear-gradient(to bottom, rgba(6,7,10,.82) 0%, rgba(6,7,10,.42) 46%, rgba(6,7,10,0) 100%);
       z-index: -1; pointer-events: none;
     }
+    /* Header text fades up on load — same transition the other pages use (lbFadeUp) */
+    .header-inner { animation: lbFadeUp .8s cubic-bezier(.2,.6,.2,1) both; animation-delay: .15s; }
     .home-flyer-wrap {
       display: block;
       width: 100%;
