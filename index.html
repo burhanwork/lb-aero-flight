@@ -58,16 +58,16 @@
       height: auto;
       image-rendering: -webkit-optimize-contrast;
     }
-    /* Invisible clickable hotspots over the flyer (email, phone, map, site) */
+    /* Invisible clickable hotspots over the flyer (email, phone, map, site).
+       Pointer cursor only — no visible box/highlight on hover. */
     .flyer-hot {
       position: absolute; display: block; z-index: 2;
-      cursor: pointer; border-radius: 8px;
-      transition: box-shadow .2s ease, background-color .2s ease;
+      cursor: pointer;
+      background: transparent;
     }
-    .flyer-hot:hover, .flyer-hot:focus-visible {
-      background: rgba(196,22,28,.14);
-      box-shadow: 0 0 0 2px rgba(255,255,255,.35) inset;
-      outline: none;
+    /* Keyboard-only focus ring (does not show on mouse hover) */
+    .flyer-hot:focus-visible {
+      outline: 2px solid rgba(255,255,255,.6); outline-offset: -2px; border-radius: 6px;
     }
     @keyframes flyerReveal {
       from { opacity: 0; transform: translateY(30px) scale(1.03); filter: saturate(.72) brightness(.74); }
