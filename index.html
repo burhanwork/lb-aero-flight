@@ -15,11 +15,10 @@
   <style>
     html, body { background: #000; }
     body { margin: 0; position: relative; }
-    /* Transparent header overlaying the flyer — matches the other pages */
+    /* Transparent header overlaying the flyer — static, like the other pages */
     .site-header {
       position: absolute; top: 0; left: 0; right: 0; z-index: 20;
       background: transparent;
-      animation: lbFadeDown .7s cubic-bezier(.2,.6,.2,1) both;
     }
     /* Subtle top scrim so the nav stays legible over the bright flyer (like the hero pages) */
     .site-header::after {
@@ -27,14 +26,6 @@
       background: linear-gradient(to bottom, rgba(6,7,10,.82) 0%, rgba(6,7,10,.42) 46%, rgba(6,7,10,0) 100%);
       z-index: -1; pointer-events: none;
     }
-    .site-header .brand { animation: lbFadeUp .7s both; animation-delay: .12s; }
-    .main-nav li { animation: lbFadeUp .6s both; }
-    .main-nav li:nth-child(1) { animation-delay: .18s; }
-    .main-nav li:nth-child(2) { animation-delay: .24s; }
-    .main-nav li:nth-child(3) { animation-delay: .30s; }
-    .main-nav li:nth-child(4) { animation-delay: .36s; }
-    .main-nav li:nth-child(5) { animation-delay: .42s; }
-    .main-nav li:nth-child(6) { animation-delay: .48s; }
     .home-flyer-wrap {
       display: block;
       width: 100%;
@@ -44,26 +35,35 @@
     .home-flyer-wrap.is-loaded {
       animation: flyerReveal 1.15s cubic-bezier(.2,.6,.2,1) both;
     }
+    /* Cursor-driven 3D parallax layer */
+    .home-flyer-tilt {
+      display: block; width: 100%;
+      transform: none;
+      transition: transform .35s cubic-bezier(.2,.6,.2,1);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
     .home-flyer {
       display: block;
       width: 100%;
       height: auto;
       image-rendering: -webkit-optimize-contrast;
-      transform-origin: center 44%;
+      transform-origin: center 46%;
       will-change: transform;
     }
+    /* Ambient breathing zoom — also keeps a margin so the tilt never exposes edges */
     .home-flyer-wrap.is-loaded .home-flyer {
-      animation: kenBurns 30s ease-in-out 1.3s infinite alternate both;  /* slow ambient drift */
+      animation: kenBurns 30s ease-in-out 1.3s infinite alternate both;
     }
-    @keyframes lbFadeDown { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: none; } }
     @keyframes flyerReveal {
       from { opacity: 0; transform: translateY(30px) scale(1.03); filter: saturate(.72) brightness(.74); }
       to   { opacity: 1; transform: none; filter: none; }
     }
-    @keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.05); } }
+    @keyframes kenBurns { from { transform: scale(1.04); } to { transform: scale(1.07); } }
     @media (prefers-reduced-motion: reduce) {
       .home-flyer-wrap { opacity: 1; animation: none; }
       .home-flyer-wrap.is-loaded .home-flyer { animation: none; }
+      .home-flyer-tilt { transition: none; }
     }
   </style>
 </head>
@@ -98,11 +98,13 @@
 
   <!-- ---------- HOME FLYER ---------- -->
   <main class="home-flyer-wrap">
-    <img
-      class="home-flyer"
-      src="assets/img/home-flyer.png?v=4"
-      alt="LB AeroFlight — Aerospace Innovation Open House. Flight Test, Flight Training, Innovation. Saturday 29 August 2026, 10:00 AM to 12:00 PM at Double Eagle Airport (KAEG), Albuquerque, New Mexico. Tour two operational L-29 jet aircraft. RSVP info@LBAeroFlight.com, Scott Hurler Weaver 301-437-8728."
-    />
+    <div class="home-flyer-tilt">
+      <img
+        class="home-flyer"
+        src="assets/img/home-flyer.png?v=4"
+        alt="LB AeroFlight — Aerospace Innovation Open House. Flight Test, Flight Training, Innovation. Saturday 29 August 2026, 10:00 AM to 12:00 PM at Double Eagle Airport (KAEG), Albuquerque, New Mexico. Tour two operational L-29 jet aircraft. RSVP info@LBAeroFlight.com, Scott Hurler Weaver 301-437-8728."
+      />
+    </div>
   </main>
 
   <script src="js/main.js"></script>
@@ -117,6 +119,27 @@
       if (img && img.complete && img.naturalWidth) { reveal(); }
       else if (img) { img.addEventListener('load', reveal); img.addEventListener('error', reveal); }
       setTimeout(reveal, 3000); /* safety: never leave the page hidden */
+
+      /* Cursor-driven 3D parallax tilt (desktop pointers only) */
+      var tilt = document.querySelector('.home-flyer-tilt');
+      var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (tilt && fine && !reduce) {
+        var MAX_ROT = 3.5, MAX_SHIFT = 9, raf = null, pend = null;
+        function apply() {
+          raf = null;
+          var px = pend.x, py = pend.y;
+          tilt.style.transform =
+            'perspective(1500px) rotateY(' + (px * MAX_ROT) + 'deg) rotateX(' + (-py * MAX_ROT) +
+            'deg) translate(' + (px * MAX_SHIFT) + 'px,' + (py * MAX_SHIFT) + 'px)';
+        }
+        wrap.addEventListener('mousemove', function (e) {
+          var r = wrap.getBoundingClientRect();
+          pend = { x: ((e.clientX - r.left) / r.width - 0.5) * 2, y: ((e.clientY - r.top) / r.height - 0.5) * 2 };
+          if (!raf) raf = requestAnimationFrame(apply);
+        });
+        wrap.addEventListener('mouseleave', function () { tilt.style.transform = ''; });
+      }
     })();
   </script>
 </body>
