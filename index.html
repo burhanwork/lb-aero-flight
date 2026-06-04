@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/img/home-flyer.png?v=4" as="image" />
+  <link rel="preload" href="assets/img/home-flyer.jpg?v=5" as="image" />
   <link rel="stylesheet" href="css/styles.css?v=83" />
   <style>
     html, body { background: #000; }
@@ -43,20 +43,15 @@
       transform-style: preserve-3d;
       will-change: transform;
     }
-    /* Stage scales with the ambient zoom so the clickable hotspots stay aligned */
+    /* Positioning context for the clickable hotspots; stays at 1:1 for crisp pixels */
     .home-flyer-stage {
       position: relative; display: block; width: 100%;
       transform-origin: center 46%;
-      will-change: transform;
-    }
-    .home-flyer-wrap.is-loaded .home-flyer-stage {
-      animation: kenBurns 30s ease-in-out 1.3s infinite alternate both;
     }
     .home-flyer {
       display: block;
       width: 100%;
       height: auto;
-      image-rendering: -webkit-optimize-contrast;
     }
     /* Invisible clickable hotspots over the flyer (email, phone, map, site).
        Pointer cursor only — no visible box/highlight on hover. */
@@ -73,7 +68,6 @@
       from { opacity: 0; transform: translateY(30px) scale(1.03); filter: saturate(.72) brightness(.74); }
       to   { opacity: 1; transform: none; filter: none; }
     }
-    @keyframes kenBurns { from { transform: scale(1.04); } to { transform: scale(1.07); } }
     @media (prefers-reduced-motion: reduce) {
       .home-flyer-wrap { opacity: 1; animation: none; }
       .home-flyer-wrap.is-loaded .home-flyer { animation: none; }
@@ -116,12 +110,12 @@
       <div class="home-flyer-stage">
         <img
           class="home-flyer"
-          src="assets/img/home-flyer.png?v=4"
+          src="assets/img/home-flyer.jpg?v=5"
           alt="LB AeroFlight — Aerospace Innovation Open House. Flight Test, Flight Training, Innovation. Saturday 29 August 2026, 10:00 AM to 12:00 PM at Double Eagle Airport (KAEG), Albuquerque, New Mexico. Tour two operational L-29 jet aircraft. RSVP info@LBAeroFlight.com, Scott Hurler Weaver 301-437-8728."
         />
 
         <!-- Clickable hotspots over the flyer artwork -->
-        <a class="flyer-hot" style="left:40%;top:56%;width:32%;height:16%;"
+        <a class="flyer-hot" style="left:39%;top:63%;width:35%;height:17%;"
            href="https://www.google.com/maps/search/?api=1&amp;query=Double+Eagle+II+Airport+KAEG+Albuquerque+New+Mexico"
            target="_blank" rel="noopener"
            aria-label="Open event location in Google Maps — Double Eagle Airport (KAEG), Albuquerque, New Mexico"></a>
@@ -164,7 +158,7 @@
           raf = null;
           var px = pend.x, py = pend.y;
           tilt.style.transform =
-            'perspective(1500px) rotateY(' + (px * MAX_ROT) + 'deg) rotateX(' + (-py * MAX_ROT) +
+            'perspective(1500px) scale(1.03) rotateY(' + (px * MAX_ROT) + 'deg) rotateX(' + (-py * MAX_ROT) +
             'deg) translate(' + (px * MAX_SHIFT) + 'px,' + (py * MAX_SHIFT) + 'px)';
         }
         wrap.addEventListener('mousemove', function (e) {
