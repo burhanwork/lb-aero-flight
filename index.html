@@ -43,6 +43,12 @@
       animation-delay: .05s;
     }
     .home-flyer-tilt { display: block; width: 100%; }
+    /* Desktop: drop the poster below the fixed header so the artwork's
+       baked-in title doesn't collide with the nav (gives a clean header band
+       on top). Mobile hides the poster entirely, so this only affects desktop. */
+    @media (min-width: 761px) {
+      .home-flyer-wrap { padding-top: var(--header-h); background: #000; }
+    }
     /* Positioning context for the clickable hotspots; stays at 1:1 for crisp pixels */
     .home-flyer-stage {
       position: relative; display: block; width: 100%;
