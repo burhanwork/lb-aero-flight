@@ -646,6 +646,11 @@ a { color: inherit; text-decoration: none; }
   animation-delay: .05s;
 }
 
+/* About hero — background image fades in to match the other pages' hero transition.
+   Opacity-only (the bg is a full-screen cover layer, so no slide/edge gap). */
+@keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+.home-bg { animation: lbFadeIn .9s cubic-bezier(.2,.6,.2,1) both; animation-delay: .05s; }
+
 /* HTML title overlays — fade-up cascade matching homepage hero */
 .cap-hero-inner > *,
 .plat-hero-inner > * { animation: lbFadeUp .7s both; }
