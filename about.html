@@ -13,22 +13,24 @@
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/styles.css?v=93" />
   <style>
-    /* Mobile only: full-bleed hero with the heading overlaid ON the jet photo
-       (same idea as desktop). The image is positioned to keep the jet in view;
-       a top-to-bottom gradient stays clear over the aircraft and darkens toward
-       the bottom so the heading reads while sitting on the image. */
+    /* Mobile only: match the other pages (Capabilities/Platform). The hero photo
+       becomes a full-width banner that FITS the screen (no cover-crop, nothing
+       exceeding the frame), the header sits transparently on the banner, and the
+       heading + text flow BELOW the banner on a solid dark background. */
     @media (max-width: 760px) {
       .home { background: var(--black); }
+      /* header overlays the top of the banner, like the other pages */
+      .site-header { position: absolute; top: 0; left: 0; right: 0; }
+      /* full jet banner, fits the width (895/1199 aspect → whole image, no crop) */
       .home-bg {
-        background-position: center 30%;
+        position: relative;
+        height: 0; padding-bottom: 74.65%;
+        background-position: center center;
         background-size: cover;
       }
-      .home-overlay {
-        background: linear-gradient(180deg,
-          rgba(6,7,10,.30) 0%, rgba(6,7,10,.06) 22%,
-          rgba(6,7,10,.22) 48%, rgba(6,7,10,.84) 78%, rgba(6,7,10,.98) 100%);
-      }
-      .hero { align-items: flex-end; padding: 0 0 40px; }
+      .home-overlay { display: none; }
+      /* hero text below the banner */
+      .hero { align-items: flex-start; padding: 26px 0 44px; }
       .hero-content { max-width: 100%; }
     }
   </style>
