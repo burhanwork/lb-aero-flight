@@ -43,30 +43,36 @@
       animation-delay: .05s;
     }
     .home-flyer-tilt { display: block; width: 100%; }
-    /* Positioning context for the clickable hotspots; stays at 1:1 for crisp pixels */
+    /* Positioning context + query container so each hotspot's flyer slice
+       aligns to the flyer width (cqw is immune to scrollbar-width offset). */
     .home-flyer-stage {
       position: relative; display: block; width: 100%;
       transform-origin: center 46%;
+      container-type: inline-size;
     }
     .home-flyer {
       display: block;
       width: 100%;
       height: auto;
     }
-    /* Clickable hotspots over the flyer (email, phone, map, site).
-       Hover = soft, borderless bloom (no hard box) + a subtle lift,
-       matching the polished hover transitions on the other pages. */
+    /* Clickable hotspots. Each paints the exact flyer slice beneath it (so it's
+       invisible at rest); on hover that slice lifts out with a soft shadow —
+       only the hovered item moves, no layout shift. */
     .flyer-hot {
       position: absolute; display: block; z-index: 2;
       cursor: pointer;
-      border-radius: 10px;
-      background: radial-gradient(ellipse at center, rgba(255,236,205,0) 0%, rgba(255,236,205,0) 70%);
-      transition: background .35s ease, transform .35s cubic-bezier(.2,.6,.2,1);
-      transform: translateZ(0);
+      background-image: url("assets/img/home-flyer-2896.jpg?v=6");
+      background-repeat: no-repeat;
+      background-size: 100cqw auto;
+      transform-origin: center bottom;
+      backface-visibility: hidden;
+      transition: transform .35s cubic-bezier(.2,.6,.2,1), box-shadow .35s ease, filter .35s ease;
     }
     .flyer-hot:hover {
-      background: radial-gradient(ellipse at center, rgba(255,236,205,.16) 0%, rgba(255,236,205,0) 70%);
-      transform: scale(1.02);
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 14px 34px rgba(0,0,0,.55);
+      filter: brightness(1.05);
+      z-index: 5;
     }
     /* Keyboard-only focus ring (does not show on mouse hover) */
     .flyer-hot:focus-visible {
@@ -122,20 +128,20 @@
         />
 
         <!-- Clickable hotspots over the flyer artwork -->
-        <a class="flyer-hot" style="left:39%;top:63%;width:35%;height:17%;"
+        <a class="flyer-hot" style="left:39%;top:63%;width:35%;height:17%;background-position:-39cqw -47.25cqw;"
            href="https://www.google.com/maps/search/?api=1&amp;query=Double+Eagle+II+Airport+KAEG+Albuquerque+New+Mexico"
            target="_blank" rel="noopener"
            aria-label="Open event location in Google Maps — Double Eagle Airport (KAEG), Albuquerque, New Mexico"></a>
 
-        <a class="flyer-hot" style="left:3%;top:81%;width:37%;height:13%;"
+        <a class="flyer-hot" style="left:3%;top:81%;width:37%;height:13%;background-position:-3cqw -60.75cqw;"
            href="mailto:info@LBAeroFlight.com"
            aria-label="Email info@LBAeroFlight.com"></a>
 
-        <a class="flyer-hot" style="left:40%;top:81%;width:33%;height:13%;"
+        <a class="flyer-hot" style="left:40%;top:81%;width:33%;height:13%;background-position:-40cqw -60.75cqw;"
            href="tel:+13014378728"
            aria-label="Call Scott Hurler Weaver at 301-437-8728"></a>
 
-        <a class="flyer-hot" style="left:73%;top:81%;width:26%;height:13%;"
+        <a class="flyer-hot" style="left:73%;top:81%;width:26%;height:13%;background-position:-73cqw -60.75cqw;"
            href="index.html"
            aria-label="LBAeroFlight.com home"></a>
       </div>
