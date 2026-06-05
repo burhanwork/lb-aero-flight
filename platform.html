@@ -13,6 +13,22 @@
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/img/platform-hero.jpg?v=78" as="image" />
   <link rel="stylesheet" href="css/styles.css?v=93" />
+  <style>
+    /* Mobile: the hero title is absolutely positioned over the banner image,
+       which made "THE L-29 PLATFORM" overlap the jet. On phones, let the hero
+       text flow BELOW the banner image on a solid dark background (same as the
+       Capabilities page). Only top/bottom padding is set so the container's
+       horizontal padding is preserved. */
+    @media (max-width: 760px) {
+      .plat-hero { min-height: 0; }
+      .plat-hero::after { display: none; }      /* remove the readability overlay */
+      .plat-hero-inner {
+        position: static;
+        padding-top: 26px; padding-bottom: 6px;
+        background: var(--black);
+      }
+    }
+  </style>
 </head>
 <body>
 
