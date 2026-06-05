@@ -96,31 +96,18 @@
        ================================================================= */
     .m-home { display: none; }
     @media (max-width: 760px) {
-      /* Hide the print poster on small screens; show the responsive layout */
+      /* Hide the print poster on small screens; show the responsive layout.
+         padding-top drops the banner below the fixed header (clean dark band,
+         same treatment as the desktop poster). */
       .home-flyer-wrap { display: none !important; }
-      .m-home { display: block; background: var(--black); color: var(--text); }
+      .m-home { display: block; background: var(--black); color: var(--text); padding-top: var(--header-h); }
 
-      /* ---- Hero ---- */
-      .m-hero {
-        position: relative;
-        padding: 118px 22px 32px;
-        background: #07080c url("assets/img/hero-about.jpg?v=13") no-repeat center center;
-        background-size: cover;
-      }
-      .m-hero::before {
-        content: ""; position: absolute; inset: 0;
-        background: linear-gradient(180deg, rgba(7,8,12,.55) 0%, rgba(7,8,12,.72) 52%, #0a0a0c 100%);
-      }
-      .m-hero > * { position: relative; z-index: 1; }
-      .m-eyebrow {
-        font-family: "Oswald", sans-serif; font-weight: 600; letter-spacing: 2.5px;
-        text-transform: uppercase; font-size: 13px; color: var(--red-bright); margin-bottom: 12px;
-      }
-      .m-title {
-        font-family: "Oswald", sans-serif; font-weight: 700; text-transform: uppercase;
-        font-size: clamp(33px, 10.5vw, 46px); line-height: 1.04; color: #fff; letter-spacing: .5px;
-      }
-      .m-rule { display: block; width: 64px; height: 4px; background: var(--red); margin: 18px 0 22px; }
+      /* ---- Banner: the exact flyer scene, so mobile matches the desktop ---- */
+      .m-banner { display: block; }
+      .m-banner img { display: block; width: 100%; height: auto; }
+
+      /* ---- Readable intro under the banner ---- */
+      .m-intro { padding: 26px 22px 6px; }
       .m-lead { font-size: 16px; color: var(--muted); line-height: 1.62; margin-bottom: 14px; }
       .m-lead:last-child { margin-bottom: 0; }
 
@@ -246,10 +233,14 @@
 
   <!-- ---------- MOBILE HOME (phones/tablets only) ---------- -->
   <section class="m-home" aria-label="Aerospace Innovation Open House">
-    <div class="m-hero">
-      <p class="m-eyebrow">You're Invited</p>
-      <h1 class="m-title">Aerospace Innovation<br />Open House<span class="dot">.</span></h1>
-      <span class="m-rule"></span>
+    <div class="m-banner">
+      <img
+        src="assets/img/home-flyer-1448.jpg?v=6"
+        srcset="assets/img/home-flyer-1448.jpg?v=6 1448w, assets/img/home-flyer-2896.jpg?v=6 2896w"
+        sizes="100vw"
+        alt="Aerospace Innovation Open House — Flight Test, Flight Training, Innovation. Saturday 29 August 2026, 10:00 AM to 12:00 PM at Double Eagle Airport (KAEG), Albuquerque, New Mexico. Tour two operational L-29 jet aircraft." />
+    </div>
+    <div class="m-intro">
       <p class="m-lead">Meet local aerospace innovators, engineers, researchers, entrepreneurs, students, and pilots for an informative morning of aviation, flight testing, and technology discussion.</p>
       <p class="m-lead">Tour two operational L-29 jet aircraft and explore flight testing, autonomy, sensors, communications, and emerging aerospace technologies.</p>
     </div>
