@@ -12,6 +12,24 @@
   <link rel="preload" href="assets/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/styles.css?v=93" />
+  <style>
+    /* Mobile only: the hero photo is a wide (1199x895) landscape shot. Using it
+       as a full-height `cover` background on a tall phone cropped the sides and
+       hid most of the jet. On phones, show the FULL image as a clear banner at
+       the top (no crop, no darkening overlay) with the hero text below it. */
+    @media (max-width: 760px) {
+      .home { background: var(--black); }
+      .home > .site-header { order: -1; }          /* keep the nav on top */
+      .home-bg {
+        position: relative;                         /* in flow, becomes the banner */
+        height: 0; padding-bottom: 74.65%;          /* 895/1199 — full image aspect */
+        background-position: center center;
+        background-size: cover;                     /* box matches image aspect → whole jet, no crop */
+      }
+      .home-overlay { display: none; }              /* drop the darkening so the jet is clear */
+      .hero { padding: 28px 0 44px; }               /* text sits below the banner */
+    }
+  </style>
 </head>
 <body>
 
