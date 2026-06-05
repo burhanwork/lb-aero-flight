@@ -31,13 +31,14 @@
     }
     /* Header text fades up on load — same transition the other pages use (lbFadeUp) */
     .header-inner { animation: lbFadeUp .8s cubic-bezier(.2,.6,.2,1) both; animation-delay: .15s; }
-    /* On phones the mobile menu drawer is position:fixed and lives inside
-       .header-inner. The lbFadeUp animation applies a transform, which turns
-       .header-inner into the containing block for that fixed drawer — shrinking
-       it to the header box and letting the page show through. Use an opacity-only
-       fade where the drawer is active so the drawer stays anchored to the viewport. */
+    /* On phones the header (logo + nav) stays STATIC — no entrance transition,
+       unlike the banner/content which fade up. Removing the animation also keeps
+       the fixed mobile drawer working: the desktop header fade uses a transform
+       (lbFadeUp), and a transformed .header-inner would become the containing
+       block for the position:fixed drawer, collapsing it. animation:none avoids
+       both the transition and that bug. */
     @media (max-width: 1040px) {
-      .header-inner { animation-name: lbFadeIn; }
+      .header-inner { animation: none; }
     }
     .home-flyer-wrap {
       display: block;
@@ -100,7 +101,15 @@
          padding-top drops the banner below the fixed header (clean dark band,
          same treatment as the desktop poster). */
       .home-flyer-wrap { display: none !important; }
-      .m-home { display: block; background: var(--black); color: var(--text); padding-top: var(--header-h); }
+      .m-home { display: flex; flex-direction: column; background: var(--black); color: var(--text); padding-top: var(--header-h); }
+      /* Visual order: banner, intro, action buttons, Team Zia card, then the
+         date/time/location details near the end, then the footer mark. */
+      .m-banner  { order: 1; }
+      .m-intro   { order: 2; }
+      .m-actions { order: 3; }
+      .m-card    { order: 4; }
+      .m-details { order: 5; }
+      .m-foot    { order: 6; }
 
       /* ---- Banner: the exact flyer scene, so mobile matches the desktop ---- */
       .m-banner { display: block; }
@@ -170,9 +179,9 @@
          content blocks cascade in. lbFadeUp/lbFadeIn are defined in styles.css. */
       .m-banner { animation: lbFadeUp .9s cubic-bezier(.2,.6,.2,1) both; animation-delay: .05s; }
       .m-intro   { animation: lbFadeUp .7s both; animation-delay: .18s; }
-      .m-details { animation: lbFadeUp .7s both; animation-delay: .28s; }
-      .m-actions { animation: lbFadeUp .7s both; animation-delay: .38s; }
-      .m-card    { animation: lbFadeUp .7s both; animation-delay: .48s; }
+      .m-actions { animation: lbFadeUp .7s both; animation-delay: .28s; }
+      .m-card    { animation: lbFadeUp .7s both; animation-delay: .38s; }
+      .m-details { animation: lbFadeUp .7s both; animation-delay: .48s; }
       .m-foot    { animation: lbFadeUp .7s both; animation-delay: .58s; }
     }
   </style>
