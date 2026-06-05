@@ -34,8 +34,10 @@
       overflow: hidden;            /* contain the subtle zoom */
       opacity: 0;                  /* revealed once the image has loaded */
     }
+    /* Same entrance the Capabilities/Platform hero images use */
     .home-flyer-wrap.is-loaded {
-      animation: flyerReveal 1.15s cubic-bezier(.2,.6,.2,1) both;
+      animation: lbFadeUp .9s cubic-bezier(.2,.6,.2,1) both;
+      animation-delay: .05s;
     }
     .home-flyer-tilt { display: block; width: 100%; }
     /* Positioning context for the clickable hotspots; stays at 1:1 for crisp pixels */
@@ -58,10 +60,6 @@
     /* Keyboard-only focus ring (does not show on mouse hover) */
     .flyer-hot:focus-visible {
       outline: 2px solid rgba(255,255,255,.6); outline-offset: -2px; border-radius: 6px;
-    }
-    @keyframes flyerReveal {
-      from { opacity: 0; transform: translateY(30px) scale(1.03); filter: saturate(.72) brightness(.74); }
-      to   { opacity: 1; transform: none; filter: none; }
     }
     @media (prefers-reduced-motion: reduce) {
       .home-flyer-wrap { opacity: 1; animation: none; }
