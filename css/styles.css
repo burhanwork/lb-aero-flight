@@ -249,7 +249,7 @@ a { color: inherit; text-decoration: none; }
 
 /* team grid */
 .team-grid-wrap { padding: 34px 0 6px; }
-.team-grid { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+.team-grid { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 .team-card { border: 1px solid var(--line); display: flex; flex-direction: column; }
 .team-photo { aspect-ratio: 226 / 342; overflow: hidden; background: #0d0e10; }
 .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
@@ -283,6 +283,12 @@ a { color: inherit; text-decoration: none; }
   .team-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .value-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 30px; }
   .team-star { width: 420px; height: 420px; }
+}
+/* Two-column tablet: center a lone last card so there's no right-side gap */
+@media (min-width: 561px) and (max-width: 1040px) {
+  .team-grid .team-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1; width: calc(50% - 12px); justify-self: center;
+  }
 }
 @media (max-width: 560px) {
   .team-grid { grid-template-columns: 1fr; }
