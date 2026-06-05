@@ -76,6 +76,26 @@
       .home-flyer-wrap { opacity: 1; animation: none; }
       .home-flyer-wrap.is-loaded .home-flyer { animation: none; }
     }
+    /* ----- Mobile: enlarge the flyer so the print text is legible -----
+       The flyer is a 4:3 landscape poster, so a readable size is wider than
+       a phone screen. We enlarge it and let the poster panel pan sideways
+       (swipe) while the page itself still scrolls vertically as normal.
+       Pinch-to-zoom also stays available. Hotspots use % positions, so they
+       stay aligned to the artwork at any size. */
+    @media (max-width: 760px) {
+      .home-flyer-wrap {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x proximity;
+      }
+      .home-flyer-tilt { width: max-content; }
+      .home-flyer-stage { width: clamp(580px, 210vw, 920px); }
+      .home-flyer { width: 100%; }
+    }
+    @media (max-width: 420px) {
+      .home-flyer-stage { width: clamp(620px, 230vw, 920px); }
+    }
   </style>
 </head>
 <body>
