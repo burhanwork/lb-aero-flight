@@ -12,6 +12,24 @@
   <link rel="preload" href="assets/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/styles.css?v=93" />
+  <style>
+    /* Mobile only: match the other pages. The jet photo was a full-bleed cover
+       background (cropped / exceeding the frame). Turn it into a full-width
+       banner that FITS the screen, put the header on the banner, and flow the
+       contact content below it on a solid dark background. */
+    @media (max-width: 760px) {
+      .contact-main { background: var(--black); }
+      .contact-main > .site-header { position: absolute; top: 0; left: 0; right: 0; }
+      .contact-bg {
+        position: relative; inset: auto;
+        height: 0; padding-bottom: 75%;          /* 1086/1448 — whole image, no crop */
+        background-position: center center;
+        background-size: cover;
+      }
+      .contact-overlay { display: none; }
+      .contact-body { padding-top: 12px; }        /* content sits just below the banner */
+    }
+  </style>
 </head>
 <body>
 
