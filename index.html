@@ -164,6 +164,16 @@
       .m-foot { text-align: center; padding: 30px 22px 38px; }
       .m-foot .brand-mark { font-family: "Oswald", sans-serif; font-weight: 700; font-size: 23px; letter-spacing: .3px; }
       .m-foot p { font-size: 12.5px; color: var(--muted-2); margin-top: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+      /* ---- Entrance transition (matches the other pages) ----
+         The banner fades up like the Capabilities/Platform hero image, then the
+         content blocks cascade in. lbFadeUp/lbFadeIn are defined in styles.css. */
+      .m-banner { animation: lbFadeUp .9s cubic-bezier(.2,.6,.2,1) both; animation-delay: .05s; }
+      .m-intro   { animation: lbFadeUp .7s both; animation-delay: .18s; }
+      .m-details { animation: lbFadeUp .7s both; animation-delay: .28s; }
+      .m-actions { animation: lbFadeUp .7s both; animation-delay: .38s; }
+      .m-card    { animation: lbFadeUp .7s both; animation-delay: .48s; }
+      .m-foot    { animation: lbFadeUp .7s both; animation-delay: .58s; }
     }
   </style>
 </head>
