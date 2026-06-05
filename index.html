@@ -31,6 +31,14 @@
     }
     /* Header text fades up on load — same transition the other pages use (lbFadeUp) */
     .header-inner { animation: lbFadeUp .8s cubic-bezier(.2,.6,.2,1) both; animation-delay: .15s; }
+    /* On phones the mobile menu drawer is position:fixed and lives inside
+       .header-inner. The lbFadeUp animation applies a transform, which turns
+       .header-inner into the containing block for that fixed drawer — shrinking
+       it to the header box and letting the page show through. Use an opacity-only
+       fade where the drawer is active so the drawer stays anchored to the viewport. */
+    @media (max-width: 1040px) {
+      .header-inner { animation-name: lbFadeIn; }
+    }
     .home-flyer-wrap {
       display: block;
       width: 100%;
