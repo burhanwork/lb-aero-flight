@@ -261,7 +261,7 @@ a { color: inherit; text-decoration: none; }
 .team-grid-wrap { padding: 34px 0 6px; }
 .team-grid { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 .team-card { border: 1px solid var(--line); display: flex; flex-direction: column; }
-.team-photo { aspect-ratio: 304 / 358; overflow: hidden; background: #0d0e10; }
+.team-photo { aspect-ratio: 292 / 398; overflow: hidden; background: #0d0e10; }
 .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 .team-name {
   font-family: "Oswald", sans-serif; font-weight: 700; font-size: 21px;
