@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="css/styles.css?v=93" />
+  <link rel="stylesheet" href="css/styles.css?v=96" />
   <style>
     /* Mobile only: match the other pages. The jet photo was a full-bleed cover
        background (cropped / exceeding the frame). Turn it into a full-width
@@ -98,13 +98,22 @@
         <!-- right column: form -->
         <div class="contact-form-panel">
           <h2 class="form-title">SCHEDULE A 30-MINUTE CONSULT</h2>
-          <form class="contact-form" action="#" method="post" novalidate>
-            <input type="text" name="name" placeholder="Your Name" autocomplete="name" />
+          <form class="contact-form" id="contactForm"
+                action="https://formsubmit.co/f16weav@gmail.com" method="post" novalidate>
+            <!-- FormSubmit configuration (https://formsubmit.co) -->
+            <input type="hidden" name="_subject" value="New consult request — LBAeroFlight.com" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <!-- honeypot: bots fill this, humans never see it -->
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <input type="text" name="name" placeholder="Your Name" autocomplete="name" required />
             <input type="text" name="organization" placeholder="Organization" autocomplete="organization" />
-            <input type="email" name="email" placeholder="Email Address" autocomplete="email" />
+            <input type="email" name="email" placeholder="Email Address" autocomplete="email" required />
             <input type="tel" name="phone" placeholder="Phone Number" autocomplete="tel" />
-            <textarea name="message" rows="4" placeholder="Message"></textarea>
+            <textarea name="message" rows="4" placeholder="Message" required></textarea>
             <button type="submit" class="btn btn-primary form-submit">SCHEDULE CONSULT</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
           </form>
         </div>
 
@@ -153,5 +162,60 @@
   </main>
 
   <script src="js/main.js"></script>
+  <script>
+    /* Contact form -> FormSubmit.co (no backend needed; works on GitHub Pages).
+       AJAX submit keeps the visitor on-page and shows an inline confirmation. */
+    (function () {
+      var form = document.getElementById("contactForm");
+      if (!form) return;
+      var statusEl = document.getElementById("formStatus");
+      var btn = form.querySelector(".form-submit");
+      var btnText = btn ? btn.textContent : "";
+
+      function setStatus(msg, ok) {
+        if (!statusEl) return;
+        statusEl.textContent = msg;
+        statusEl.className = "form-status" + (ok === true ? " is-ok" : ok === false ? " is-err" : "");
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (form._honey && form._honey.value) return; /* bot */
+
+        if (!form.checkValidity()) {
+          setStatus("Please fill in your name, email, and message.", false);
+          if (typeof form.reportValidity === "function") form.reportValidity();
+          return;
+        }
+
+        if (btn) { btn.disabled = true; btn.textContent = "SENDING…"; }
+        setStatus("Sending your message…", null);
+
+        var endpoint = "https://formsubmit.co/ajax/" +
+          form.action.split("/formsubmit.co/")[1];
+
+        fetch(endpoint, {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: new FormData(form)
+        })
+          .then(function (r) { return r.json().catch(function () { return {}; }); })
+          .then(function (data) {
+            if (data && (data.success === "true" || data.success === true)) {
+              form.reset();
+              setStatus("Thank you — your message has been sent. We'll be in touch shortly.", true);
+            } else {
+              throw new Error("send failed");
+            }
+          })
+          .catch(function () {
+            setStatus("Sorry, something went wrong. Please email us directly at info@LBAeroFlight.com.", false);
+          })
+          .then(function () {
+            if (btn) { btn.disabled = false; btn.textContent = btnText; }
+          });
+      });
+    })();
+  </script>
 </body>
 </html>
