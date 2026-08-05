@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LBAeroFlight.com — Team Zia Jet Racing</title>
+  <meta name="description" content="Team Zia Jet Racing represents New Mexico in jet racing, flying L-29 jet aircraft. Follow the team to the Roswell Air Races, and join the send-off at the LB AeroFlight Aerospace Innovation Open House on Saturday 29 August 2026." />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preload" href="assets/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/styles.css?v=97" />
+  <style>
+    /* =================================================================
+       TEAM ZIA JET RACING
+       Page-scoped styles. Everything here is prefixed .zia- so this page
+       can never affect the other six. Colours, fonts, buttons and the
+       fade-up entrance all come from styles.css so it stays on-brand.
+       ================================================================= */
+    .zia-main { position: relative; background: var(--black); min-height: 100vh; overflow: hidden; }
+    .zia-main > .site-header {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 20;
+      background: transparent;
+    }
+    /* The banner's right half is bright sky, which washes out the nav. Same
+       top scrim the home page uses so the links stay legible over anything. */
+    .zia-main > .site-header::after {
+      content: ""; position: absolute; left: 0; right: 0; top: 0; height: 170px;
+      background: linear-gradient(to bottom, rgba(6,7,10,.8) 0%, rgba(6,7,10,.4) 48%, rgba(6,7,10,0) 100%);
+      z-index: -1; pointer-events: none;
+    }
+
+    /* ---------- Hero ---------- */
+    .zia-hero { position: relative; }
+    /* home-hero.jpg is 1600x680. Cap the height so the banner can't grow into a
+       giant band on very wide monitors; object-fit keeps the jets centred. */
+    .zia-hero-img { display: block; width: 100%; height: auto; max-height: 74vh; object-fit: cover; object-position: 62% center; }
+    /* The artwork already carries a dark gradient on its left third, so this
+       overlay only needs to deepen it slightly — enough for text contrast
+       without flattening the aircraft into the background. */
+    .zia-hero-overlay {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(10,10,12,1) 0%, rgba(10,10,12,.94) 30%, rgba(10,10,12,.5) 47%, rgba(10,10,12,.14) 62%, rgba(10,10,12,0) 76%),
+        linear-gradient(0deg, var(--black) 0%, rgba(10,10,12,0) 34%);
+    }
+    .zia-hero-inner { position: absolute; top: 0; left: 0; right: 0; padding-top: clamp(95px, 9vw, 150px); }
+    .zia-main .page-title { font-size: clamp(34px, 4.5vw, 64px); margin-bottom: 14px; }
+    .zia-hero .hero-rule { margin: 22px 0 24px; }
+    .zia-lead { max-width: 480px; font-size: clamp(16px, 1.5vw, 20px); color: #eef1f5; line-height: 1.6; }
+
+    /* Eyebrow above the title */
+    .zia-eyebrow {
+      font-family: "Oswald", sans-serif; font-weight: 600; font-size: 13px;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--red-bright);
+      margin-bottom: 14px;
+    }
+
+    /* ---------- Shared section furniture ---------- */
+    .zia-section { position: relative; z-index: 2; padding: clamp(44px, 5vw, 72px) 0 0; }
+    .zia-section .container > .zia-head { border-top: 1px solid var(--red); padding-top: 34px; }
+    .zia-h2 {
+      font-family: "Oswald", sans-serif; font-weight: 700; text-transform: uppercase;
+      font-size: clamp(24px, 2.6vw, 34px); color: #fff; letter-spacing: .6px; margin-bottom: 16px;
+    }
+    .zia-copy { max-width: 760px; font-size: 16.5px; color: var(--muted); line-height: 1.72; }
+    .zia-copy + .zia-copy { margin-top: 14px; }
+
+    /* ---------- "What the team is" cards ---------- */
+    .zia-grid { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 42px; }
+    .zia-item { text-align: center; padding: 0 26px; position: relative; }
+    .zia-item + .zia-item::before {
+      content: ""; position: absolute; left: 0; top: 4px; bottom: 4px; width: 1px; background: var(--line-soft);
+    }
+    .zia-icon { color: var(--red); display: inline-flex; height: 56px; align-items: center; margin-bottom: 16px; }
+    .zia-icon svg { width: 50px; height: 50px; }
+    .zia-item h3 {
+      font-family: "Oswald", sans-serif; font-weight: 700; font-size: 19px;
+      letter-spacing: .5px; color: #fff; margin-bottom: 12px; line-height: 1.14;
+    }
+    .zia-item p { font-size: 15px; color: var(--muted); line-height: 1.58; }
+
+    /* ---------- Send-off event panel ---------- */
+    .zia-event {
+      margin-top: 40px; display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(28px, 4vw, 60px);
+      border: 1px solid var(--line); border-left: 3px solid var(--red);
+      background: #0d0e12; padding: clamp(26px, 3vw, 40px);
+    }
+    .zia-event h3 {
+      font-family: "Oswald", sans-serif; font-weight: 700; text-transform: uppercase;
+      font-size: clamp(20px, 2vw, 26px); color: #fff; line-height: 1.14; margin-bottom: 14px;
+    }
+    .zia-event p { font-size: 16px; color: var(--muted); line-height: 1.7; }
+    .zia-facts { list-style: none; display: grid; gap: 18px; align-content: start; }
+    .zia-fact { display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: center; }
+    .zia-fact-ic { color: var(--red); display: inline-flex; }
+    .zia-fact-ic svg { width: 24px; height: 24px; }
+    .zia-fact h4 {
+      font-family: "Oswald", sans-serif; font-weight: 700; font-size: 12px;
+      letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted-2); margin-bottom: 3px;
+    }
+    .zia-fact p { font-size: 16px; color: #fff; line-height: 1.32; }
+    .zia-event-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 26px; }
+
+    /* ---------- Coverage & video ----------
+       Built now, empty on purpose. When Scott sends a race video, drop the
+       YouTube/Vimeo iframe into .zia-video-frame and delete .zia-placeholder.
+       When photos arrive, uncomment .zia-gallery and add <li><img></li> rows. */
+    /* Capped: at full container width a 16:9 frame is ~800px tall, which is a
+       lot of empty box while there is nothing in it yet — and too big for a
+       single video once there is. */
+    .zia-media { margin-top: 40px; display: grid; gap: 26px; max-width: 940px; }
+    .zia-video-frame {
+      position: relative; width: 100%; aspect-ratio: 16 / 9;
+      background: #0d0e12; border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .zia-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .zia-placeholder { text-align: center; padding: 30px 24px; }
+    .zia-placeholder svg { width: 54px; height: 54px; color: var(--red); opacity: .85; margin-bottom: 18px; }
+    /* Styled like a heading but deliberately a <p>: it labels an empty state,
+       not a section, so it stays out of the document's heading outline. */
+    .zia-placeholder .zia-ph-title {
+      font-family: "Oswald", sans-serif; font-weight: 700; text-transform: uppercase;
+      font-size: 17px; letter-spacing: 1.4px; color: #fff; margin-bottom: 10px;
+    }
+    .zia-placeholder p { font-size: 15px; color: var(--muted-2); line-height: 1.6; max-width: 420px; margin: 0 auto; }
+
+    /* Photo gallery — ready for coverage stills. Hidden until it has children. */
+    .zia-gallery { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .zia-gallery:empty { display: none; }
+    .zia-gallery img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
+
+    /* ---------- Closing call to action ---------- */
+    .zia-cta { margin-top: 46px; border-top: 1px solid var(--red); padding: 34px 0 0; }
+    .zia-cta h3 {
+      font-family: "Oswald", sans-serif; font-weight: 700; text-transform: uppercase;
+      font-size: clamp(20px, 2.2vw, 28px); color: #fff; margin-bottom: 12px;
+    }
+    .zia-cta p { font-size: 16.5px; color: var(--muted); line-height: 1.7; max-width: 620px; margin-bottom: 24px; }
+    .zia-cta-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .zia-main .page-mark { padding: 44px 0 46px; }
+
+    /* ---------- Entrance transitions (same feel as the other pages) ---------- */
+    .zia-hero-inner > * { animation: lbFadeUp .7s both; }
+    .zia-hero-inner > *:nth-child(1) { animation-delay: .10s; }
+    .zia-hero-inner > *:nth-child(2) { animation-delay: .18s; }
+    .zia-hero-inner > *:nth-child(3) { animation-delay: .26s; }
+    .zia-hero-inner > *:nth-child(4) { animation-delay: .34s; }
+    .zia-grid .zia-item { animation: lbFadeUpSpec .7s both; animation-delay: .45s; }
+    .zia-event { animation: lbFadeUp .7s both; animation-delay: .55s; }
+    .zia-media { animation: lbFadeUp .7s both; animation-delay: .60s; }
+    .zia-main .page-mark { animation: lbFadeUp .7s both; animation-delay: .75s; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1040px) {
+      body .zia-main > .site-header { z-index: 60; }
+      .zia-grid { grid-template-columns: 1fr; gap: 34px; }
+      .zia-item { padding: 0; text-align: left; }
+      .zia-item + .zia-item::before { display: none; }
+      .zia-event { grid-template-columns: 1fr; }
+    }
+
+    /* Below this width the hero image is too short to hold the overlaid text,
+       so the copy moves beneath the banner — the same approach the other
+       hero pages take on phones. */
+    @media (max-width: 760px) {
+      .zia-hero-inner {
+        position: static; padding-top: 26px; padding-bottom: 4px;
+      }
+      .zia-hero-overlay { background: linear-gradient(0deg, var(--black) 0%, rgba(10,10,12,0) 55%); }
+      /* The source image carries a black band across its left third for the
+         desktop headline. Down here the headline sits below the banner, so that
+         band would just read as a blank slab — make the frame taller than the
+         source so cover() can crop, and bias it right onto the aircraft.
+         The header clearance goes on the wrapper, not the image: padding on the
+         image shrinks its content box, which changes the ratio cover() sees and
+         cancels the horizontal crop. */
+      .zia-hero { padding-top: var(--header-h); background: var(--black); }
+      .zia-hero-img {
+        padding-top: 0;
+        aspect-ratio: 3 / 2; max-height: none; object-position: 100% center;
+      }
+      .zia-lead { max-width: 100%; }
+      .zia-gallery { grid-template-columns: repeat(2, 1fr); }
+      .zia-section { padding-top: 34px; }
+    }
+
+    @media (max-width: 480px) {
+      .zia-event-actions .btn,
+      .zia-cta-actions .btn { width: 100%; text-align: center; }
+      .zia-gallery { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .zia-hero-inner > *,
+      .zia-grid .zia-item,
+      .zia-event, .zia-media,
+      .zia-main .page-mark { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="zia-main" id="top">
+    <!-- ---------- HEADER ---------- -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand" aria-label="LB AeroFlight dot com — home">
+          <svg class="brand-jet" viewBox="0 0 120 22" aria-hidden="true">
+            <path d="M2 17 L74 13 L96 3 C100 1 104 2 101 5 L88 14 L116 13 L108 17 L86 17 L96 21 L92 22 L74 18 L2 19 Z"/>
+          </svg>
+          <span class="brand-mark"><span class="brand-lb">LB</span><span class="brand-aero">AeroFlight</span><span class="brand-dot">.com</span></span>
+        </a>
+
+        <nav class="main-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="team.html">TEAM</a></li>
+            <li><a href="capabilities.html">CAPABILITIES</a></li>
+            <li><a href="platform.html">PLATFORM</a></li>
+            <li><a href="racing.html" class="active">ZIA RACING</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </nav>
+
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ---------- HERO ---------- -->
+    <section class="zia-hero">
+      <img class="zia-hero-img" src="assets/img/home-hero.jpg?v=97"
+           alt="Two red and white L-29 jet aircraft flying in close formation over the New Mexico high desert." />
+      <div class="zia-hero-overlay" aria-hidden="true"></div>
+      <div class="container zia-hero-inner">
+        <p class="zia-eyebrow">Representing New Mexico</p>
+        <h1 class="page-title">TEAM ZIA<br />JET RACING<span class="dot">.</span></h1>
+        <span class="hero-rule" aria-hidden="true"></span>
+        <p class="zia-lead">
+          New Mexico&rsquo;s own jet racing team &mdash; flying the L-29,
+          supported by the pilots, engineers, and maintainers of LB AeroFlight.
+        </p>
+      </div>
+    </section>
+
+    <!-- ---------- ABOUT THE TEAM ---------- -->
+    <section class="zia-section">
+      <div class="container">
+        <div class="zia-head">
+          <h2 class="zia-h2">Flying the Zia for New Mexico</h2>
+          <p class="zia-copy">
+            Team Zia Jet Racing carries the Zia &mdash; the sun symbol on New Mexico&rsquo;s
+            flag &mdash; into competitive jet racing. The team flies the L-29, the same
+            aircraft LB AeroFlight operates for flight test and advanced flight training,
+            and is crewed and supported by the same people.
+          </p>
+          <p class="zia-copy">
+            Racing and flight test draw on the same discipline: precise flying, careful
+            preparation, and maintenance you can trust at speed and low altitude. What the
+            team learns on the course goes straight back into how we fly and support test
+            missions for our customers.
+          </p>
+        </div>
+
+        <ul class="zia-grid">
+          <li class="zia-item">
+            <span class="zia-icon">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 c2 0 3 3 3 8 v6 l16 10 v4 L27 28 v9 l5 4 v3 l-8-2 -8 2 v-3 l5-4 v-9 L5 33 v-4 l16-10 v-6 c0-5 1-8 3-8 z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>L-29 JET AIRCRAFT</h3>
+            <p>The team races the L-29 &mdash; the same proven airframe behind our flight test and training programs.</p>
+          </li>
+
+          <li class="zia-item">
+            <span class="zia-icon">
+              <svg viewBox="0 0 32 36" aria-hidden="true"><path d="M16 1 L30 6 V17 C30 27 23 33 16 35 C9 33 2 27 2 17 V6 Z" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 9 l1.6 3.4 3.6.4-2.7 2.5.8 3.6L16 17.6 12.7 19.4l.8-3.6-2.7-2.5 3.6-.4z" fill="currentColor"/></svg>
+            </span>
+            <h3>VETERAN AIRCREW</h3>
+            <p>Flown and maintained by the LB AeroFlight team &mdash; military, test pilot, and A&amp;P backgrounds.</p>
+          </li>
+
+          <li class="zia-item">
+            <span class="zia-icon">
+              <!-- The Zia sun symbol, matching the one already used on the Open House flyer. -->
+              <svg viewBox="0 0 48 48" aria-hidden="true">
+                <circle cx="24" cy="24" r="6.2" fill="none" stroke="currentColor" stroke-width="2.6"/>
+                <g stroke="currentColor" stroke-width="2.6" fill="none">
+                  <path d="M19.2 14.6 V8.8 M22.6 14.6 V3.8 M25.4 14.6 V3.8 M28.8 14.6 V8.8"/>
+                  <path d="M19.2 14.6 V8.8 M22.6 14.6 V3.8 M25.4 14.6 V3.8 M28.8 14.6 V8.8" transform="rotate(90 24 24)"/>
+                  <path d="M19.2 14.6 V8.8 M22.6 14.6 V3.8 M25.4 14.6 V3.8 M28.8 14.6 V8.8" transform="rotate(180 24 24)"/>
+                  <path d="M19.2 14.6 V8.8 M22.6 14.6 V3.8 M25.4 14.6 V3.8 M28.8 14.6 V8.8" transform="rotate(270 24 24)"/>
+                </g>
+              </svg>
+            </span>
+            <h3>NEW MEXICO PRIDE</h3>
+            <p>A local team, based in Albuquerque, representing New Mexico&rsquo;s aerospace community on the race course.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ---------- ROSWELL SEND-OFF ---------- -->
+    <section class="zia-section">
+      <div class="container">
+        <div class="zia-head">
+          <h2 class="zia-h2">Roswell Air Races &mdash; Send-Off</h2>
+          <p class="zia-copy">
+            Team Zia Jet Racing is heading to the Roswell Air Races to represent New Mexico.
+            Before they go, we&rsquo;re sending the team off from our hangar &mdash; and everyone
+            is welcome to come and see the aircraft up close.
+          </p>
+        </div>
+
+        <div class="zia-event">
+          <div>
+            <h3>Aerospace Innovation Open House &amp; Team Send-Off</h3>
+            <p>
+              Join us at Double Eagle Airport for an informal morning with the team.
+              Tour two operational L-29 jets, meet the pilots and engineers behind the
+              program, and help us send Team Zia off to Roswell.
+            </p>
+            <div class="zia-event-actions">
+              <a class="btn btn-primary" href="mailto:info@LBAeroFlight.com?subject=Open%20House%20RSVP%20%E2%80%94%2029%20August">RSVP TO ATTEND</a>
+              <a class="btn btn-outline" href="index.html">EVENT DETAILS</a>
+            </div>
+          </div>
+
+          <ul class="zia-facts">
+            <li class="zia-fact">
+              <span class="zia-fact-ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>
+              </span>
+              <div><h4>Date</h4><p>Saturday, 29 August 2026</p></div>
+            </li>
+            <li class="zia-fact">
+              <span class="zia-fact-ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg>
+              </span>
+              <div><h4>Time</h4><p>10:00 AM &ndash; 12:00 PM</p></div>
+            </li>
+            <li class="zia-fact">
+              <span class="zia-fact-ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              </span>
+              <div><h4>Location</h4><p>Double Eagle Airport (KAEG), Hangar B4<br />Albuquerque, New Mexico</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- COVERAGE &amp; VIDEO ---------- -->
+    <!--
+      TO ADD A VIDEO LATER:
+        1. Delete the <div class="zia-placeholder"> block below.
+        2. Paste the embed in its place, e.g.
+           <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                   title="Team Zia Jet Racing at the Roswell Air Races"
+                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                   allowfullscreen></iframe>
+
+      TO ADD PHOTOS LATER:
+        Drop images into assets/img/racing/ and add rows to the <ul class="zia-gallery">, e.g.
+           <li><img src="assets/img/racing/roswell-01.jpg" alt="..." /></li>
+        The gallery stays hidden while it is empty, so nothing breaks in the meantime.
+    -->
+    <section class="zia-section">
+      <div class="container">
+        <div class="zia-head">
+          <h2 class="zia-h2">Coverage &amp; Video</h2>
+          <p class="zia-copy">
+            Race footage, photography, and coverage from the season will be posted here.
+          </p>
+        </div>
+
+        <div class="zia-media">
+          <div class="zia-video-frame">
+            <div class="zia-placeholder">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="10" width="30" height="28" rx="3"/>
+                <path d="M33 21 L45 14 v20 l-12-7 z"/>
+              </svg>
+              <p class="zia-ph-title">Coverage Coming Soon</p>
+              <p>Video and photographs from the Roswell Air Races will be added here after the team returns.</p>
+            </div>
+          </div>
+
+          <ul class="zia-gallery"><!-- coverage stills go here --></ul>
+        </div>
+
+        <div class="zia-cta">
+          <h3>Follow the team</h3>
+          <p>
+            Want race updates, or interested in supporting the team? Get in touch and
+            we&rsquo;ll keep you posted as the season develops.
+          </p>
+          <div class="zia-cta-actions">
+            <a class="btn btn-primary" href="contact.html">CONTACT US</a>
+            <a class="btn btn-outline" href="team.html">MEET THE TEAM</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="page-mark">TEAM ZIA JET RACING</p>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

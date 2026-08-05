@@ -124,6 +124,14 @@ a { color: inherit; text-decoration: none; }
 .main-nav a.active { color: var(--red); }
 .main-nav a.active::after { transform: scaleX(1); }
 
+/* Adding ZIA RACING made the bar seven items wide. Above 1320px the original
+   38px gap still fits comfortably; between the drawer breakpoint and there it
+   does not, so tighten the spacing rather than let the nav wrap under the logo. */
+@media (min-width: 1041px) and (max-width: 1320px) {
+  .main-nav ul { gap: 22px; }
+  .main-nav a { font-size: 13.5px; letter-spacing: 1.1px; }
+}
+
 .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 8px; z-index: 30; }
 .nav-toggle span { width: 26px; height: 2px; background: #fff; transition: .3s; }
 .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
