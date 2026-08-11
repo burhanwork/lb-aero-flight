@@ -14,7 +14,7 @@
     href="assets/img/home-flyer-2896.jpg?v=7"
     imagesrcset="assets/img/home-flyer-1448.jpg?v=7 1448w, assets/img/home-flyer-2896.jpg?v=7 2896w, assets/img/home-flyer-3840.jpg?v=7 3840w"
     imagesizes="100vw" />
-  <link rel="stylesheet" href="css/styles.css?v=97" />
+  <link rel="stylesheet" href="css/styles.css?v=98" />
   <style>
     html, body { background: #000; }
     body { margin: 0; position: relative; }
@@ -207,6 +207,7 @@
           <li><a href="platform.html">PLATFORM</a></li>
           <li><a href="racing.html">ZIA RACING</a></li>
           <li><a href="contact.html">CONTACT</a></li>
+          <li><a href="rsvp.html" class="nav-rsvp">RSVP</a></li>
         </ul>
       </nav>
 
@@ -236,9 +237,11 @@
            target="_blank" rel="noopener"
            aria-label="Open event location in Google Maps — Double Eagle Airport (KAEG), Albuquerque, New Mexico"></a>
 
+        <!-- The flyer's RSVP block: send it to the sign-up page rather than a raw
+             mailto, so a reservation is captured with name, company and headcount. -->
         <a class="flyer-hot" style="left:3%;top:81%;width:37%;height:13%;"
-           href="mailto:info@LBAeroFlight.com"
-           aria-label="Email info@LBAeroFlight.com"></a>
+           href="rsvp.html"
+           aria-label="RSVP for the Aerospace Innovation Open House"></a>
 
         <a class="flyer-hot" style="left:40%;top:81%;width:33%;height:13%;"
            href="tel:+13014378728"
@@ -287,9 +290,13 @@
     </ul>
 
     <div class="m-actions">
-      <a class="m-btn m-btn-primary" href="mailto:info@LBAeroFlight.com">
+      <a class="m-btn m-btn-primary" href="rsvp.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        RSVP — Reserve Your Place
+      </a>
+      <a class="m-btn" href="mailto:info@LBAeroFlight.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        RSVP — info@LBAeroFlight.com
+        Email — info@LBAeroFlight.com
       </a>
       <a class="m-btn" href="tel:+13014378728">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h3l2 5-2.5 1.5a11 11 0 0 0 5 5L18 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
