@@ -281,13 +281,33 @@
             <p class="rsvp-panel-sub">Takes about thirty seconds. There is no charge to attend.</p>
 
             <form class="rsvp-form" id="rsvpForm"
-                  action="https://formsubmit.co/f16weav@gmail.com" method="post" novalidate>
+                  action="https://formsubmit.co/83bbe1402edda309b669129eb47bb7a5" method="post" novalidate>
               <!-- FormSubmit configuration (https://formsubmit.co) — same service the
-                   contact form already uses, so no new account or backend is needed. -->
+                   contact form already uses, so no new account or backend is needed.
+
+                   The action is FormSubmit's hashed alias for info@lbaeroflight.com.
+                   Two reasons it is not the plain address:
+
+                   1. FormSubmit will not deliver anything until the recipient address
+                      has been ACTIVATED for this domain — a one-time click in a mail
+                      it sends to that address. This form was pointed at a personal
+                      Gmail that had only ever been activated against a localhost test
+                      URL, so from launch on 11 Aug until 14 Aug every real submission
+                      came back {"success":"false","message":"This form needs
+                      Activation"} and the guest saw the failure message below. At
+                      least one person (14 Aug) emailed in to say the page was broken;
+                      nobody knows how many simply gave up. info@ is now activated.
+                   2. The hash keeps the address out of the page source, where
+                      scrapers read it.
+
+                   Primary recipient is the shared mailbox, not a personal one, so the
+                   RSVPs are visible to whoever is running the campaign and can be
+                   answered from the business address. Scott's Gmail still gets a copy
+                   through _cc. -->
               <input type="hidden" name="_subject" value="Open House RSVP — 29 August 2026" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_cc" value="info@LBAeroFlight.com" />
+              <input type="hidden" name="_cc" value="f16weav@gmail.com" />
               <!-- Reply-To. The notification itself is sent by FormSubmit, so without
                    this, hitting Reply would answer the service instead of the guest.
                    Populated from the email field on submit (see script below). -->
