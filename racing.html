@@ -112,6 +112,8 @@
        lot of empty box while there is nothing in it yet — and too big for a
        single video once there is. */
     .zia-media { margin-top: 40px; display: grid; gap: 26px; max-width: 940px; }
+    /* Featured announcement video: larger and centered under its heading. */
+    .zia-media-feature { max-width: 1080px; margin: 34px auto 0; }
     .zia-video-frame {
       position: relative; width: 100%; aspect-ratio: 16 / 9;
       background: #0d0e12; border: 1px solid var(--line);
@@ -252,6 +254,29 @@
       </div>
     </section>
 
+    <!-- ---------- ANNOUNCEMENT VIDEO ---------- -->
+    <section class="zia-section">
+      <div class="container">
+        <div class="zia-head">
+          <h2 class="zia-h2">Watch the Announcement</h2>
+          <p class="zia-copy">
+            New Mexico&rsquo;s first jet racing team &mdash; the announcement, the jets, and the pilots.
+          </p>
+        </div>
+
+        <div class="zia-media zia-media-feature">
+          <div class="zia-video-frame">
+            <iframe src="https://www.youtube.com/embed/wcrmQAvZD8c"
+                    title="Team Zia Jet Racing — New Mexico's First Jet Racing Team"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+
+          <ul class="zia-gallery"><!-- coverage stills go here --></ul>
+        </div>
+      </div>
+    </section>
+
     <!-- ---------- ABOUT THE TEAM ---------- -->
     <section class="zia-section">
       <div class="container">
@@ -358,41 +383,15 @@
       </div>
     </section>
 
-    <!-- ---------- COVERAGE &amp; VIDEO ---------- -->
-    <!--
-      TO ADD A VIDEO LATER:
-        1. Delete the <div class="zia-placeholder"> block below.
-        2. Paste the embed in its place, e.g.
-           <iframe src="https://www.youtube.com/embed/VIDEO_ID"
-                   title="Team Zia Jet Racing at the Roswell Air Races"
-                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
-                   allowfullscreen></iframe>
-
-      TO ADD PHOTOS LATER:
-        Drop images into assets/img/racing/ and add rows to the <ul class="zia-gallery">, e.g.
+    <!-- ---------- FOLLOW THE TEAM ----------
+      TO ADD COVERAGE PHOTOS LATER:
+        Drop images into assets/img/racing/ and add rows to the <ul class="zia-gallery">
+        inside the ANNOUNCEMENT VIDEO section above, e.g.
            <li><img src="assets/img/racing/roswell-01.jpg" alt="..." /></li>
         The gallery stays hidden while it is empty, so nothing breaks in the meantime.
     -->
     <section class="zia-section">
       <div class="container">
-        <div class="zia-head">
-          <h2 class="zia-h2">Coverage &amp; Video</h2>
-          <p class="zia-copy">
-            Watch the team announcement. Race footage, photography, and coverage from the season will be posted here.
-          </p>
-        </div>
-
-        <div class="zia-media">
-          <div class="zia-video-frame">
-            <iframe src="https://www.youtube.com/embed/wcrmQAvZD8c"
-                    title="Team Zia Jet Racing — New Mexico's First Jet Racing Team"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
-                    allowfullscreen></iframe>
-          </div>
-
-          <ul class="zia-gallery"><!-- coverage stills go here --></ul>
-        </div>
-
         <div class="zia-cta">
           <h3>Follow the team</h3>
           <p>
