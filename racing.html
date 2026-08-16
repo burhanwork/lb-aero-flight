@@ -47,6 +47,8 @@
         linear-gradient(0deg, var(--black) 0%, rgba(10,10,12,0) 34%);
     }
     .zia-hero-inner { position: absolute; top: 0; left: 0; right: 0; padding-top: clamp(95px, 9vw, 150px); }
+    .zia-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+    #announcement { scroll-margin-top: 80px; }
     .zia-main .page-title { font-size: clamp(34px, 4.5vw, 64px); margin-bottom: 14px; }
     .zia-hero .hero-rule { margin: 22px 0 24px; }
     .zia-lead { max-width: 480px; font-size: clamp(16px, 1.5vw, 20px); color: #eef1f5; line-height: 1.6; }
@@ -67,6 +69,8 @@
     }
     .zia-copy { max-width: 760px; font-size: 16.5px; color: var(--muted); line-height: 1.72; }
     .zia-copy + .zia-copy { margin-top: 14px; }
+    .zia-head-center { text-align: center; }
+    .zia-head-center .zia-copy { margin-left: auto; margin-right: auto; }
 
     /* ---------- "What the team is" cards ---------- */
     .zia-grid { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 42px; }
@@ -85,7 +89,7 @@
     /* ---------- Send-off event panel ---------- */
     .zia-event {
       margin-top: 40px; display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(28px, 4vw, 60px);
-      border: 1px solid var(--line); border-left: 3px solid var(--red);
+      border: 1px solid var(--line); border-top: 3px solid var(--red);
       background: #0d0e12; padding: clamp(26px, 3vw, 40px);
     }
     .zia-event h3 {
@@ -137,7 +141,9 @@
     .zia-gallery img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
 
     /* ---------- Closing call to action ---------- */
-    .zia-cta { margin-top: 46px; border-top: 1px solid var(--red); padding: 34px 0 0; }
+    .zia-cta { margin-top: 46px; border-top: 1px solid var(--red); padding: 44px 0 10px; text-align: center; }
+    .zia-cta p { margin-left: auto; margin-right: auto; }
+    .zia-cta .zia-cta-actions { justify-content: center; }
     .zia-cta h3 {
       font-family: "Oswald", sans-serif; font-weight: 700; text-transform: uppercase;
       font-size: clamp(20px, 2.2vw, 28px); color: #fff; margin-bottom: 12px;
@@ -153,6 +159,7 @@
     .zia-hero-inner > *:nth-child(2) { animation-delay: .18s; }
     .zia-hero-inner > *:nth-child(3) { animation-delay: .26s; }
     .zia-hero-inner > *:nth-child(4) { animation-delay: .34s; }
+    .zia-hero-inner > *:nth-child(5) { animation-delay: .42s; }
     .zia-grid .zia-item { animation: lbFadeUpSpec .7s both; animation-delay: .45s; }
     .zia-event { animation: lbFadeUp .7s both; animation-delay: .55s; }
     .zia-media { animation: lbFadeUp .7s both; animation-delay: .60s; }
@@ -248,16 +255,20 @@
         <h1 class="page-title">TEAM ZIA<br />JET RACING<span class="dot">.</span></h1>
         <span class="hero-rule" aria-hidden="true"></span>
         <p class="zia-lead">
-          New Mexico&rsquo;s own jet racing team &mdash; flying the L-29,
+          New Mexico&rsquo;s own jet racing team &mdash; flying the L&#8209;29,
           supported by the pilots, engineers, and maintainers of LB AeroFlight.
         </p>
+        <div class="zia-hero-actions">
+          <a class="btn btn-primary" href="rsvp.html">RSVP TO ATTEND</a>
+          <a class="btn btn-outline" href="#announcement">WATCH THE VIDEO</a>
+        </div>
       </div>
     </section>
 
     <!-- ---------- ANNOUNCEMENT VIDEO ---------- -->
-    <section class="zia-section">
+    <section class="zia-section" id="announcement">
       <div class="container">
-        <div class="zia-head">
+        <div class="zia-head zia-head-center">
           <h2 class="zia-h2">Watch the Announcement</h2>
           <p class="zia-copy">
             New Mexico&rsquo;s first jet racing team &mdash; the announcement, the jets, and the pilots.
