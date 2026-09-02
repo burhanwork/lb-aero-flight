@@ -555,6 +555,7 @@
       .race-member-photo img { transition: none; }
     }
   </style>
+  <link rel="stylesheet" href="css/race-home-v2.css?v=20260903" />
 </head>
 <body>
   <main class="race-home">
@@ -587,88 +588,108 @@
 
     <section class="race-hero" aria-labelledby="race-title">
       <picture class="race-hero-media">
-        <img src="assets/img/home-hero.jpg?v=110"
-             alt="Two red and white L-29 jet aircraft flying in formation over New Mexico." />
+        <source media="(max-width: 760px)" srcset="assets/img/team-zia-hero-mobile-v2.webp" />
+        <img src="assets/img/team-zia-hero-desktop-v2.webp"
+             alt="Red and white Aero L-29 jet aircraft over New Mexico at sunset." />
       </picture>
       <div class="race-hero-scrim" aria-hidden="true"></div>
 
       <div class="container race-hero-content">
-        <p class="race-kicker">Team Zia Jet Racing</p>
+        <p class="race-kicker">Roswell Race Week</p>
         <h1 class="race-title" id="race-title">NEW MEXICO IS CLEARED FOR <span>ROSWELL.</span></h1>
         <p class="race-lead">
-          Team Zia brings veteran aircrew, disciplined maintenance, and two proven
-          L-29 aircraft to the Roswell Air Races, September 16–20, 2026.
+          New Mexico’s Team Zia is cleared to race at the Roswell Air Races —
+          September 16–20, 2026.
         </p>
         <div class="race-actions">
-          <a class="btn btn-primary" href="team.html">MEET THE TEAM</a>
-          <a class="btn btn-outline" href="racing.html">EXPLORE THE RACE PROGRAM</a>
+          <a class="btn btn-primary" href="racing.html">VIEW RACE PROGRAM</a>
+          <a class="btn btn-outline" href="team.html">MEET THE TEAM</a>
         </div>
 
         <div class="race-brief" aria-label="Race briefing">
           <div class="race-brief-item">
-            <span class="race-brief-label">MISSION</span>
-            <span class="race-brief-value">REPRESENT <strong>NEW MEXICO</strong></span>
+            <span class="race-brief-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><path d="M3 19.5 13 16l4.5-10h3L20 16l9 3.5v2L20 21l.5 6-3 1-4.5-7-10 .5z"/></svg>
+            </span>
+            <span class="race-brief-label">RACE TEAM</span>
+            <span class="race-brief-value">TEAM ZIA <strong>JET RACING</strong></span>
           </div>
           <div class="race-brief-item">
+            <span class="race-brief-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="22" rx="2"/><path d="M9 3v6M23 3v6M4 12h24M9 17h3M15 17h3M21 17h3M9 22h3M15 22h3"/></svg>
+            </span>
             <span class="race-brief-label">RACE DATES</span>
-            <span class="race-brief-value">SEP 16–20</span>
+            <span class="race-brief-value">SEP 16–20 <span class="race-brief-note">2026</span></span>
           </div>
           <div class="race-brief-item">
+            <span class="race-brief-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><path d="M16 29s9-8.8 9-17A9 9 0 1 0 7 12c0 8.2 9 17 9 17Z"/><circle cx="16" cy="12" r="3.5"/></svg>
+            </span>
             <span class="race-brief-label">LOCATION</span>
-            <span class="race-brief-value">ROSWELL, NM</span>
+            <span class="race-brief-value">ROSWELL, NM <span class="race-brief-note">NEW MEXICO</span></span>
           </div>
           <div class="race-brief-item">
+            <span class="race-brief-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M8 19a8.5 8.5 0 0 1 16 0M16 16l6-5M16 7v3M8 11l2 2M24 11l-2 2"/></svg>
+            </span>
             <span class="race-brief-label">AIRCRAFT</span>
-            <span class="race-brief-value">AERO L-29</span>
+            <span class="race-brief-value">TWO AERO L-29 <span class="race-brief-note">DELFÍN JETS</span></span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="race-section">
+    <section class="race-section mission-section">
       <div class="container">
-        <div class="race-section-head">
-          <h2 class="race-section-title">BUILT FOR SPEED. RUN WITH DISCIPLINE.</h2>
-          <p class="race-section-copy">
-            Jet racing rewards the same habits that define LB AeroFlight: exact
-            preparation, calm execution, and complete trust between pilots,
-            maintainers, and the aircraft.
-          </p>
-        </div>
-
         <div class="mission-grid">
-          <figure class="mission-image">
-            <img src="assets/img/platform-hero.jpg" alt="A red and silver L-29 jet on the flight line at sunset." loading="lazy" />
-            <figcaption class="mission-image-caption">Aero L-29 Delfín · Team Zia race platform</figcaption>
-          </figure>
+          <div class="mission-story">
+            <h2 class="race-section-title">BUILT FOR <span>SPEED.</span><br />RUN WITH DISCIPLINE.</h2>
+            <p class="race-section-copy">
+              Every race is earned through preparation, precision, and teamwork.
+              Team Zia brings the same flight-test discipline to the course that
+              defines every LB AeroFlight mission.
+            </p>
+            <figure class="mission-image">
+              <img src="assets/img/team-zia-mission-v2.webp" alt="A complete red and silver Aero L-29 jet with its pilot on the flight line at sunset." loading="lazy" />
+              <figcaption class="mission-image-caption">Aero L-29 Delfín · Team Zia race platform</figcaption>
+            </figure>
+          </div>
 
           <ol class="mission-points">
             <li class="mission-point">
-              <span class="mission-code">01</span>
+              <span class="mission-code" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="7"/><path d="M24 2v10M24 36v10M2 24h10M36 24h10"/></svg>
+              </span>
+              <div>
+                <h3>Precision engineering</h3>
+                <p>Every aircraft system is selected, inspected, and tested for reliable race-day performance.</p>
+              </div>
+            </li>
+            <li class="mission-point">
+              <span class="mission-code" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M13 38v-8c0-11 4-19 11-19s11 8 11 19v8"/><path d="M13 27c4 3 18 3 22 0M18 38v6M30 38v6M16 18l-5-5M32 18l5-5"/><circle cx="24" cy="22" r="3"/></svg>
+              </span>
               <div>
                 <h3>Veteran aircrew</h3>
-                <p>Combat, airline, test, and advanced training experience in one race team.</p>
+                <p>Combat, airline, test, and advanced-training experience working as one disciplined team.</p>
               </div>
             </li>
             <li class="mission-point">
-              <span class="mission-code">02</span>
+              <span class="mission-code" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="m10 8 30 30M38 8 8 38M12 5l5 5-7 7-5-5zM36 5l7 7-5 5-7-7zM43 36l-7 7-5-5 7-7zM12 43l-7-7 5-5 7 7z"/></svg>
+              </span>
               <div>
-                <h3>Race-ready aircraft</h3>
-                <p>Two operational L-29 jets prepared and supported by experienced A&amp;P maintenance.</p>
+                <h3>Relentless preparation</h3>
+                <p>Two operational L-29 jets are supported by experienced A&amp;P maintenance and careful planning.</p>
               </div>
             </li>
             <li class="mission-point">
-              <span class="mission-code">03</span>
+              <span class="mission-code" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M14 7h20v7c0 8-4 13-10 13s-10-5-10-13zM24 27v9M16 42h16M19 36h10M14 12H7v3c0 6 3 9 9 9M34 12h7v3c0 6-3 9-9 9"/></svg>
+              </span>
               <div>
-                <h3>New Mexico focus</h3>
-                <p>A locally based team carrying the Zia into competitive jet racing.</p>
-              </div>
-            </li>
-            <li class="mission-point">
-              <span class="mission-code">04</span>
-              <div>
-                <h3>Flight-test discipline</h3>
-                <p>Every sortie is approached with the same planning and accountability as a test mission.</p>
+                <h3>New Mexico purpose</h3>
+                <p>A locally based crew carrying the Zia and New Mexico’s aviation community into jet racing.</p>
               </div>
             </li>
           </ol>
@@ -679,11 +700,14 @@
     <section class="race-section team-flightline" aria-labelledby="team-heading">
       <div class="container">
         <div class="flightline-head">
-          <h2 id="team-heading">THE TEAM ON THE FLIGHT LINE.</h2>
+          <div class="flightline-heading">
+            <h2 id="team-heading">ON THE FLIGHT LINE.</h2>
+          </div>
           <p>
-            Pilots, maintenance, and media working as one crew. Meet the people
-            preparing Team Zia for Roswell.
+            A team of aviation professionals dedicated to performance, precision,
+            and representing New Mexico at Roswell.
           </p>
+          <a class="btn btn-outline" href="team.html">MEET THE FULL TEAM</a>
         </div>
 
         <ul class="race-team-grid">
@@ -723,7 +747,7 @@
       </div>
     </section>
 
-    <section class="race-section">
+    <section class="race-section event-section">
       <div class="container">
         <div class="race-calendar">
           <div class="calendar-copy">
@@ -733,6 +757,16 @@
               through competition. Official social channels and new video coverage
               will be added here after account ownership is confirmed.
             </p>
+            <div class="calendar-facts" aria-label="Event facts">
+              <span class="calendar-fact">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6M17 2v6M3 10h18"/></svg>
+                Sep 16–20, 2026
+              </span>
+              <span class="calendar-fact">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.8 7-13a7 7 0 1 0-14 0c0 6.2 7 13 7 13Z"/><circle cx="12" cy="9" r="2.4"/></svg>
+                Roswell, New Mexico
+              </span>
+            </div>
           </div>
           <div class="calendar-date" aria-label="September 16 through 20, 2026">
             <div>
@@ -757,8 +791,17 @@
 
     <footer class="race-footer">
       <div class="container race-footer-inner">
-        <p>Team Zia Jet Racing · Powered by LB AeroFlight · Albuquerque, New Mexico</p>
-        <p><a href="mailto:info@LBAeroFlight.com?subject=Team%20Zia%20Jet%20Racing">info@LBAeroFlight.com</a></p>
+        <p class="race-footer-copy">
+          <strong>Team Zia Jet Racing</strong>
+          Powered by LB AeroFlight · Albuquerque, New Mexico<br />
+          <a href="mailto:info@LBAeroFlight.com?subject=Team%20Zia%20Jet%20Racing">info@LBAeroFlight.com</a>
+        </p>
+        <nav class="race-footer-links" aria-label="Footer">
+          <a href="team.html">The team</a>
+          <a href="platform.html">The aircraft</a>
+          <a href="racing.html">Race program</a>
+          <a href="contact.html">Contact</a>
+        </nav>
       </div>
     </footer>
   </main>
