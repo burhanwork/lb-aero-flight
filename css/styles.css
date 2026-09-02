@@ -264,6 +264,9 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 480px) {
   .container { padding: 0 22px; }
+  .header-inner { gap: 8px; }
+  .brand-mark { font-size: 25px; }
+  .brand-jet { top: -7px; width: 72px; }
   .hero-title { font-size: clamp(40px, 13vw, 64px); }
   .pillar-grid { grid-template-columns: 1fr; gap: 30px; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
