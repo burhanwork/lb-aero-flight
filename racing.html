@@ -34,9 +34,14 @@
 
     /* ---------- Hero ---------- */
     .zia-hero { position: relative; }
-    /* home-hero.jpg is 1600x680. Cap the height so the banner can't grow into a
-       giant band on very wide monitors; object-fit keeps the jets centred. */
-    .zia-hero-img { display: block; width: 100%; height: auto; max-height: 74vh; object-fit: cover; object-position: 62% center; }
+    /* Keep the complete formation visible at every width. */
+    .zia-hero-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+    }
     /* The artwork already carries a dark gradient on its left third, so this
        overlay only needs to deepen it slightly — enough for text contrast
        without flattening the aircraft into the background. */
@@ -182,17 +187,13 @@
         position: relative; z-index: 1; padding-top: 26px; padding-bottom: 4px;
       }
       .zia-hero-overlay { background: linear-gradient(0deg, var(--black) 0%, rgba(10,10,12,0) 55%); }
-      /* The source image carries a black band across its left third for the
-         desktop headline. Down here the headline sits below the banner, so that
-         band would just read as a blank slab — make the frame taller than the
-         source so cover() can crop, and bias it right onto the aircraft.
-         The header clearance goes on the wrapper, not the image: padding on the
-         image shrinks its content box, which changes the ratio cover() sees and
-         cancels the horizontal crop. */
       .zia-hero { padding-top: var(--header-h); background: var(--black); }
       .zia-hero-img {
         padding-top: 0;
-        aspect-ratio: 3 / 2; max-height: none; object-position: 100% center;
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+        object-position: center top;
       }
       .zia-lead { max-width: 100%; }
       .zia-gallery { grid-template-columns: repeat(2, 1fr); }
@@ -423,6 +424,6 @@
     <p class="page-mark">TEAM ZIA JET RACING</p>
   </main>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>

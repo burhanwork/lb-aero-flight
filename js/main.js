@@ -16,17 +16,45 @@
   onScroll();
 
   /* ---- Mobile hamburger ---- */
-  toggle.addEventListener("click", function () {
-    var open = nav.classList.toggle("open");
+  function setMenuOpen(open) {
+    nav.classList.toggle("open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.classList.toggle("nav-open", open);
+  }
+
+  toggle.addEventListener("click", function () {
+    setMenuOpen(!nav.classList.contains("open"));
   });
 
   /* ---- Close mobile menu when a link is tapped ---- */
   navLinks.forEach(function (link) {
     link.addEventListener("click", function () {
-      nav.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
+      setMenuOpen(false);
     });
+  });
+
+  /* ---- Keyboard and outside-click dismissal for the mobile drawer ---- */
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && nav.classList.contains("open")) {
+      setMenuOpen(false);
+      toggle.focus();
+    }
+  });
+
+  document.addEventListener("click", function (event) {
+    if (
+      nav.classList.contains("open") &&
+      !nav.contains(event.target) &&
+      !toggle.contains(event.target)
+    ) {
+      setMenuOpen(false);
+    }
+  });
+
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 1040 && nav.classList.contains("open")) {
+      setMenuOpen(false);
+    }
   });
 
   /* ---- Active link highlighting via section observation ---- */

@@ -229,6 +229,7 @@ a { color: inherit; text-decoration: none; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1040px) {
+  body.nav-open { overflow: hidden; }
   .nav-toggle { display: flex; }
   /* Keep the header (and the fixed drawer inside it) above all page content.
      Several page wrappers give the header and their content sections competing
