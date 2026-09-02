@@ -3,342 +3,734 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LBAeroFlight.com — Aerospace Innovation Open House</title>
-  <meta name="description" content="Aerospace Innovation Open House — Flight Test, Flight Training, Innovation. Saturday 29 Aug 2026, 10:00 AM – 12:00 PM at Double Eagle Airport (KAEG), Albuquerque, New Mexico. Tour two operational L-29 jet aircraft." />
+  <title>Team Zia Jet Racing — Roswell Air Races 2026</title>
+  <meta name="description" content="Follow Team Zia Jet Racing as New Mexico's L-29 team prepares for the Roswell Air Races, September 16–20, 2026." />
+  <meta name="theme-color" content="#090a0c" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Team Zia Jet Racing — Roswell Air Races 2026" />
+  <meta property="og:description" content="New Mexico's jet racing team heads to Roswell, September 16–20, 2026." />
+  <meta property="og:image" content="https://lbaeroflight.com/assets/img/home-hero.jpg" />
+  <link rel="canonical" href="https://lbaeroflight.com/" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" as="image" media="(min-width: 761px)"
-    href="assets/img/home-flyer-2896.jpg?v=7"
-    imagesrcset="assets/img/home-flyer-1448.jpg?v=7 1448w, assets/img/home-flyer-2896.jpg?v=7 2896w, assets/img/home-flyer-3840.jpg?v=7 3840w"
-    imagesizes="100vw" />
-  <link rel="stylesheet" href="css/styles.css?v=98" />
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/img/home-hero.jpg" as="image" />
+  <link rel="stylesheet" href="css/styles.css?v=110" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": "Roswell Air Races 2026",
+    "startDate": "2026-09-16",
+    "endDate": "2026-09-20",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Roswell, New Mexico",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Roswell",
+        "addressRegion": "NM",
+        "addressCountry": "US"
+      }
+    },
+    "performer": {
+      "@type": "SportsTeam",
+      "name": "Team Zia Jet Racing"
+    },
+    "url": "https://lbaeroflight.com/"
+  }
+  </script>
   <style>
-    html, body { background: #000; }
-    body { margin: 0; position: relative; }
-    /* Transparent header overlaying the flyer — static, like the other pages */
-    .site-header {
-      position: absolute; top: 0; left: 0; right: 0; z-index: 20;
-      background: transparent;
+    :root {
+      --zia-gold: #d6a145;
+      --zia-gold-soft: rgba(214, 161, 69, .18);
+      --zia-panel: #111318;
+      --zia-panel-2: #171a20;
     }
-    /* Subtle top scrim so the nav stays legible over the bright flyer (like the hero pages) */
-    .site-header::after {
-      content: ""; position: absolute; left: 0; right: 0; top: 0; height: 180px;
-      background: linear-gradient(to bottom, rgba(6,7,10,.82) 0%, rgba(6,7,10,.42) 46%, rgba(6,7,10,0) 100%);
-      z-index: -1; pointer-events: none;
+
+    body { background: #090a0c; }
+
+    .race-home { min-height: 100vh; background: #090a0c; overflow: hidden; }
+
+    .race-home > .site-header {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 30;
     }
-    /* Header text fades up on load — same transition the other pages use (lbFadeUp) */
-    .header-inner { animation: lbFadeUp .8s cubic-bezier(.2,.6,.2,1) both; animation-delay: .15s; }
-    /* On phones the header (logo + nav) stays STATIC — no entrance transition,
-       unlike the banner/content which fade up. Removing the animation also keeps
-       the fixed mobile drawer working: the desktop header fade uses a transform
-       (lbFadeUp), and a transformed .header-inner would become the containing
-       block for the position:fixed drawer, collapsing it. animation:none avoids
-       both the transition and that bug. */
+
+    .race-home > .site-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(5, 6, 8, .9), rgba(5, 6, 8, .2));
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .race-hero {
+      min-height: min(900px, 100svh);
+      position: relative;
+      display: grid;
+      align-items: end;
+      isolation: isolate;
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .race-hero-media,
+    .race-hero-media img,
+    .race-hero-scrim {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .race-hero-media { z-index: -3; }
+    .race-hero-media img {
+      object-fit: cover;
+      object-position: 64% center;
+      filter: saturate(.9) contrast(1.04);
+    }
+
+    .race-hero-scrim {
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(6, 7, 9, .98) 0%, rgba(6, 7, 9, .92) 30%, rgba(6, 7, 9, .48) 50%, rgba(6, 7, 9, .08) 74%),
+        linear-gradient(0deg, rgba(6, 7, 9, .98) 0%, rgba(6, 7, 9, .06) 42%, rgba(6, 7, 9, .24) 100%);
+    }
+
+    .race-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .16;
+      background-image:
+        linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(90deg, #000, transparent 62%);
+      pointer-events: none;
+    }
+
+    .race-hero-content {
+      padding-top: 160px;
+      padding-bottom: clamp(42px, 6vw, 82px);
+    }
+
+    .race-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-family: "Oswald", sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 1.9px;
+      margin-bottom: 24px;
+    }
+
+    .race-kicker::before {
+      content: "";
+      width: 42px;
+      height: 3px;
+      background: var(--red);
+    }
+
+    .race-title {
+      max-width: 840px;
+      font-size: clamp(54px, 8.8vw, 132px);
+      line-height: .9;
+      letter-spacing: -.01em;
+      text-wrap: balance;
+    }
+
+    .race-title span { color: var(--red-bright); }
+
+    .race-lead {
+      max-width: 620px;
+      margin-top: 30px;
+      color: #d9dce1;
+      font-size: clamp(17px, 1.5vw, 21px);
+      line-height: 1.62;
+    }
+
+    .race-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .race-brief {
+      display: grid;
+      grid-template-columns: 1.2fr .9fr .9fr .9fr;
+      margin-top: clamp(54px, 8vw, 100px);
+      border-top: 1px solid rgba(255, 255, 255, .28);
+      border-bottom: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(7, 8, 10, .66);
+      backdrop-filter: blur(12px);
+    }
+
+    .race-brief-item {
+      min-height: 112px;
+      padding: 22px 24px;
+      display: grid;
+      align-content: center;
+    }
+
+    .race-brief-item + .race-brief-item {
+      border-left: 1px solid rgba(255, 255, 255, .14);
+    }
+
+    .race-brief-label {
+      color: var(--muted-2);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      margin-bottom: 6px;
+    }
+
+    .race-brief-value {
+      font-family: "Oswald", sans-serif;
+      color: #fff;
+      font-size: clamp(20px, 2vw, 28px);
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .race-brief-value strong { color: var(--zia-gold); font-weight: 600; }
+
+    .race-section { padding: clamp(74px, 8vw, 126px) 0; }
+
+    .race-section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, .72fr);
+      gap: clamp(40px, 8vw, 120px);
+      align-items: end;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .race-section-title {
+      max-width: 770px;
+      font-size: clamp(42px, 6vw, 88px);
+      line-height: .98;
+    }
+
+    .race-section-copy {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+      max-width: 620px;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: clamp(32px, 5vw, 76px);
+      margin-top: 52px;
+      align-items: stretch;
+    }
+
+    .mission-image {
+      min-height: 520px;
+      position: relative;
+      overflow: hidden;
+      border-top: 3px solid var(--red);
+      background: #111;
+    }
+
+    .mission-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .mission-image-caption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 26px 28px;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(5,6,8,.94));
+      font-size: 13px;
+      letter-spacing: .5px;
+    }
+
+    .mission-points {
+      list-style: none;
+      display: grid;
+      border-top: 1px solid var(--line);
+    }
+
+    .mission-point {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 22px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mission-code {
+      color: var(--zia-gold);
+      font-family: "Oswald", sans-serif;
+      font-size: 17px;
+      letter-spacing: 1px;
+    }
+
+    .mission-point h3 {
+      font-size: 25px;
+      margin-bottom: 9px;
+    }
+
+    .mission-point p {
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.65;
+    }
+
+    .team-flightline {
+      background:
+        linear-gradient(135deg, rgba(196,22,28,.08), transparent 38%),
+        var(--zia-panel);
+      border-top: 1px solid rgba(255,255,255,.1);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .flightline-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .flightline-head h2 {
+      font-size: clamp(42px, 5.5vw, 76px);
+    }
+
+    .flightline-head p {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .race-team-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .race-member { padding: 26px; }
+    .race-member + .race-member { border-left: 1px solid var(--line); }
+
+    .race-member-photo {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #0b0c0f;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .race-member-photo::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 30%;
+      background: linear-gradient(transparent, rgba(7,8,10,.5));
+    }
+
+    .race-member-photo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      filter: saturate(.9) contrast(1.04);
+      transition: transform .5s ease;
+    }
+
+    .race-member:hover .race-member-photo img { transform: scale(1.025); }
+
+    .race-member-role {
+      color: var(--zia-gold);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .race-member h3 { font-size: 24px; line-height: 1.08; }
+    .race-member p { color: var(--muted-2); font-size: 14px; margin-top: 8px; }
+
+    .race-calendar {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      min-height: 440px;
+      background: var(--zia-panel-2);
+      border-top: 3px solid var(--zia-gold);
+    }
+
+    .calendar-copy {
+      padding: clamp(38px, 6vw, 84px);
+      align-self: center;
+    }
+
+    .calendar-copy h2 {
+      max-width: 690px;
+      font-size: clamp(42px, 5vw, 74px);
+      margin-bottom: 24px;
+    }
+
+    .calendar-copy p {
+      max-width: 630px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.72;
+    }
+
+    .calendar-date {
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 36px;
+      color: #090a0c;
+      background: var(--zia-gold);
+      clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%, 0 18%);
+    }
+
+    .calendar-date strong {
+      display: block;
+      font-family: "Oswald", sans-serif;
+      font-size: clamp(78px, 10vw, 150px);
+      line-height: .8;
+      letter-spacing: -.04em;
+    }
+
+    .calendar-date span {
+      display: block;
+      margin-top: 18px;
+      font-family: "Oswald", sans-serif;
+      font-size: clamp(22px, 2.8vw, 38px);
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    .updates-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 36px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .updates-strip h2 { font-size: clamp(30px, 4vw, 52px); }
+    .updates-strip p { max-width: 640px; color: var(--muted); }
+
+    .race-footer {
+      padding: 48px 0;
+      background: #060709;
+      border-top: 1px solid var(--line);
+    }
+
+    .race-footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .race-footer p { color: var(--muted-2); font-size: 13px; }
+    .race-footer a { color: #fff; }
+    .race-footer a:hover { color: var(--red-bright); }
+
     @media (max-width: 1040px) {
-      .header-inner { animation: none; }
+      .race-home > .site-header { position: absolute; }
+      .race-section-head,
+      .mission-grid,
+      .race-calendar { grid-template-columns: 1fr; }
+
+      .race-team-grid { grid-template-columns: repeat(2, 1fr); }
+      .race-member:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
+      .race-member:nth-child(4) { border-top: 1px solid var(--line); }
+
+      .race-brief { grid-template-columns: repeat(2, 1fr); }
+      .race-brief-item:nth-child(3) { border-left: 0; border-top: 1px solid rgba(255,255,255,.14); }
+      .race-brief-item:nth-child(4) { border-top: 1px solid rgba(255,255,255,.14); }
+
+      .calendar-date {
+        min-height: 270px;
+        clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%, 0 14%);
+      }
     }
-    .home-flyer-wrap {
-      display: block;
-      width: 100%;
-      overflow: hidden;            /* contain the subtle zoom */
-      opacity: 0;                  /* revealed once the image has loaded */
-    }
-    /* Same entrance the Capabilities/Platform hero images use */
-    .home-flyer-wrap.is-loaded {
-      animation: lbFadeUp .9s cubic-bezier(.2,.6,.2,1) both;
-      animation-delay: .05s;
-    }
-    .home-flyer-tilt { display: block; width: 100%; }
-    /* Desktop: drop the poster below the fixed header so the artwork's
-       baked-in title doesn't collide with the nav (gives a clean header band
-       on top). Mobile hides the poster entirely, so this only affects desktop. */
-    @media (min-width: 761px) {
-      .home-flyer-wrap { padding-top: var(--header-h); background: #000; }
-    }
-    /* Positioning context for the clickable hotspots; stays at 1:1 for crisp pixels */
-    .home-flyer-stage {
-      position: relative; display: block; width: 100%;
-      transform-origin: center 46%;
-    }
-    .home-flyer {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-    /* Clickable hotspots over the flyer (email, phone, map, site).
-       Hover = soft, borderless bloom (no hard box) + a subtle lift,
-       matching the polished hover transitions on the other pages. */
-    .flyer-hot {
-      position: absolute; display: block; z-index: 2;
-      cursor: pointer;
-      border-radius: 10px;
-      background: radial-gradient(ellipse at center, rgba(255,236,205,0) 0%, rgba(255,236,205,0) 70%);
-      transition: background .35s ease, transform .35s cubic-bezier(.2,.6,.2,1);
-      transform: translateZ(0);
-    }
-    .flyer-hot:hover {
-      background: radial-gradient(ellipse at center, rgba(255,236,205,.16) 0%, rgba(255,236,205,0) 70%);
-      transform: scale(1.02);
-    }
-    /* Keyboard-only focus ring (does not show on mouse hover) */
-    .flyer-hot:focus-visible {
-      outline: 2px solid rgba(255,255,255,.6); outline-offset: -2px; border-radius: 6px;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .home-flyer-wrap { opacity: 1; animation: none; }
-      .home-flyer-wrap.is-loaded .home-flyer { animation: none; }
-    }
-    /* =================================================================
-       MOBILE HOME — a clean, readable layout built from the flyer's info.
-       Shown only on phones/tablets (<=760px); desktop keeps the poster.
-       ================================================================= */
-    .m-home { display: none; }
+
     @media (max-width: 760px) {
-      /* Hide the print poster on small screens; show the responsive layout.
-         padding-top drops the banner below the fixed header (clean dark band,
-         same treatment as the desktop poster). */
-      .home-flyer-wrap { display: none !important; }
-      .m-home { display: flex; flex-direction: column; background: var(--black); color: var(--text); padding-top: var(--header-h); }
-      /* Visual order: banner, intro, action buttons, Team Zia card, then the
-         date/time/location details near the end, then the footer mark. */
-      .m-banner  { order: 1; }
-      .m-intro   { order: 2; }
-      .m-actions { order: 3; }
-      .m-card    { order: 4; }
-      .m-details { order: 5; }
-      .m-foot    { order: 6; }
-
-      /* ---- Banner: the exact flyer scene, so mobile matches the desktop ---- */
-      .m-banner { display: block; }
-      .m-banner img { display: block; width: 100%; height: auto; }
-
-      /* ---- Readable intro under the banner ---- */
-      .m-intro { padding: 26px 22px 6px; }
-      .m-lead { font-size: 16px; color: var(--muted); line-height: 1.62; margin-bottom: 14px; }
-      .m-lead:last-child { margin-bottom: 0; }
-
-      /* ---- Event details ---- */
-      .m-details {
-        list-style: none; display: grid; gap: 18px;
-        padding: 28px 22px 8px;
+      .race-hero { min-height: auto; }
+      .race-hero-content { padding-top: 126px; padding-bottom: 34px; }
+      .race-hero-media img { object-position: 68% center; }
+      .race-hero-scrim {
+        background:
+          linear-gradient(90deg, rgba(6,7,9,.96) 0%, rgba(6,7,9,.72) 55%, rgba(6,7,9,.3) 100%),
+          linear-gradient(0deg, rgba(6,7,9,1) 0%, rgba(6,7,9,.1) 58%);
       }
-      .m-detail { display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: center; }
-      .m-detail-ic { color: var(--red); display: inline-flex; }
-      .m-detail-ic svg { width: 26px; height: 26px; }
-      .m-detail h3 {
-        font-family: "Oswald", sans-serif; font-weight: 700; font-size: 12.5px;
-        letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted-2); margin-bottom: 3px;
+      .race-title { font-size: clamp(48px, 16vw, 76px); }
+      .race-lead { max-width: 94%; font-size: 16px; }
+      .race-actions .btn { width: 100%; text-align: center; }
+      .race-brief { grid-template-columns: 1fr; margin-top: 46px; }
+      .race-brief-item {
+        min-height: 84px;
+        grid-template-columns: 110px 1fr;
+        align-items: center;
+        gap: 12px;
       }
-      .m-detail p { font-size: 16.5px; color: #fff; line-height: 1.3; }
+      .race-brief-item + .race-brief-item {
+        border-left: 0;
+        border-top: 1px solid rgba(255,255,255,.14);
+      }
+      .race-brief-label { margin: 0; }
+      .race-section-head { gap: 24px; }
+      .race-section-title { font-size: clamp(40px, 12vw, 60px); }
+      .mission-image { min-height: 360px; }
+      .mission-point { grid-template-columns: 54px 1fr; gap: 12px; }
+      .flightline-head,
+      .updates-strip,
+      .race-footer-inner { align-items: flex-start; flex-direction: column; }
+      .race-team-grid { grid-template-columns: 1fr; }
+      .race-member + .race-member,
+      .race-member:nth-child(3),
+      .race-member:nth-child(4) {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+      .race-member { padding: 22px 0; }
+      .race-member-photo { aspect-ratio: 5 / 4; }
+      .calendar-copy { padding: 38px 26px; }
+      .calendar-date { min-height: 230px; }
+      .updates-strip .btn { width: 100%; text-align: center; }
+    }
 
-      /* ---- Call-to-action buttons ---- */
-      .m-actions { display: grid; gap: 12px; padding: 24px 22px 30px; }
-      .m-btn {
-        display: flex; align-items: center; justify-content: center; gap: 11px;
-        text-align: center; padding: 16px 18px;
-        font-family: "Oswald", sans-serif; font-weight: 600; letter-spacing: 1px; font-size: 14.5px;
-        text-transform: uppercase; border: 2px solid rgba(255,255,255,.45); color: #fff;
-        transition: background-color .2s ease, border-color .2s ease;
-      }
-      .m-btn svg { width: 19px; height: 19px; flex-shrink: 0; }
-      .m-btn:active { background: rgba(255,255,255,.08); }
-      .m-btn-primary { background: var(--red); border-color: var(--red); }
-      .m-btn-primary:active { background: var(--red-bright); }
-
-      /* ---- Team Zia card ---- */
-      .m-card {
-        margin: 0 22px; border: 1px solid var(--line); border-left: 3px solid var(--red);
-        background: #0d0e12; padding: 22px 20px;
-      }
-      .m-card h3 {
-        font-family: "Oswald", sans-serif; font-weight: 700; text-transform: uppercase;
-        font-size: 18px; color: #fff; letter-spacing: .5px; line-height: 1.12; margin-bottom: 10px;
-      }
-      .m-card > p { font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
-      .m-card h4 {
-        font-family: "Oswald", sans-serif; font-weight: 700; text-transform: uppercase;
-        font-size: 13.5px; letter-spacing: 1.6px; color: var(--red-bright); margin-bottom: 13px;
-      }
-      .m-list { list-style: none; display: grid; gap: 11px; }
-      .m-list li { position: relative; padding-left: 26px; font-size: 15px; color: #eef0f3; line-height: 1.4; }
-      .m-list li::before {
-        content: ""; position: absolute; left: 3px; top: 3px; width: 7px; height: 12px;
-        border: solid var(--red); border-width: 0 3px 3px 0; transform: rotate(45deg);
-      }
-
-      /* ---- Footer mark ---- */
-      .m-foot { text-align: center; padding: 30px 22px 38px; }
-      .m-foot .brand-mark { font-family: "Oswald", sans-serif; font-weight: 700; font-size: 23px; letter-spacing: .3px; }
-      .m-foot p { font-size: 12.5px; color: var(--muted-2); margin-top: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
-
-      /* ---- Entrance transition (matches the other pages) ----
-         The banner fades up like the Capabilities/Platform hero image, then the
-         content blocks cascade in. lbFadeUp/lbFadeIn are defined in styles.css. */
-      .m-banner { animation: lbFadeUp .9s cubic-bezier(.2,.6,.2,1) both; animation-delay: .05s; }
-      .m-intro   { animation: lbFadeUp .7s both; animation-delay: .18s; }
-      .m-actions { animation: lbFadeUp .7s both; animation-delay: .28s; }
-      .m-card    { animation: lbFadeUp .7s both; animation-delay: .38s; }
-      .m-details { animation: lbFadeUp .7s both; animation-delay: .48s; }
-      .m-foot    { animation: lbFadeUp .7s both; animation-delay: .58s; }
+    @media (prefers-reduced-motion: reduce) {
+      .race-member-photo img { transition: none; }
     }
   </style>
 </head>
 <body>
+  <main class="race-home">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand" aria-label="LB AeroFlight dot com — home">
+          <svg class="brand-jet" viewBox="0 0 120 22" aria-hidden="true">
+            <path d="M2 17 L74 13 L96 3 C100 1 104 2 101 5 L88 14 L116 13 L108 17 L86 17 L96 21 L92 22 L74 18 L2 19 Z"/>
+          </svg>
+          <span class="brand-mark"><span class="brand-lb">LB</span><span class="brand-aero">AeroFlight</span><span class="brand-dot">.com</span></span>
+        </a>
 
-  <!-- ---------- HEADER ---------- -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand" aria-label="LB AeroFlight dot com — home">
-        <svg class="brand-jet" viewBox="0 0 120 22" aria-hidden="true">
-          <path d="M2 17 L74 13 L96 3 C100 1 104 2 101 5 L88 14 L116 13 L108 17 L86 17 L96 21 L92 22 L74 18 L2 19 Z"/>
-        </svg>
-        <span class="brand-mark"><span class="brand-lb">LB</span><span class="brand-aero">AeroFlight</span><span class="brand-dot">.com</span></span>
-      </a>
+        <nav class="main-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html" class="active" aria-current="page">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="team.html">TEAM</a></li>
+            <li><a href="capabilities.html">CAPABILITIES</a></li>
+            <li><a href="platform.html">PLATFORM</a></li>
+            <li><a href="racing.html">ZIA RACING</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </nav>
 
-      <nav class="main-nav" aria-label="Primary">
-        <ul>
-          <li><a href="index.html" class="active">HOME</a></li>
-          <li><a href="about.html">ABOUT US</a></li>
-          <li><a href="team.html">TEAM</a></li>
-          <li><a href="capabilities.html">CAPABILITIES</a></li>
-          <li><a href="platform.html">PLATFORM</a></li>
-          <li><a href="racing.html">ZIA RACING</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
-          <li><a href="rsvp.html" class="nav-rsvp">RSVP</a></li>
-        </ul>
-      </nav>
-
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- ---------- HOME FLYER ---------- -->
-  <main class="home-flyer-wrap">
-    <div class="home-flyer-tilt">
-      <div class="home-flyer-stage">
-        <img
-          class="home-flyer"
-          src="assets/img/home-flyer-2896.jpg?v=7"
-          srcset="assets/img/home-flyer-1448.jpg?v=7 1448w,
-                  assets/img/home-flyer-2896.jpg?v=7 2896w,
-                  assets/img/home-flyer-3840.jpg?v=7 3840w"
-          sizes="100vw"
-          alt="LB AeroFlight — Aerospace Innovation Open House. Flight Test, Flight Training, Innovation. Saturday 29 August 2026, 10:00 AM to 12:00 PM at Double Eagle Airport (KAEG), Albuquerque, New Mexico. Tour two operational L-29 jet aircraft. RSVP info@LBAeroFlight.com, Scott Hurler Weaver 301-437-8728."
-        />
-
-        <!-- Clickable hotspots over the flyer artwork -->
-        <a class="flyer-hot" style="left:39%;top:63%;width:35%;height:17%;"
-           href="https://www.google.com/maps/search/?api=1&amp;query=Double+Eagle+II+Airport+KAEG+Albuquerque+New+Mexico"
-           target="_blank" rel="noopener"
-           aria-label="Open event location in Google Maps — Double Eagle Airport (KAEG), Albuquerque, New Mexico"></a>
-
-        <!-- The flyer's RSVP block: send it to the sign-up page rather than a raw
-             mailto, so a reservation is captured with name, company and headcount. -->
-        <a class="flyer-hot" style="left:3%;top:81%;width:37%;height:13%;"
-           href="rsvp.html"
-           aria-label="RSVP for the Aerospace Innovation Open House"></a>
-
-        <a class="flyer-hot" style="left:40%;top:81%;width:33%;height:13%;"
-           href="tel:+13014378728"
-           aria-label="Call Scott Hurler Weaver at 301-437-8728"></a>
-
-        <a class="flyer-hot" style="left:73%;top:81%;width:26%;height:13%;"
-           href="index.html"
-           aria-label="LBAeroFlight.com home"></a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    </div>
+    </header>
+
+    <section class="race-hero" aria-labelledby="race-title">
+      <picture class="race-hero-media">
+        <img src="assets/img/home-hero.jpg?v=110"
+             alt="Two red and white L-29 jet aircraft flying in formation over New Mexico." />
+      </picture>
+      <div class="race-hero-scrim" aria-hidden="true"></div>
+
+      <div class="container race-hero-content">
+        <p class="race-kicker">Team Zia Jet Racing</p>
+        <h1 class="race-title" id="race-title">NEW MEXICO IS CLEARED FOR <span>ROSWELL.</span></h1>
+        <p class="race-lead">
+          Team Zia brings veteran aircrew, disciplined maintenance, and two proven
+          L-29 aircraft to the Roswell Air Races, September 16–20, 2026.
+        </p>
+        <div class="race-actions">
+          <a class="btn btn-primary" href="team.html">MEET THE TEAM</a>
+          <a class="btn btn-outline" href="racing.html">EXPLORE THE RACE PROGRAM</a>
+        </div>
+
+        <div class="race-brief" aria-label="Race briefing">
+          <div class="race-brief-item">
+            <span class="race-brief-label">MISSION</span>
+            <span class="race-brief-value">REPRESENT <strong>NEW MEXICO</strong></span>
+          </div>
+          <div class="race-brief-item">
+            <span class="race-brief-label">RACE DATES</span>
+            <span class="race-brief-value">SEP 16–20</span>
+          </div>
+          <div class="race-brief-item">
+            <span class="race-brief-label">LOCATION</span>
+            <span class="race-brief-value">ROSWELL, NM</span>
+          </div>
+          <div class="race-brief-item">
+            <span class="race-brief-label">AIRCRAFT</span>
+            <span class="race-brief-value">AERO L-29</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="race-section">
+      <div class="container">
+        <div class="race-section-head">
+          <h2 class="race-section-title">BUILT FOR SPEED. RUN WITH DISCIPLINE.</h2>
+          <p class="race-section-copy">
+            Jet racing rewards the same habits that define LB AeroFlight: exact
+            preparation, calm execution, and complete trust between pilots,
+            maintainers, and the aircraft.
+          </p>
+        </div>
+
+        <div class="mission-grid">
+          <figure class="mission-image">
+            <img src="assets/img/platform-hero.jpg" alt="A red and silver L-29 jet on the flight line at sunset." loading="lazy" />
+            <figcaption class="mission-image-caption">Aero L-29 Delfín · Team Zia race platform</figcaption>
+          </figure>
+
+          <ol class="mission-points">
+            <li class="mission-point">
+              <span class="mission-code">01</span>
+              <div>
+                <h3>Veteran aircrew</h3>
+                <p>Combat, airline, test, and advanced training experience in one race team.</p>
+              </div>
+            </li>
+            <li class="mission-point">
+              <span class="mission-code">02</span>
+              <div>
+                <h3>Race-ready aircraft</h3>
+                <p>Two operational L-29 jets prepared and supported by experienced A&amp;P maintenance.</p>
+              </div>
+            </li>
+            <li class="mission-point">
+              <span class="mission-code">03</span>
+              <div>
+                <h3>New Mexico focus</h3>
+                <p>A locally based team carrying the Zia into competitive jet racing.</p>
+              </div>
+            </li>
+            <li class="mission-point">
+              <span class="mission-code">04</span>
+              <div>
+                <h3>Flight-test discipline</h3>
+                <p>Every sortie is approached with the same planning and accountability as a test mission.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="race-section team-flightline" aria-labelledby="team-heading">
+      <div class="container">
+        <div class="flightline-head">
+          <h2 id="team-heading">THE TEAM ON THE FLIGHT LINE.</h2>
+          <p>
+            Pilots, maintenance, and media working as one crew. Meet the people
+            preparing Team Zia for Roswell.
+          </p>
+        </div>
+
+        <ul class="race-team-grid">
+          <li class="race-member">
+            <div class="race-member-photo">
+              <img src="assets/img/team/weaver.jpg?v=2" alt="Scott Hurler Weaver" loading="lazy" />
+            </div>
+            <p class="race-member-role">Pilot · Team lead</p>
+            <h3>SCOTT “HURLER” WEAVER</h3>
+            <p>Retired USAF combat veteran and airline captain.</p>
+          </li>
+          <li class="race-member">
+            <div class="race-member-photo">
+              <img src="assets/img/team/sugars.jpg" alt="Carol Bio Girl Sugars" loading="lazy" />
+            </div>
+            <p class="race-member-role">Pilot</p>
+            <h3>CAROL “BIO GIRL” SUGARS</h3>
+            <p>Airline captain with more than 15,000 flight hours.</p>
+          </li>
+          <li class="race-member">
+            <div class="race-member-photo">
+              <img src="assets/img/team/rehberg.jpg?v=2" alt="Mike Zap Rehberg" loading="lazy" />
+            </div>
+            <p class="race-member-role">Chief of maintenance</p>
+            <h3>MIKE “ZAP” REHBERG</h3>
+            <p>A&amp;P/IA, engineer, and avionics specialist.</p>
+          </li>
+          <li class="race-member">
+            <div class="race-member-photo">
+              <img src="assets/img/team/williams.jpg?v=3" alt="Gary Coach Williams" loading="lazy" />
+            </div>
+            <p class="race-member-role">Media liaison</p>
+            <h3>GARY “COACH” WILLIAMS</h3>
+            <p>Broadcast veteran, producer, and commercial pilot.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="race-section">
+      <div class="container">
+        <div class="race-calendar">
+          <div class="calendar-copy">
+            <h2>FIVE DAYS IN ROSWELL. ONE NEW MEXICO TEAM.</h2>
+            <p>
+              Race-week coverage will follow Team Zia from final preparation
+              through competition. Official social channels and new video coverage
+              will be added here after account ownership is confirmed.
+            </p>
+          </div>
+          <div class="calendar-date" aria-label="September 16 through 20, 2026">
+            <div>
+              <strong>16–20</strong>
+              <span>SEPTEMBER<br />2026</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="updates-strip">
+          <div>
+            <h2>FOLLOW THE RACE PROGRAM.</h2>
+            <p>
+              The full Team Zia story, aircraft details, and approved media updates
+              will live on the race program page.
+            </p>
+          </div>
+          <a class="btn btn-primary" href="racing.html">TEAM ZIA RACE PROGRAM</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="race-footer">
+      <div class="container race-footer-inner">
+        <p>Team Zia Jet Racing · Powered by LB AeroFlight · Albuquerque, New Mexico</p>
+        <p><a href="mailto:info@LBAeroFlight.com?subject=Team%20Zia%20Jet%20Racing">info@LBAeroFlight.com</a></p>
+      </div>
+    </footer>
   </main>
 
-  <!-- ---------- MOBILE HOME (phones/tablets only) ---------- -->
-  <section class="m-home" aria-label="Aerospace Innovation Open House">
-    <div class="m-banner">
-      <img
-        src="assets/img/home-flyer-1448.jpg?v=7"
-        srcset="assets/img/home-flyer-1448.jpg?v=7 1448w, assets/img/home-flyer-2896.jpg?v=7 2896w"
-        sizes="100vw"
-        alt="Aerospace Innovation Open House — Flight Test, Flight Training, Innovation. Saturday 29 August 2026, 10:00 AM to 12:00 PM at Double Eagle Airport (KAEG), Albuquerque, New Mexico. Tour two operational L-29 jet aircraft." />
-    </div>
-    <div class="m-intro">
-      <p class="m-lead">Meet local aerospace innovators, engineers, researchers, entrepreneurs, students, and pilots for an informative morning of aviation, flight testing, and technology discussion.</p>
-      <p class="m-lead">Tour two operational L-29 jet aircraft and explore flight testing, autonomy, sensors, communications, and emerging aerospace technologies.</p>
-    </div>
-
-    <ul class="m-details">
-      <li class="m-detail">
-        <span class="m-detail-ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>
-        </span>
-        <div><h3>Date</h3><p>Saturday, 29 August 2026</p></div>
-      </li>
-      <li class="m-detail">
-        <span class="m-detail-ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg>
-        </span>
-        <div><h3>Time</h3><p>10:00 AM – 12:00 PM</p></div>
-      </li>
-      <li class="m-detail">
-        <span class="m-detail-ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-        </span>
-        <div><h3>Location</h3><p>Double Eagle Airport (KAEG)<br />Albuquerque, New Mexico</p></div>
-      </li>
-    </ul>
-
-    <div class="m-actions">
-      <a class="m-btn m-btn-primary" href="rsvp.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        RSVP — Reserve Your Place
-      </a>
-      <a class="m-btn" href="mailto:info@LBAeroFlight.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        Email — info@LBAeroFlight.com
-      </a>
-      <a class="m-btn" href="tel:+13014378728">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h3l2 5-2.5 1.5a11 11 0 0 0 5 5L18 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
-        Call Scott “Hurler” Weaver · 301-437-8728
-      </a>
-      <a class="m-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Double+Eagle+II+Airport+KAEG+Albuquerque+New+Mexico" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3 3 5.5v15L9 18l6 3 6-2.5v-15L15 6 9 3z"/><path d="M9 3v15M15 6v15"/></svg>
-        View Location on Map
-      </a>
-    </div>
-
-    <div class="m-card">
-      <h3>Team Zia Jet Racing — Roswell Send-Off</h3>
-      <p>Help us send Team Zia Jet Racing off to Roswell as they represent New Mexico in jet racing.</p>
-      <h4>See · Meet · Discuss</h4>
-      <ul class="m-list">
-        <li>Two L-29 jet aircraft</li>
-        <li>Flight test &amp; flight training</li>
-        <li>Engineering · AI · Sensors · Comms</li>
-        <li>Collaboration &amp; future opportunities</li>
-      </ul>
-    </div>
-
-    <div class="m-foot">
-      <span class="brand-mark"><span class="brand-lb">LB</span><span class="brand-aero">AeroFlight</span><span class="brand-dot">.com</span></span>
-      <p>Flight Test · Flight Training · Innovation</p>
-    </div>
-  </section>
-
   <script src="js/main.js"></script>
-  <script>
-    /* Play the reveal once the flyer image is actually painted (it's large),
-       so the entrance animation is always seen. Fallbacks keep it visible. */
-    (function () {
-      var wrap = document.querySelector('.home-flyer-wrap');
-      var img = document.querySelector('.home-flyer');
-      if (!wrap) return;
-      function reveal() { wrap.classList.add('is-loaded'); }
-      if (img && img.complete && img.naturalWidth) { reveal(); }
-      else if (img) { img.addEventListener('load', reveal); img.addEventListener('error', reveal); }
-      setTimeout(reveal, 3000); /* safety: never leave the page hidden */
-    })();
-  </script>
 </body>
 </html>

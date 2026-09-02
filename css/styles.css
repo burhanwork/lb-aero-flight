@@ -781,9 +781,16 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 6px 24px rgba(0,0,0,.35);
 }
 
-/* Anchor links — subtle inset focus ring (no outline-offset that could extend beyond viewport) */
-a:focus-visible { outline: 2px solid rgba(255,255,255,.55); outline-offset: 2px; border-radius: 2px; }
-.brand:focus-visible, .main-nav a:focus-visible { outline: none; }
+/* Keyboard focus remains visible on every navigation and action control. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.main-nav a:focus-visible { color: #fff; }
 
 /* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
