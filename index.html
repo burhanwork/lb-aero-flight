@@ -555,7 +555,8 @@
       .race-member-photo img { transition: none; }
     }
   </style>
-  <link rel="stylesheet" href="css/race-home-v2.css?v=20260903" />
+  <link rel="stylesheet" href="css/race-home-v2.css?v=20260908" />
+  <link rel="stylesheet" href="css/race-experience.css?v=20260908" />
 </head>
 <body>
   <main class="race-home">
@@ -588,22 +589,24 @@
 
     <section class="race-hero" aria-labelledby="race-title">
       <picture class="race-hero-media">
-        <source media="(max-width: 760px)" srcset="assets/img/team-zia-hero-mobile-v2.webp" />
+        <source media="(max-width: 1040px)" srcset="assets/img/team-zia-hero-compact-v3.webp" />
         <img src="assets/img/team-zia-hero-desktop-v2.webp"
              alt="Red and white Aero L-29 jet aircraft over New Mexico at sunset." />
       </picture>
       <div class="race-hero-scrim" aria-hidden="true"></div>
 
       <div class="container race-hero-content">
+        <div class="race-hero-intro">
         <p class="race-kicker">Roswell Race Week</p>
         <h1 class="race-title" id="race-title">NEW MEXICO IS CLEARED FOR <span>ROSWELL.</span></h1>
+        </div>
         <p class="race-lead">
           New Mexico’s Team Zia is cleared to race at the Roswell Air Races —
           September 16–20, 2026.
         </p>
         <div class="race-actions">
           <a class="btn btn-primary" href="racing.html">VIEW RACE PROGRAM</a>
-          <a class="btn btn-outline" href="team.html">MEET THE TEAM</a>
+          <a class="btn btn-outline" href="racing.html#announcement">WATCH THE TEAM FILM</a>
         </div>
 
         <div class="race-brief" aria-label="Race briefing">
@@ -633,7 +636,7 @@
               <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M8 19a8.5 8.5 0 0 1 16 0M16 16l6-5M16 7v3M8 11l2 2M24 11l-2 2"/></svg>
             </span>
             <span class="race-brief-label">AIRCRAFT</span>
-            <span class="race-brief-value">TWO AERO L-29 <span class="race-brief-note">DELFÍN JETS</span></span>
+            <span class="race-brief-value">TWO AERO <span class="keep-together">L-29</span> <span class="race-brief-note">DELFÍN JETS</span></span>
           </div>
         </div>
       </div>
@@ -754,8 +757,8 @@
             <h2>FIVE DAYS IN ROSWELL. ONE NEW MEXICO TEAM.</h2>
             <p>
               Race-week coverage will follow Team Zia from final preparation
-              through competition. Official social channels and new video coverage
-              will be added here after account ownership is confirmed.
+              through competition. Watch the team introduction on our race program
+              page; official social channels will be added once setup is complete.
             </p>
             <div class="calendar-facts" aria-label="Event facts">
               <span class="calendar-fact">
@@ -807,5 +810,6 @@
   </main>
 
   <script src="js/main.js?v=2"></script>
+  <script src="js/race-experience.js?v=20260908"></script>
 </body>
 </html>

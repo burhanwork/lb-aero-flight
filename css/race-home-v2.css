@@ -777,12 +777,25 @@ body {
 
   .race-hero {
     background: #050709;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 82px;
   }
 
   .race-hero-media {
-    position: absolute;
-    inset: 0 0 auto;
+    position: relative;
+    inset: auto;
+    grid-area: 1 / 1;
+    z-index: 0;
     height: auto;
+  }
+
+  .race-hero-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(0deg, #050709, transparent 18%);
   }
 
   .race-hero-media img {
@@ -790,20 +803,23 @@ body {
     height: auto;
     object-fit: contain;
     object-position: center top;
-    transform: translateY(-18vw);
+    transform: none;
   }
 
   .race-hero-scrim {
-    height: 124.95vw;
-    max-height: none;
-    background:
-      linear-gradient(90deg, rgba(4, 6, 8, .92) 0%, rgba(4, 6, 8, .62) 42%, rgba(4, 6, 8, .12) 70%, transparent 100%),
-      linear-gradient(0deg, rgba(4, 6, 8, 1) 0%, rgba(4, 6, 8, .56) 28%, rgba(4, 6, 8, .05) 72%);
+    display: none;
   }
 
-  .race-hero-content {
-    padding-top: 104px;
-    padding-bottom: 28px;
+  .race-home .race-hero-content {
+    display: contents;
+  }
+
+  .race-hero-intro {
+    grid-area: 1 / 1;
+    align-self: start;
+    z-index: 2;
+    width: calc(100% - 32px);
+    margin: 22px auto 0;
   }
 
   .race-kicker {
@@ -819,15 +835,19 @@ body {
   }
 
   .race-lead {
-    max-width: 340px;
-    margin-top: 16px;
+    grid-column: 1;
+    width: calc(100% - 32px);
+    max-width: none;
+    margin: 0 auto;
     font-size: 14px;
     line-height: 1.55;
   }
 
   .race-actions {
+    grid-column: 1;
+    width: calc(100% - 32px);
     gap: 10px;
-    margin-top: 20px;
+    margin: 20px auto 0;
   }
 
   .race-home .btn {
@@ -842,8 +862,10 @@ body {
   }
 
   .race-brief {
+    grid-column: 1;
+    width: calc(100% - 32px);
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-top: clamp(76px, 26vw, 125px);
+    margin: 28px auto;
   }
 
   .race-brief-item {

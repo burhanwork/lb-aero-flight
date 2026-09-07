@@ -1,0 +1,71 @@
+/* Focus and interaction feedback; content never depends on animation. */
+.race-home a:focus-visible, .zia-main a:focus-visible,
+.film-cover:focus-visible, .nav-toggle:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 5px;
+}
+.race-home .btn, .zia-main .btn { transition: background-color .18s ease, border-color .18s ease, transform .18s ease; }
+.race-home .btn:active, .zia-main .btn:active { transform: translateY(1px); }
+.race-title { width: min(540px, 46vw); font-size: clamp(64px, 6.5vw, 94px); }
+.mission-story .race-section-title { font-size: clamp(42px, 4.7vw, 64px); }
+.flightline-head h2 { font-size: clamp(40px, 4.3vw, 60px); }
+.keep-together { white-space: nowrap; }
+.race-member .race-member-role { font-size: 11px; line-height: 1.5; color: #ee555b; }
+
+.film-cover {
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  width: 100%; height: 100%; padding: 16px;
+  border: 0; border-radius: 0; color: #fff; cursor: pointer;
+  background: linear-gradient(0deg, rgba(3,5,8,.88), rgba(3,5,8,.12) 65%), url('../assets/img/team-zia-follow-us-poster.webp') center / contain no-repeat;
+  font-family: 'Inter', sans-serif;
+}
+.film-cover[hidden], .film-status[hidden] { display: none; }
+.film-play-icon {
+  display: grid; place-items: center; flex-shrink: 0;
+  width: clamp(48px, 6vw, 82px); height: clamp(48px, 6vw, 82px);
+  border-radius: 50%; background: #e32027; box-shadow: 0 0 0 8px rgba(227,32,39,.13);
+  transition: transform .2s ease, background-color .2s ease;
+}
+.film-play-icon svg { width: 48%; height: 48%; fill: currentColor; }
+.film-cover:hover .film-play-icon, .film-cover:focus-visible .film-play-icon { transform: scale(1.06); background: #c4161c; }
+.film-cover:focus-visible { outline-offset: -6px; }
+.film-cover-title { margin-top: 20px; font-family: 'Oswald', sans-serif; font-size: clamp(18px, 3vw, 36px); font-weight: 600; line-height: 1.2; }
+.film-cover-meta { margin-top: 7px; font-size: clamp(11px, 1.4vw, 15px); color: #e6e8ec; }
+.film-status { color: #f4d4d5; font-size: 15px; line-height: 1.6; }
+
+/* A genuine tablet composition: copy left, complete compact artwork right. */
+@media (max-width: 1040px) {
+  .race-home .main-nav, .zia-main .main-nav { visibility: hidden; }
+  .race-home .main-nav.open, .zia-main .main-nav.open { visibility: visible; }
+}
+@media (min-width: 761px) and (max-width: 1040px) {
+  .race-hero { display: grid; grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: 0 26px; padding: 124px 22px 34px; }
+  .race-home .race-hero-content { display: contents; }
+  .race-hero-media { position: relative; inset: auto; grid-area: 1 / 2 / 3 / 3; z-index: 0; align-self: center; }
+  .race-hero-scrim { display: none; }
+  .race-hero-intro { grid-area: 1 / 1; }
+  .race-title { width: 100%; font-size: clamp(44px, 6.2vw, 62px); }
+  .race-lead { grid-area: 2 / 1; max-width: none; font-size: 15px; margin-top: 20px; }
+  .race-actions { grid-column: 1 / -1; margin-top: 26px; }
+  .race-brief { grid-column: 1 / -1; margin-top: 30px; }
+}
+@media (max-width: 760px) {
+  .race-hero-intro { grid-area: auto; grid-column: 1; margin-top: 24px; }
+  .race-title { width: 100%; max-width: 500px; font-size: clamp(38px, 11.4vw, 52px); line-height: .98; }
+  .race-kicker { margin-bottom: 12px; }
+  .race-lead { margin-top: 18px; font-size: 15px; }
+  .race-brief { margin-top: 24px; }
+  .mission-story .race-section-title { font-size: clamp(34px, 9.6vw, 46px); }
+  .flightline-head h2 { font-size: clamp(34px, 9.6vw, 46px); }
+  .calendar-copy h2 { font-size: clamp(32px, 9.2vw, 44px); }
+  .film-cover-title { margin-top: 12px; }
+  .film-cover-meta { margin-top: 5px; }
+  .race-member > p:last-child { font-size: 13px; line-height: 1.5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .race-home *, .zia-main *, .film-play-icon {
+    animation: none !important; transition: none !important;
+  }
+}

@@ -34,6 +34,7 @@
 
     /* ---------- Hero ---------- */
     .zia-hero { position: relative; }
+    .zia-hero-picture { display: block; }
     /* Keep the complete formation visible at every width. */
     .zia-hero-img {
       display: block;
@@ -113,10 +114,7 @@
     .zia-fact p { font-size: 16px; color: #fff; line-height: 1.32; }
     .zia-event-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 26px; }
 
-    /* ---------- Coverage & video ----------
-       Built now, empty on purpose. When Scott sends a race video, drop the
-       YouTube/Vimeo iframe into .zia-video-frame and delete .zia-placeholder.
-       When photos arrive, uncomment .zia-gallery and add <li><img></li> rows. */
+    /* ---------- Coverage & video ---------- */
     /* Capped: at full container width a 16:9 frame is ~800px tall, which is a
        lot of empty box while there is nothing in it yet — and too big for a
        single video once there is. */
@@ -130,6 +128,11 @@
       overflow: hidden;
     }
     .zia-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .zia-video-frame video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
+    .zia-video-frame video:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
+    .zia-video-caption { color: var(--muted); font-size: 15px; line-height: 1.6; }
+    .zia-video-caption strong { display: block; color: #fff; font-size: 18px; margin-bottom: 6px; }
+    .zia-video-caption a { color: #fff; text-decoration: underline; text-underline-offset: 4px; display: inline-block; padding: 12px 0; }
     .zia-placeholder { text-align: center; padding: 30px 24px; }
     .zia-placeholder svg { width: 54px; height: 54px; color: var(--red); opacity: .85; margin-bottom: 18px; }
     /* Styled like a heading but deliberately a <p>: it labels an empty state,
@@ -159,7 +162,7 @@
     .zia-main .page-mark { padding: 44px 0 46px; }
 
     /* ---------- Entrance transitions (same feel as the other pages) ---------- */
-    .zia-hero-inner > * { animation: lbFadeUp .7s both; }
+    .zia-hero-inner > * { animation: none; }
     .zia-hero-inner > *:nth-child(1) { animation-delay: .10s; }
     .zia-hero-inner > *:nth-child(2) { animation-delay: .18s; }
     .zia-hero-inner > *:nth-child(3) { animation-delay: .26s; }
@@ -167,7 +170,7 @@
     .zia-hero-inner > *:nth-child(5) { animation-delay: .42s; }
     .zia-grid .zia-item { animation: lbFadeUpSpec .7s both; animation-delay: .45s; }
     .zia-event { animation: lbFadeUp .7s both; animation-delay: .55s; }
-    .zia-media { animation: lbFadeUp .7s both; animation-delay: .60s; }
+    .zia-media { animation: none; }
     .zia-main .page-mark { animation: lbFadeUp .7s both; animation-delay: .75s; }
 
     /* ---------- Responsive ---------- */
@@ -182,7 +185,7 @@
     /* Below this width the hero image is too short to hold the overlaid text,
        so the copy moves beneath the banner — the same approach the other
        hero pages take on phones. */
-    @media (max-width: 760px) {
+    @media (max-width: 1024px) {
       .zia-hero-inner {
         position: relative; z-index: 1; padding-top: 26px; padding-bottom: 4px;
       }
@@ -213,6 +216,7 @@
       .zia-main .page-mark { animation: none; }
     }
   </style>
+  <link rel="stylesheet" href="css/race-experience.css?v=20260908" />
 </head>
 <body>
 
@@ -247,8 +251,11 @@
 
     <!-- ---------- HERO ---------- -->
     <section class="zia-hero">
-      <img class="zia-hero-img" src="assets/img/home-hero.jpg?v=97"
-           alt="Two red and white L-29 jet aircraft flying in close formation over the New Mexico high desert." />
+      <picture class="zia-hero-picture">
+        <source media="(max-width: 1024px)" srcset="assets/img/team-zia-hero-compact-v3.webp" />
+        <img class="zia-hero-img" src="assets/img/home-hero.jpg?v=97"
+             alt="Team Zia Aero L-29 jet aircraft in New Mexico." />
+      </picture>
       <div class="zia-hero-overlay" aria-hidden="true"></div>
       <div class="container zia-hero-inner">
         <p class="zia-eyebrow">Representing New Mexico</p>
@@ -269,27 +276,37 @@
     <section class="zia-section" id="announcement">
       <div class="container">
         <div class="zia-head zia-head-center">
-          <h2 class="zia-h2">Race-week media</h2>
+          <h2 class="zia-h2">Meet Team Zia</h2>
           <p class="zia-copy">
-            New footage, interviews, and race updates will be published here as
-            Team Zia prepares for Roswell.
+            Get a closer look at the team and its two L-29 jets in Gary Williams&rsquo;
+            one-minute &ldquo;Follow Us&rdquo; film.
           </p>
         </div>
 
-        <div class="zia-media zia-media-feature">
+        <figure class="zia-media zia-media-feature">
           <div class="zia-video-frame">
-            <div class="zia-placeholder">
-              <svg viewBox="0 0 64 64" aria-hidden="true">
-                <rect x="6" y="12" width="52" height="40" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/>
-                <path d="M27 24l14 8-14 8z" fill="currentColor"/>
-              </svg>
-              <p class="zia-ph-title">New Team Zia coverage is being prepared</p>
-              <p>The replacement promo and press conference will appear here after final approval.</p>
-            </div>
+            <video controls playsinline preload="none" width="1920" height="1080"
+              poster="assets/img/team-zia-follow-us-poster.webp"
+              aria-label="Team Zia Follow Us — a 59-second team introduction"
+              aria-describedby="follow-us-caption">
+              <source src="assets/video/team-zia-follow-us.mp4" type="video/mp4" />
+              Your browser does not support this video. Use the video link below to watch it.
+            </video>
+            <button class="film-cover" type="button" hidden
+              aria-label="Play Team Zia Follow Us (59 seconds)" aria-describedby="follow-us-caption">
+              <span class="film-play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z" /></svg></span>
+              <span class="film-cover-title">Team Zia: Follow Us</span>
+              <span class="film-cover-meta">Watch the film <span aria-hidden="true">&middot;</span> 0:59</span>
+            </button>
           </div>
-
-          <ul class="zia-gallery"><!-- coverage stills go here --></ul>
-        </div>
+          <p class="film-status" role="status" hidden></p>
+          <figcaption class="zia-video-caption" id="follow-us-caption">
+            <strong>Team Zia: Follow Us <span aria-hidden="true">&middot;</span> 0:59</strong>
+            Filmed during the team&rsquo;s preparations for Roswell. Flight footage and
+            a conversation with Scott Weaver and Carol Sugars introduce New Mexico&rsquo;s jet racing team.
+            <br /><a href="assets/video/team-zia-follow-us.mp4">Open the video in a separate player</a>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -425,5 +442,6 @@
   </main>
 
   <script src="js/main.js?v=2"></script>
+  <script src="js/race-experience.js?v=20260908"></script>
 </body>
 </html>
