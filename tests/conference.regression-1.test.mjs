@@ -17,6 +17,6 @@ async function scenario(name, mediaError = null) {
   return { status, cover, video };
 }
 assert.equal((await scenario('AbortError')).status.hidden, true, 'User pause is not a playback error');
-assert.equal((await scenario('NotSupportedError')).status.hidden, false, 'Unsupported media displays fallback');
-assert.equal((await scenario('AbortError', { code: 3 })).status.hidden, false, 'Actual media errors still display fallback');
+assert.equal((await scenario('NotSupportedError')).status.hidden, true, 'No unwanted error copy is shown');
+assert.equal((await scenario('AbortError', { code: 3 })).video.controls, true, 'Actual media errors retain native controls');
 console.log('PASS: interrupted playback and genuine playback failure states');

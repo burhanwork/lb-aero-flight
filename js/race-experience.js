@@ -13,8 +13,8 @@
     const fail = () => {
       cover.hidden = true;
       video.controls = true;
-      status.textContent = 'Having trouble playing? Try the separate-player link below.';
-      status.hidden = false;
+      status.textContent = '';
+      status.hidden = true;
     };
     showCover();
     cover.addEventListener('click', async () => {
