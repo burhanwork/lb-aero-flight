@@ -25,7 +25,9 @@
       try {
         await video.play();
         video.focus({ preventScroll: true });
-      } catch {
+      } catch (error) {
+        // A quick user pause can interrupt play() without a media failure.
+        if (error.name === 'AbortError' && video.paused && !video.error) return;
         fail();
       }
     });
