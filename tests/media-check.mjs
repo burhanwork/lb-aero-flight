@@ -23,7 +23,7 @@ for (const attribute of ['controls', 'playsinline', 'preload="none"', 'aria-labe
 assert.ok(!/\bautoplay\b/.test(videoTag), 'Video never autoplays');
 assert.match(racing, /\.zia-video-frame video\s*\{[^}]*object-fit:\s*contain/, 'Video preserves full frame');
 assert.match(racing, /@media \(max-width: 1024px\)/, 'Tablet hero uses stacked layout');
-assert.match(home, /href="racing\.html#announcement">WATCH THE TEAM FILM/, 'Homepage points to the film');
+assert.match(home, /href="\/racing\/#announcement">WATCH THE TEAM FILM/, 'Homepage points to the film through its clean URL');
 assert.match(racing, /id="announcement"/, 'Film anchor exists');
 assert.ok(!racing.includes('replacement promo and press conference will appear here'), 'Obsolete media placeholder removed');
 

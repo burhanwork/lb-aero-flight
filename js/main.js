@@ -2,6 +2,13 @@
 (function () {
   "use strict";
 
+  // Preserve old shared URLs while displaying the canonical directory route.
+  if (/\/(?:index|about|team|capabilities|platform|racing|contact|rsvp|open-house-2026|home-full)\.html$/.test(window.location.pathname)) {
+    var cleanPath = window.location.pathname.replace(/index\.html$/, "").replace(/\.html$/, "/");
+    window.location.replace(cleanPath + window.location.search + window.location.hash);
+    return;
+  }
+
   var header = document.querySelector(".site-header");
   var nav = document.querySelector(".main-nav");
   var toggle = document.querySelector(".nav-toggle");
