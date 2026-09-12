@@ -302,7 +302,7 @@
       <div class="container">
         <div class="zia-head zia-head-center">
           <h2 class="zia-h2">Meet Team Zia</h2>
-          <p class="zia-copy">
+          <p class="zia-copy" id="follow-us-description">
             Get a closer look at the team and its two L-29 jets in Gary Williams&rsquo;
             one-minute &ldquo;Follow Us&rdquo; film.
           </p>
@@ -313,24 +313,17 @@
             <video controls playsinline preload="none" width="1920" height="1080"
               poster="assets/img/team-zia-follow-us-poster.webp"
               aria-label="Team Zia Follow Us — a 59-second team introduction"
-              aria-describedby="follow-us-caption">
+              aria-describedby="follow-us-description">
               <source src="assets/video/team-zia-follow-us.mp4" type="video/mp4" />
-              Your browser does not support this video. Use the video link below to watch it.
+              Your browser does not support HTML video.
             </video>
             <button class="film-cover" type="button" hidden
-              aria-label="Play Team Zia Follow Us (59 seconds)" aria-describedby="follow-us-caption">
+              aria-label="Play Team Zia Follow Us (59 seconds)" aria-describedby="follow-us-description">
               <span class="film-play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z" /></svg></span>
               <span class="film-cover-title">Team Zia: Follow Us</span>
-              <span class="film-cover-meta">Watch the film <span aria-hidden="true">&middot;</span> 0:59</span>
             </button>
           </div>
           <p class="film-status" role="status" hidden></p>
-          <figcaption class="zia-video-caption" id="follow-us-caption">
-            <strong>Team Zia: Follow Us <span aria-hidden="true">&middot;</span> 0:59</strong>
-            Filmed during the team&rsquo;s preparations for Roswell. Flight footage and
-            a conversation with Scott Weaver and Carol Sugars introduce New Mexico&rsquo;s jet racing team.
-            <br /><a href="assets/video/team-zia-follow-us.mp4">Open the video in a separate player</a>
-          </figcaption>
         </figure>
       </div>
     </section>
@@ -344,7 +337,7 @@
           <p class="zia-copy">August 29, 2026 <span aria-hidden="true">&middot;</span> Albuquerque, New Mexico</p>
           <p class="zia-copy">Watch the complete Team Zia introduction, filmed by Gary Williams.</p>
           <div class="zia-video-frame conference-player">
-            <video controls playsinline preload="none" width="1280" height="720" poster="assets/img/team-zia-conference.webp" aria-label="Full Team Zia press conference, 20 minutes 39 seconds" aria-describedby="conference-caption">
+            <video controls playsinline preload="none" width="1280" height="720" poster="assets/img/team-zia-conference.webp" aria-label="Full Team Zia press conference, 20 minutes 39 seconds" aria-describedby="conference-title">
               <source src="assets/video/team-zia-press-conference.mp4" type="video/mp4" />
               Your browser does not support HTML video.
             </video>
@@ -353,7 +346,6 @@
             </button>
           </div>
           <p class="film-status" role="status" hidden></p>
-          <p class="conference-fallback" id="conference-caption">Full conference <span aria-hidden="true">&middot;</span> 20:39</p>
         </div>
       </div>
     </section>
