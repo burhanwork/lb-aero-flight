@@ -215,6 +215,20 @@
       .zia-event, .zia-media,
       .zia-main .page-mark { animation: none; }
     }
+    .conference-panel{max-width:1080px;margin:auto;padding:clamp(20px,4vw,44px);background:#101115;border:1px solid #303136;border-top:3px solid #cf1725;border-radius:4px}
+    .conference-panel .zia-copy{margin-top:12px}
+    .conference-player{position:relative;aspect-ratio:16/9;margin-top:28px;background:#08090b;border:1px solid #34353a;overflow:hidden;border-radius:3px}
+    .conference-cover{display:block;position:absolute;inset:0;color:#fff}
+    .conference-cover img{width:100%;height:100%;object-fit:contain;display:block}
+    .conference-play{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:12px;padding:36px 12px 16px;background:linear-gradient(transparent,rgba(0,0,0,.9));font-size:14px;font-weight:700}
+    .conference-play svg{width:46px;height:46px;padding:12px;background:#c91726;fill:#fff;border-radius:50%;flex-shrink:0}
+    .conference-runtime{display:inline-block;margin-left:8px;color:#ddd;font-weight:400}
+    .conference-cover:focus-visible{outline:3px solid white;outline-offset:-5px}
+    .conference-cover:hover .conference-play svg{background:#ed2233}
+    .conference-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .conference-fallback{text-align:center;margin:18px 0 0;font-size:14px;color:#c6c7cc}
+    .conference-fallback a{color:inherit;text-underline-offset:4px}
+    @media(max-width:480px){.conference-panel .zia-h2{font-size:28px}.conference-play{font-size:11px;padding-bottom:8px;gap:8px}.conference-play svg{width:34px;height:34px;padding:9px}.conference-runtime{margin-left:4px}}
   </style>
   <link rel="stylesheet" href="css/race-experience.css?v=20260908" />
 </head>
@@ -307,6 +321,25 @@
             <br /><a href="assets/video/team-zia-follow-us.mp4">Open the video in a separate player</a>
           </figcaption>
         </figure>
+      </div>
+    </section>
+
+    <!-- ---------- FULL PRESS CONFERENCE ---------- -->
+    <section class="zia-section" id="press-conference" aria-labelledby="conference-title">
+      <div class="container">
+        <div class="conference-panel">
+          <p class="zia-eyebrow">Team Zia &bull; Media room</p>
+          <h2 class="zia-h2" id="conference-title">The full press conference</h2>
+          <p class="zia-copy">August 29, 2026 <span aria-hidden="true">&middot;</span> Albuquerque, New Mexico</p>
+          <p class="zia-copy">Watch the complete Team Zia introduction, filmed by Gary Williams.</p>
+          <div class="conference-player" data-conference-player>
+            <a class="conference-cover" href="https://drive.google.com/file/d/1xdyGR4xR94DIKIPr02vALFiUp8_5QE-s/view" target="_blank" rel="noopener" aria-label="Watch the full Team Zia press conference, 20 minutes 39 seconds">
+              <img src="assets/img/team-zia-conference.webp" width="1672" height="941" loading="lazy" alt="Team Zia speaker at the microphone during the press conference, with the team banner behind him." />
+              <span class="conference-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z" /></svg><span>Watch the full conference <span class="conference-runtime">20:39</span></span></span>
+            </a>
+          </div>
+          <p class="conference-fallback"><a href="https://drive.google.com/file/d/1xdyGR4xR94DIKIPr02vALFiUp8_5QE-s/view" target="_blank" rel="noopener">Open the full conference in Google Drive <span aria-hidden="true">↗</span></a></p>
+        </div>
       </div>
     </section>
 
