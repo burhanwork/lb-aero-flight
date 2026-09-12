@@ -1,21 +1,6 @@
 /* Progressive enhancement: native video and visible content work without JS. */
 (() => {
   'use strict';
-  document.querySelectorAll('[data-conference-player]').forEach(container => {
-    const cover = container.querySelector('a');
-    if (!cover) return;
-    cover.addEventListener('click', event => {
-      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-      event.preventDefault();
-      const player = document.createElement('iframe');
-      player.src = 'https://drive.google.com/file/d/1xdyGR4xR94DIKIPr02vALFiUp8_5QE-s/preview';
-      player.title = 'Full Team Zia press conference — 20 minutes 39 seconds';
-      player.allow = 'autoplay; fullscreen';
-      player.allowFullscreen = true;
-      container.replaceChildren(player);
-      player.focus();
-    });
-  });
   document.querySelectorAll('.zia-video-frame').forEach(frame => {
     const video = frame.querySelector('video');
     const cover = frame.querySelector('.film-cover');
