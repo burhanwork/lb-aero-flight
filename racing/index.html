@@ -254,6 +254,7 @@
     @media(max-width:480px){.conference-panel .zia-h2{font-size:28px}.conference-play{font-size:11px;gap:8px}.conference-play svg{width:48px;height:48px;padding:14px}.conference-runtime{margin-left:4px}}
   </style>
   <link rel="stylesheet" href="/css/race-experience.css?v=20260908" />
+  <link rel="stylesheet" href="/css/carol-update.css?v=20260914" />
   <link rel="canonical" href="https://lbaeroflight.com/racing/" />
 </head>
 <body>
@@ -309,6 +310,49 @@
         </div>
       </div>
     </section>
+
+    <!-- ---------- LATEST FROM ROSWELL ---------- -->
+    <section class="zia-section carol-update" id="latest-from-roswell" aria-labelledby="carol-title">
+      <div class="container">
+        <header class="carol-heading">
+          <p class="zia-eyebrow">Latest from Roswell</p>
+          <h2 class="zia-h2" id="carol-title">A big moment for Carol<span class="dot">.</span></h2>
+          <p class="zia-copy">A moment worth celebrating. New photos shared by the team.</p>
+        </header>
+        <div class="carol-mosaic">
+          <a class="carol-photo carol-photo-lead" href="/assets/img/carol/IMG_0641.jpg" data-carol-photo="0" aria-label="View photo of Carol in the cockpit">
+            <img src="/assets/img/carol/IMG_0641.jpg" width="2048" height="1536" loading="lazy" alt="Carol in her blue flight suit and helmet, seated in the L-29 cockpit." />
+          </a>
+          <a class="carol-photo" href="/assets/img/carol/IMG_0648.jpg" data-carol-photo="6" aria-label="View photo of Carol beside the jet">
+            <img src="/assets/img/carol/IMG_0648.jpg" width="1536" height="2048" loading="lazy" alt="Carol beside the red and silver jet with a member of the team." />
+          </a>
+          <a class="carol-photo" href="/assets/img/carol/IMG_0651.jpg" data-carol-photo="9" aria-label="View photo of Carol sharing a hug">
+            <img src="/assets/img/carol/IMG_0651.jpg" width="1536" height="2048" loading="lazy" alt="Carol sharing a hug on the ramp, still wearing her flight gear." />
+          </a>
+        </div>
+        <div class="carol-bottom">
+          <div class="carol-flightline">
+            <div class="carol-flightline-copy"><h3>From the flight line</h3><p>A brief look at the day in Roswell with Team Zia.</p></div>
+            <figure class="carol-video">
+              <div class="zia-video-frame">
+                <video controls playsinline preload="none" width="1280" height="720" poster="/assets/img/carol/video-poster.jpg" aria-label="Carol flight-line video">
+                  <source src="/assets/video/carol-flightline.mp4" type="video/mp4" />
+                </video>
+                <button class="film-cover carol-film-cover" type="button" hidden aria-label="Play Carol flight-line video"><span class="film-play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z" /></svg></span></button>
+              </div>
+              <p class="film-status" role="status" hidden></p>
+            </figure>
+          </div>
+          <button class="btn btn-outline carol-gallery-trigger" type="button" hidden>View photos <span aria-hidden="true">&rarr;</span></button>
+        </div>
+      </div>
+    </section>
+    <dialog class="carol-gallery" aria-labelledby="carol-gallery-title">
+      <div class="carol-gallery-top"><h2 id="carol-gallery-title">Photos from Roswell</h2><button type="button" class="carol-gallery-close" aria-label="Close photo gallery">&times;</button></div>
+      <div class="carol-gallery-stage"><button type="button" class="carol-gallery-prev" aria-label="Previous photo">&#8249;</button><img class="carol-gallery-image" alt="" /><button type="button" class="carol-gallery-next" aria-label="Next photo">&#8250;</button></div>
+      <p class="carol-gallery-count" aria-live="polite" aria-atomic="true"></p>
+      <div class="carol-gallery-thumbnails" aria-label="Choose a photo"></div>
+    </dialog>
 
     <!-- ---------- RACE-WEEK MEDIA ---------- -->
     <section class="zia-section" id="announcement">
@@ -496,5 +540,6 @@
 
   <script src="/js/main.js?v=3"></script>
     <script src="/js/race-experience.js?v=20260913"></script>
+    <script src="/js/carol-gallery.js?v=20260914"></script>
 </body>
 </html>
