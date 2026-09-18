@@ -10,6 +10,7 @@
 .race-week-film figcaption { padding: 18px 0 0; }
 .race-week-film h3 { font: 500 clamp(22px,2.2vw,28px)/1.3 'Oswald',sans-serif; margin: 0 0 9px; }
 .race-week-film figcaption p { font-size: 16px; line-height: 1.6; color: #bbc1c8; margin: 0; max-width: 48ch; }
+.race-film-download { display: inline-flex; align-items: center; justify-content: center; gap: 16px; min-height: 48px; min-width: 190px; margin-top: 18px; }
 @media(max-width:760px) {
   .race-week-films .container { padding-top: 28px; }
   .race-week-heading, .race-week-film figcaption { text-align: center; }

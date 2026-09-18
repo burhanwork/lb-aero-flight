@@ -4,6 +4,7 @@ import vm from 'node:vm';
 const html=readFileSync(new URL('../racing.html',import.meta.url),'utf8');
 const section=html.split('id="race-week-films"')[1].split('</section>')[0];
 assert.equal((section.match(/<video /g)||[]).length,2);
+assert.equal((section.match(/class="btn btn-outline race-film-download"/g)||[]).length,2,'Both films expose direct original downloads');
 assert.ok(html.indexOf('id="race-week-films"')<html.indexOf('id="latest-from-roswell"'));
 for(const video of section.matchAll(/<video[\s\S]*?<\/video>/g)) {
   for(const attr of ['controls','playsinline','preload="none"','aria-describedby=']) assert.ok(video[0].includes(attr));
