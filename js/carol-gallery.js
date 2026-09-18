@@ -3,7 +3,7 @@
   const dialog = document.querySelector('.carol-gallery');
   const trigger = document.querySelector('.carol-gallery-trigger');
   if (!dialog || !trigger || typeof dialog.showModal !== 'function') return;
-  const ids = ['0641','0642','0643','0644','0646','0647','0648','0649','0650','0651','0653','0654'];
+  const ids = ['0641','0642','0643','0644','0646','0647','0648','0649','0650','0651','0653','0654','0657','0658','0662','0664','0667','0671'];
   const base = new URL('../assets/img/carol/', document.currentScript.src);
   const photos = ids.map(id => new URL(`IMG_${id}.jpg`, base).href);
   const image = dialog.querySelector('.carol-gallery-image');
