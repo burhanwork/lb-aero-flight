@@ -255,6 +255,7 @@
   </style>
   <link rel="stylesheet" href="css/race-experience.css?v=20260908" />
   <link rel="stylesheet" href="css/carol-update.css?v=20260914" />
+  <link rel="stylesheet" href="css/race-week-films.css?v=20260919" />
   <link rel="canonical" href="https://lbaeroflight.com/racing/" />
 </head>
 <body>
@@ -307,6 +308,38 @@
         <div class="zia-hero-actions">
           <a class="btn btn-primary" href="#roswell">ROSWELL RACE BRIEF</a>
           <a class="btn btn-outline" href="/team/">MEET THE TEAM</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- RACE-WEEK FILMS ---------- -->
+    <section class="zia-section race-week-films" id="race-week-films" aria-labelledby="race-week-title">
+      <div class="container">
+        <header class="race-week-heading">
+          <h2 class="zia-h2" id="race-week-title">Race week in Roswell</h2>
+          <p class="zia-copy">From departure preparations to the first day of racing. Two films from Team Zia.</p>
+        </header>
+        <div class="race-week-grid">
+          <figure class="race-week-film">
+            <div class="zia-video-frame">
+              <video controls playsinline preload="none" width="1920" height="1080" poster="assets/img/race-week-day-1-ramp.jpg" aria-label="Team Zia first day of racing" aria-describedby="race-day-caption">
+                <source src="https://github.com/burhanwork/lb-aero-flight/releases/download/team-zia-race-week-2026/day-1-race.mp4" type="video/mp4" />
+              </video>
+              <button class="film-cover" type="button" hidden aria-label="Play first day of racing"><span class="film-play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z" /></svg></span></button>
+            </div>
+            <p class="film-status" role="status" hidden></p>
+            <figcaption id="race-day-caption"><h3>First day of racing</h3><p>On the ramp and inside the cockpit at Roswell.</p></figcaption>
+          </figure>
+          <figure class="race-week-film">
+            <div class="zia-video-frame">
+              <video controls playsinline preload="none" width="1920" height="1080" poster="assets/img/race-week-departure.jpg" aria-label="Team Zia departure preparations" aria-describedby="departure-caption">
+                <source src="https://github.com/burhanwork/lb-aero-flight/releases/download/team-zia-race-week-2026/departure.mp4" type="video/mp4" />
+              </video>
+              <button class="film-cover" type="button" hidden aria-label="Play departure preparations"><span class="film-play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z" /></svg></span></button>
+            </div>
+            <p class="film-status" role="status" hidden></p>
+            <figcaption id="departure-caption"><h3>Getting ready to go</h3><p>The crew, the aircraft and the preparations before departure.</p></figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -539,7 +572,7 @@
   </main>
 
   <script src="js/main.js?v=3"></script>
-    <script src="js/race-experience.js?v=20260913"></script>
+    <script src="js/race-experience.js?v=20260919"></script>
     <script src="js/carol-gallery.js?v=20260914"></script>
 </body>
 </html>

@@ -31,7 +31,12 @@
         fail();
       }
     });
-    video.addEventListener('play', () => { cover.hidden = true; });
+    video.addEventListener('play', () => {
+      cover.hidden = true;
+      document.querySelectorAll('.zia-video-frame video').forEach(other => {
+        if (other !== video && !other.paused) other.pause();
+      });
+    });
     video.addEventListener('ended', showCover);
     video.addEventListener('error', fail);
   });
