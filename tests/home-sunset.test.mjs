@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {readFileSync, statSync} from 'node:fs';
+const read = path => readFileSync(new URL('../' + path, import.meta.url), 'utf8');
+const home = read('index.html');
+const css = read('css/home-sunset.css');
+assert.ok(home.includes('css/home-sunset.css?v=20260920'));
+assert.ok(home.includes('class="calendar-art"'));
+assert.ok(!home.includes('class="calendar-date"'));
+assert.equal((home.match(/class="race-member"/g)||[]).length,4);
+assert.equal((home.match(/class="home-story"/g)||[]).length,3);
+assert.ok(css.includes('@media(max-width:1040px)'));
+assert.ok(css.includes('a:focus-visible'));
+assert.ok(read('css/race-home-v2.css').includes('prefers-reduced-motion'));
+assert.ok(statSync(new URL('../assets/img/home-sunset-event.webp',import.meta.url)).size < 750000);
+assert.ok(!home.includes('FULL HOMEPAGE DESIGN CONCEPT'));
+console.log('PASS: sunset layout, four real team cards, three coverage cards, responsive breakpoint, focus and reduced-motion support, optimized image');
