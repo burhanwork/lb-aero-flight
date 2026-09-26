@@ -11,5 +11,5 @@ for (const match of home.matchAll(/href="\/racing\/#([^" ]+)"/g)) {
 for (const match of home.matchAll(/src="(assets\/[^"?]+)(?:\?[^\"]*)?"/g)) {
   assert.ok(existsSync(new URL('../' + match[1], import.meta.url)), `Existing asset: ${match[1]}`);
 }
-assert.equal((racing.match(/class="btn btn-outline race-film-download"/g) || []).length, 5);
-console.log('PASS: three real coverage stories, valid destinations/assets, five video downloads');
+assert.equal((racing.match(/class="btn btn-outline race-film-download"/g) || []).length, 6);
+console.log('PASS: three real coverage stories, valid destinations/assets, six video downloads');

@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {readFileSync,statSync} from 'node:fs';
+const root=new URL('../',import.meta.url);
+const html=readFileSync(new URL('racing.html',root),'utf8');
+const section=html.split('id="carol-rookie-of-year"')[1].split('</section>')[0];
+assert.equal((section.match(/<video /g)||[]).length,1);
+for(const value of ['controls playsinline preload="none"','Play Carol Rookie of Year','download="carol-rookie-of-year.mp4"','Jet Class Rookie of the Year']) assert.ok(section.includes(value),value);
+assert.ok(!/autoplay|drive\.google|separate player/.test(section));
+assert.equal(statSync(new URL('assets/video/carol-rookie-of-year.mp4',root)).size,31474948);
+assert.ok(statSync(new URL('assets/img/carol-rookie-of-year.jpg',root)).size>10000);
+assert.ok(readFileSync(new URL('index.html',root),'utf8').includes('/racing/#carol-rookie-of-year'));
+console.log('PASS: Carol award feature, intact original video, poster, homepage link and download');
