@@ -3,7 +3,7 @@ import {readFileSync, statSync} from 'node:fs';
 const read = path => readFileSync(new URL('../' + path, import.meta.url), 'utf8');
 const home = read('index.html');
 const css = read('css/home-training.css');
-assert.ok(home.includes('css/home-training.css?v=20260930'));
+assert.ok(home.includes('css/home-training.css?v=20260930-laptop'));
 assert.ok(home.includes('LB AeroFlight is<br><em>open for business.</em>'));
 assert.ok(home.includes('Per hour + fuel'));
 assert.ok(!/per flight|Albuquerque/i.test(home));

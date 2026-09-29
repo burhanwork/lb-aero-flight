@@ -9,7 +9,7 @@ Reference: user attachment Photo 1.jpg, /tmp/codex-remote-attachments/01a062fb-0
 - Training-led homepage replaces the race-week homepage; all racing pages, authentic media, eighteen-photo gallery and six downloads remain unchanged and accessible via footer.
 - Reference's black/red typography, sunset hero, aircraft caption, four-column training briefing, six outline-icon topics, two CTAs and light two-jet operational-experience section implemented as editable semantic HTML.
 - Correct hourly rate and Double Eagle / Moriarty airport wording. Santa Fe examiner wording preserved from approved reference.
-- Small-screen layout stacks copy and full-width uncropped aircraft, details and CTAs. Training topic grid remains two columns; navigation uses existing keyboard-dismissible drawer.
+- Small-screen layout stacks copy and full-width uncropped aircraft, details and CTAs. Training topic grid uses three columns after the laptop-fit correction below; navigation uses the existing keyboard-dismissible drawer.
 - Training CTA opens existing contact form with training-specific heading, subject and message hint. Default contact experience and existing recipient configuration unchanged. No form submission sent during QA.
 
 ## Artwork provenance
@@ -31,3 +31,11 @@ Prompts: clean aircraft-only photographic-style illustration, no baked-in page t
 - Fresh Gmail refresh returned Scott's September 26 acknowledgement, no newer training requirements. Messages connector returned a permission-filtered result; this is NOT a successful empty/new-message check. Direct user-approved reference is implementation authority. No client message sent.
 
 Deployment: e39b5aab7402b6baaf2ff2b43772636f310cd598 pushed to main. Pages run 36631781365 completed successfully. Production root URL, hourly price, airports, hero and lower image visually verified on desktop/mobile; no console errors. Public evidence: ../artifacts/training-home-2026-09-30/desktop-live.jpg and mobile-live.jpg. Canonical PROJECT-STATUS.md and linked Obsidian website/decisions notes reconciled. No client communication sent.
+
+## September 30 laptop-fit correction
+
+Burhan reported excessive section height on his 14-inch laptop. Previous width-only responsive checks were insufficient. Desktop artwork now scales with usable browser height as well as width; headings scale with their scene, and briefing spacing/icons/CTAs are compact. Original image dimensions, complete aircraft, hourly price, airport copy and racing assets are unchanged. Body copy remains readable (15px in the briefing); nothing substantive is hidden. Mobile retains natural stacked reading instead of shrinking entire sections into one screen, with a shorter three-column topic grid.
+
+Local Chrome checks: 1366×650, 1512×740, 1280×600, 1920×1080, 768×1024, 390×780 and 320×568. At 1366×650 the hero is 506px plus 72px header, briefing 459px and team scene 398px; each desktop section fits a viewport. No horizontal overflow or team-copy overlap. Mobile navigation open/Escape and training CTA/form context verified without submitting. All eight automated suites pass, including the new viewport-sizing contract and existing media/player regressions. Live deployment evidence will be recorded after publication.
+
+Fresh Gmail check could not complete because the connector requires an unavailable link_id; this is an access gap, not proof of no new messages. No client message or email sent. This sizing correction is authorized directly by Burhan.
