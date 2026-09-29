@@ -34,3 +34,7 @@ Built-in image generation edited the existing desktop hero as reference: portrai
 ## Limits and publication
 
 Chrome responsive emulation, not physical-device Safari certification. Fresh Gmail check failed due unavailable connector link_id; no new-message conclusion inferred. No email or iMessage sent. Publication and live verification evidence recorded after deployment.
+
+Final release: 4775018a8844c9ee7d277fef3a165283e4032603; GitHub Pages run 36635089009 completed successfully. Production CSS cache key `20260930-visualqa`, 44px desktop navigation, both loaded desktop images and portrait mobile source verified directly. Live phone full-page visual review and laptop section captures saved under laptop-fit/: hero-live-1366x650.jpg, training-live-1366x650.jpg, team-live-1366x650.jpg, mobile-live-390.jpg and mobile-full-live-390.jpg. No captured runtime errors. All nine suites pass.
+
+Final geometry: at 1366×650, hero 506px plus 72px header, briefing 409px and team 400px; at 1280×600, hero 456px plus header, briefing 409px and team 400px. All desktop scenes individually fit these short viewports; normal scrolling between sections remains. At phone sizes, natural readable stacking is deliberate. No overflow or team-copy clipping in the eight-size matrix. This review supersedes earlier seven-suite/width-only QA, not the approved training design.
