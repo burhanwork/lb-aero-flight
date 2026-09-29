@@ -6,7 +6,7 @@ assert.ok(css.includes('100svh - 144px'),'Desktop scene must respond to usable v
 assert.ok(css.includes('container-type:inline-size'),'Scene typography must respond to its actual width');
 assert.ok(css.includes('6.05cqw'),'Hero text must scale with its scene, not viewport width');
 assert.ok(css.includes('grid-template-columns:repeat(3,1fr)'),'Mobile topics use a shorter two-row grid');
-assert.ok(css.includes('.brief-item p{font-size:15px;line-height:1.45}'),'Keep desktop briefing copy readable');
+assert.ok(css.includes('.brief-item p{font-size:16px;line-height:1.5}'),'Keep desktop briefing copy readable at 16px');
 assert.ok(!/object-fit:\s*cover/.test(css),'Keep complete aircraft artwork uncropped');
 assert.ok(!/overflow(?:-y)?:\s*hidden/.test(css.replace(/\.icon-library\{[^}]*\}/,'')),'Never hide content to simulate viewport fit');
 assert.ok(home.includes('id="training-team"'),'Team section is directly addressable for QA');

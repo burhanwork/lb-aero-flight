@@ -14,11 +14,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#080809">
   <link rel="icon" href="/favicon.ico">
-  <link rel="preload" as="image" href="assets/img/lucky-13-training-hero.webp">
+  <link rel="preload" as="image" href="assets/img/lucky-13-training-hero.webp" media="(min-width:701px)">
+  <link rel="preload" as="image" href="assets/img/lucky-13-training-mobile.webp" media="(max-width:700px)">
   <link rel="preload" href="assets/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css?v=110">
-  <link rel="stylesheet" href="css/home-training.css?v=20260930-laptop">
+  <link rel="stylesheet" href="css/home-training.css?v=20260930-visualqa">
 </head>
 <body class="training-home">
   <a class="training-skip" href="#main-content">Skip to content</a>
@@ -50,7 +51,7 @@
   </header>
   <main id="main-content">
     <section class="training-hero" aria-labelledby="training-title">
-      <img class="training-hero-art" src="assets/img/lucky-13-training-hero.webp" width="1632" height="964" alt="Cinematic illustration of Lucky 13, a silver and burgundy L-29, on a New Mexico runway at sunset." fetchpriority="high">
+      <picture><source media="(max-width:700px)" srcset="assets/img/lucky-13-training-mobile.webp" width="1086" height="1448"><img class="training-hero-art" src="assets/img/lucky-13-training-hero.webp" width="1632" height="964" alt="Cinematic illustration of Lucky 13, a silver and burgundy L-29, on a New Mexico runway at sunset." fetchpriority="high"></picture>
       <div class="training-hero-copy">
         <p class="training-eyebrow">L-29 jet training <span></span></p>
         <h1 id="training-title">LB AeroFlight is<br><em>open for business.</em></h1>

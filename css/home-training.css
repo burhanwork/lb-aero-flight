@@ -7,6 +7,7 @@
 .training-home .site-header{background:#050505}
 .training-home .brand-mark{font-size:clamp(29px,3.3vw,46px)}
 .training-home .brand-jet{width:110px;top:-15px}
+.training-home .brand{min-height:44px}
 .training-home .main-nav ul{gap:clamp(20px,2.3vw,40px)}
 .training-home .main-nav a{font-size:clamp(12px,1.1vw,16px);text-transform:uppercase}
 .training-button{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:64px;padding:14px 30px;border:2px solid var(--training-red);background:var(--training-red);color:#fff;font:600 clamp(17px,1.6vw,25px)/1.2 Oswald,sans-serif;letter-spacing:1.5px;text-transform:uppercase;text-align:center;transition:background .2s,border-color .2s}
@@ -16,6 +17,9 @@
 .training-button-outline:hover{background:#202023;border-color:white}
 .training-home .main-nav .header-book{min-height:52px;padding:12px 24px;font-size:16px;color:white;letter-spacing:1px}
 .training-hero{position:relative;max-width:1920px;margin:auto;background:#10141a}
+.training-hero picture{display:block}
+.training-hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.55),transparent 85%);mask-image:linear-gradient(#000 0%,#000 42%,transparent 65%)}
+.training-hero-copy,.training-motto,.aircraft-caption{z-index:1}
 .training-hero-art{display:block;width:100%;height:auto}
 .training-hero-copy{position:absolute;left:5.5%;top:5.5%;width:79%}
 .training-eyebrow{display:flex;align-items:center;gap:20px;font:500 clamp(14px,1.65vw,27px)/1.2 Oswald,sans-serif;letter-spacing:5px;text-transform:uppercase;margin-bottom:2vw}
@@ -91,10 +95,10 @@
  .training-eyebrow{font-size:clamp(12px,1.65cqw,21px);letter-spacing:3px;margin-bottom:2cqw}
  .training-hero h1{font-size:clamp(38px,6.05cqw,73px)}
  .training-hero-sub{font-size:clamp(24px,3.5cqw,42px)}
- .training-motto{font-size:clamp(11px,1.5cqw,18px);letter-spacing:2px}
- .aircraft-caption{font-size:clamp(10px,1.3cqw,16px)}
+ .training-motto{font-size:clamp(12px,1.5cqw,18px);letter-spacing:2px}
+ .aircraft-caption{font-size:clamp(12px,1.3cqw,16px)}
  .training-program{padding:18px 0 24px}
- .training-program>.training-width{width:var(--training-stage-width);padding-inline:24px;container-type:inline-size}
+ .training-program>.training-width{width:min(1100px,100%);padding-inline:24px;container-type:inline-size}
  .training-rate{padding:20px;margin-right:20px}
  .rate-amount{font-size:clamp(48px,6.9cqw,80px)}
  .rate-unit{font-size:clamp(20px,2.85cqw,32px)}
@@ -103,23 +107,24 @@
  .brief-item+.brief-item:before{top:12px;bottom:20px}
  .brief-item .training-icon{width:32px;height:32px}
  .brief-item h2{font-size:clamp(20px,2.1cqw,25px);margin:8px 0}
- .brief-item p{font-size:15px;line-height:1.45}
+ .brief-item p{font-size:16px;line-height:1.5}
  .training-syllabus{padding-top:18px;margin-top:8px}
  .training-syllabus li{gap:10px;padding-inline:8px}
  .training-syllabus .training-icon{width:34px;height:34px}
  .training-syllabus span{font-size:13px;letter-spacing:.5px}
  .training-actions{width:90%;margin-top:20px;gap:20px}
  .training-button{min-height:50px;padding:10px 18px;font-size:17px}
- .training-team-copy{top:6%;width:37%}
+ .training-team-art{min-height:400px;object-fit:contain}
+ .training-team-copy{top:6%;width:39%}
  .training-team h2{font-size:clamp(26px,3.3cqw,40px)}
- .training-team-copy>p:not(.training-locations){font-size:clamp(14px,1.3cqw,16px);line-height:1.45;margin-top:14px}
+ .training-team-copy>p:not(.training-locations){font-size:16px;line-height:1.5;margin-top:14px}
  .team-rule{width:42px;height:2px;margin-bottom:14px}
- .training-locations{font-size:clamp(10px,1.3cqw,14px);margin-top:14px;letter-spacing:2px}
+ .training-locations{font-size:clamp(12px,1.3cqw,14px);margin-top:14px;letter-spacing:1.5px}
  .team-zia-mark{width:44px;height:44px;margin-top:14px}
  .veteran-mark{padding:12px 14px;gap:10px}
  .veteran-mark svg{width:34px;height:34px}
- .veteran-mark p{font-size:9px}
- .veteran-mark strong{font-size:11px}
+ .veteran-mark p{font-size:11px}
+ .veteran-mark strong{font-size:13px}
  .training-footer{max-width:1200px;min-height:60px}
 }
 @media(min-width:701px) and (max-height:750px){.training-team-copy .team-zia-mark{display:none}}
@@ -128,25 +133,26 @@
 @media(max-width:700px){
  .training-home{--header-h:64px}.training-width{padding-inline:20px}
  .training-home .brand-mark{font-size:28px}
- .training-hero{display:flex;flex-direction:column;background:#131a22}
- .training-hero-copy{position:relative;order:-1;left:auto;top:auto;width:100%;padding:24px 24px 18px;background:linear-gradient(130deg,#12171e,#080b10)}
+ .training-hero{display:block;background:#131a22}
+ .training-hero-art{aspect-ratio:3/4}
+ .training-hero-copy{position:absolute;left:6%;top:6%;width:88%;padding:0;background:none}
  .training-eyebrow{font-size:13px;letter-spacing:3px;margin-bottom:18px;gap:14px}.training-eyebrow span{flex:1}
- .training-hero h1{font-size:clamp(30px,8.2vw,40px)}
+ .training-hero h1{font-size:clamp(27px,8.2vw,40px)}
  .training-hero-sub{font-size:clamp(22px,5.8vw,28px);margin-top:12px}
  .training-hero-art{margin-top:-1px}
- .training-motto{top:auto;bottom:10px;right:24px;font-size:10px;letter-spacing:1.5px;line-height:1.4}
- .aircraft-caption{left:24px;right:auto;bottom:14px;font-size:10px;letter-spacing:1px}
+ .training-motto{top:47%;bottom:auto;right:6%;font-size:11px;letter-spacing:1.5px;line-height:1.4}
+ .aircraft-caption{left:auto;right:6%;bottom:3%;font-size:11px;letter-spacing:1px}
  .training-brief{grid-template-columns:1fr;padding-top:20px}
  .training-rate{margin:0 0 4px;padding:20px 24px}.rate-amount{font-size:64px}.rate-unit{font-size:28px}.rate-note{font-size:13px}
  .brief-item{display:grid;grid-template-columns:44px 1fr;column-gap:16px;padding:22px 8px;border-bottom:1px solid #38383c}
  .brief-item+.brief-item:before{display:none}.brief-item .training-icon{grid-row:span 2;margin-top:4px}
- .brief-item h2{font-size:25px;margin:0 0 8px}.brief-item h2 br{display:none}.brief-item p{font-size:15px;max-width:none}
+ .brief-item h2{font-size:25px;margin:0 0 8px}.brief-item h2 br{display:none}.brief-item p{font-size:16px;line-height:1.5;max-width:none}
  .training-syllabus{grid-template-columns:repeat(3,1fr);padding-top:0;margin-top:18px}
  .training-syllabus li{min-height:100px;padding:14px 4px;border-bottom:1px solid #444448}
  .training-syllabus li:nth-child(3n){border-right:0}.training-syllabus .training-icon{width:30px;height:30px}.training-syllabus span{font-size:12px;letter-spacing:.5px}
  .training-actions{width:100%;grid-template-columns:1fr;gap:14px;margin-top:24px}.training-button{min-height:58px;font-size:18px;padding:14px 16px}
- .training-team{display:flex;flex-direction:column}.training-team:after{display:none}.training-team-copy{position:static;order:-1;width:100%;padding:30px 24px 8px}
- .training-team h2{font-size:32px}.training-team-copy>p:not(.training-locations){font-size:15px;max-width:520px}
+ .training-team{display:flex;flex-direction:column}.training-team-art{min-height:0}.training-team:after{display:none}.training-team-copy{position:static;order:-1;width:100%;padding:30px 24px 8px}
+ .training-team h2{font-size:32px}.training-team-copy>p:not(.training-locations){font-size:16px;line-height:1.5;max-width:520px}
  .training-locations{font-size:14px;margin-top:22px}.team-zia-mark{width:58px;height:58px}
  .veteran-mark{position:static;align-self:flex-end;margin:0 20px 20px;padding:12px 16px}
  .training-footer{flex-direction:column;text-align:center;padding-block:14px;gap:6px}

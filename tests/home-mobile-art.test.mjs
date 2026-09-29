@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {readFileSync,statSync} from 'node:fs';
+const home=readFileSync(new URL('../index.html',import.meta.url),'utf8');
+const css=readFileSync(new URL('../css/home-training.css',import.meta.url),'utf8');
+assert.match(home,/<source media="\(max-width:700px\)" srcset="assets\/img\/lucky-13-training-mobile.webp" width="1086" height="1448">/);
+assert.ok(statSync(new URL('../assets/img/lucky-13-training-mobile.webp',import.meta.url)).size<500000,'Phone artwork should stay below 500KB');
+assert.ok(css.includes('.training-home .brand{min-height:44px}'),'Brand has a touch-friendly target');
+assert.ok(css.includes('font-size:16px;line-height:1.5'),'Body copy stays readable');
+assert.ok(css.includes('.training-hero-art{aspect-ratio:3/4}'),'Phone scene reserves portrait space before image loading');
+assert.ok(css.includes('.training-hero-copy{position:absolute;left:6%;top:6%;width:88%'),'Headline stays part of the phone image composition');
+assert.ok(home.includes('Per hour + fuel')&&home.includes('Moriarty'),'Client corrections survive visual polish');
+console.log('PASS: portrait phone composition, compact asset, readable type, touch target and retained client corrections');
