@@ -1,0 +1,105 @@
+.training-home{--training-red:#e71926;--header-h:100px;background:#080809;color:#fff}
+.training-width{width:100%;max-width:1640px;margin:0 auto;padding-inline:clamp(24px,3.4vw,56px)}
+.icon-library{position:absolute;width:0;height:0;overflow:hidden}
+.training-skip{position:fixed;top:8px;left:8px;z-index:100;padding:12px 18px;background:white;color:black;transform:translateY(-150%)}
+.training-skip:focus{transform:none}
+.training-home a:focus-visible,.training-home button:focus-visible{outline:3px solid #fff;outline-offset:5px}
+.training-home .site-header{background:#050505}
+.training-home .brand-mark{font-size:clamp(29px,3.3vw,46px)}
+.training-home .brand-jet{width:110px;top:-15px}
+.training-home .main-nav ul{gap:clamp(20px,2.3vw,40px)}
+.training-home .main-nav a{font-size:clamp(12px,1.1vw,16px);text-transform:uppercase}
+.training-button{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:64px;padding:14px 30px;border:2px solid var(--training-red);background:var(--training-red);color:#fff;font:600 clamp(17px,1.6vw,25px)/1.2 Oswald,sans-serif;letter-spacing:1.5px;text-transform:uppercase;text-align:center;transition:background .2s,border-color .2s}
+.training-button:hover{background:#bc101c;border-color:#bc101c}
+.training-button span{font-size:1.5em;line-height:.8}
+.training-button-outline{background:transparent;border-color:#a8a8aa}
+.training-button-outline:hover{background:#202023;border-color:white}
+.training-home .main-nav .header-book{min-height:52px;padding:12px 24px;font-size:16px;color:white;letter-spacing:1px}
+.training-hero{position:relative;max-width:1920px;margin:auto;background:#10141a}
+.training-hero-art{display:block;width:100%;height:auto}
+.training-hero-copy{position:absolute;left:5.5%;top:5.5%;width:79%}
+.training-eyebrow{display:flex;align-items:center;gap:20px;font:500 clamp(14px,1.65vw,27px)/1.2 Oswald,sans-serif;letter-spacing:5px;text-transform:uppercase;margin-bottom:2vw}
+.training-eyebrow span{height:2px;width:30%;background:var(--training-red)}
+.training-hero h1{font:700 clamp(42px,6.05vw,112px)/1.06 Oswald,sans-serif;text-transform:uppercase;letter-spacing:-.6px;margin:0}
+.training-home em{font-style:normal;color:var(--training-red)}
+.training-hero-sub{font:600 clamp(26px,3.5vw,64px)/1.16 Oswald,sans-serif;text-transform:uppercase;margin-top:10px}
+.training-motto{position:absolute;right:3.5%;top:5.5%;font:500 clamp(14px,1.5vw,25px)/1.65 Oswald,sans-serif;letter-spacing:3px;text-transform:uppercase;text-align:right}
+.aircraft-caption{position:absolute;right:4%;bottom:5.5%;font:500 clamp(11px,1.3vw,20px)/1.3 Oswald,sans-serif;letter-spacing:2px;text-transform:uppercase}
+.training-program{background:linear-gradient(#080809,#030304);padding-bottom:28px;scroll-margin-top:20px}
+.training-brief{display:grid;grid-template-columns:1.38fr 1fr 1fr .88fr}
+.training-rate{background:linear-gradient(115deg,#ec1421,#bd0813);padding:24px 28px;margin-right:32px;align-self:center}
+.rate-amount{font:700 clamp(56px,6.9vw,108px)/1.05 Oswald,sans-serif;letter-spacing:-2px}
+.rate-unit{font:600 clamp(24px,2.85vw,42px)/1.35 Oswald,sans-serif;text-transform:uppercase;white-space:nowrap}
+.rate-note{font:500 clamp(13px,1.4vw,22px)/1.4 Oswald,sans-serif;letter-spacing:3px;text-transform:uppercase}
+.brief-item{position:relative;padding:28px 24px}
+.brief-item+.brief-item:before{content:"";position:absolute;left:0;top:30px;bottom:30px;width:1px;background:#515154}
+.training-icon{display:block;width:42px;height:42px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
+.brief-item h2{color:var(--training-red);font:600 clamp(21px,2.1vw,32px)/1.15 Oswald,sans-serif;text-transform:uppercase;margin:10px 0 8px}
+.brief-item p{font:400 clamp(14px,1.45vw,19px)/1.45 Inter,sans-serif;max-width:260px;color:#e1e1e3}
+.training-syllabus{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid #444448;padding-top:22px;margin-top:8px;list-style:none}
+.training-syllabus li{display:flex;align-items:center;justify-content:center;gap:14px;padding:0 12px;border-right:1px solid #444448}
+.training-syllabus li:last-child{border-right:0}
+.training-syllabus .training-icon{flex-shrink:0;width:46px;height:46px}
+.training-syllabus span{font:500 clamp(12px,1.35vw,19px)/1.2 Oswald,sans-serif;letter-spacing:1.3px;text-transform:uppercase}
+.training-actions{display:grid;grid-template-columns:1fr 1fr;gap:28px;width:82%;margin:28px auto 0}
+.training-team{position:relative;color:#09090a;background:#f5f2ec;max-width:1920px;margin:auto}
+.training-team-art{display:block;width:100%;height:auto}
+.training-team:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#f5f2ec 0%,rgba(245,242,236,.94) 25%,rgba(245,242,236,.8) 35%,transparent 53%)}
+.training-team-copy{position:absolute;left:5%;top:7%;width:34%;z-index:1}
+.team-rule{width:58px;height:3px;background:var(--training-red);margin-bottom:20px}
+.training-team h2{font:700 clamp(27px,3.3vw,61px)/1.05 Oswald,sans-serif;text-transform:uppercase}
+.training-team-copy>p:not(.training-locations){font:400 clamp(13px,1.3vw,18px)/1.45 Inter,sans-serif;margin-top:20px;max-width:420px}
+.training-locations{font:500 clamp(12px,1.3vw,20px)/1.6 Oswald,sans-serif;letter-spacing:3px;text-transform:uppercase;margin-top:22px}
+.training-locations span{font-size:.85em;letter-spacing:2px}
+.team-zia-mark{display:block;width:80px;height:80px;fill:none;stroke:var(--training-red);stroke-width:2.2;margin-top:20px}
+.veteran-mark{position:absolute;right:3%;bottom:5%;z-index:1;display:flex;align-items:center;gap:14px;background:#101113;color:#fff;padding:16px 20px}
+.veteran-mark svg{width:46px;height:46px;fill:none;stroke:var(--training-red);stroke-width:2.2}
+.veteran-mark p{font:500 11px/1.5 Oswald,sans-serif;letter-spacing:1px;text-transform:uppercase}
+.veteran-mark strong{display:block;font-size:13px;margin-bottom:3px}
+.veteran-mark span{display:block;color:#ccc}
+.training-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px;color:#b7b7bc;font-size:12px}
+.training-footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
+.training-footer a{display:inline-flex;align-items:center;min-height:44px}
+@media(min-width:1600px){.training-program{padding-top:12px;padding-bottom:36px}.training-hero-copy{top:6%}}
+@media(max-width:1040px){
+ .training-home{--header-h:80px}
+ .training-home .brand-mark{font-size:34px}.training-home .brand-jet{width:84px}
+ .training-home .main-nav ul{align-items:stretch}.training-home .main-nav a{font-size:18px}
+ .training-home .main-nav .header-book{margin-top:20px}
+ .training-brief{grid-template-columns:1.2fr 1fr 1fr .85fr}
+ .training-rate{padding:22px 20px;margin-right:12px}.brief-item{padding:24px 15px}
+ .training-syllabus li{flex-direction:column;text-align:center;gap:10px}
+ .training-actions{width:90%}
+ .training-team-copy{width:37%;top:5%}.team-rule{margin-bottom:12px}
+ .training-team-copy>p:not(.training-locations){margin-top:14px}
+ .training-locations{margin-top:14px;letter-spacing:2px}
+ .team-zia-mark{width:48px;height:48px;margin-top:14px}
+}
+@media(min-width:701px) and (max-width:900px){.training-team-copy>p:not(.training-locations){font-size:12px;margin-top:12px}.training-locations{font-size:11px;margin-top:12px}.team-zia-mark{width:42px;height:42px;margin-top:12px}}
+@media(max-width:700px){
+ .training-home{--header-h:78px}.training-width{padding-inline:20px}
+ .training-home .brand-mark{font-size:30px}
+ .training-hero{display:flex;flex-direction:column;background:#131a22}
+ .training-hero-copy{position:relative;order:-1;left:auto;top:auto;width:100%;padding:30px 24px 20px;background:linear-gradient(130deg,#12171e,#080b10)}
+ .training-eyebrow{font-size:13px;letter-spacing:3px;margin-bottom:18px;gap:14px}.training-eyebrow span{flex:1}
+ .training-hero h1{font-size:clamp(34px,8.2vw,57px)}
+ .training-hero-sub{font-size:clamp(23px,5.8vw,34px);margin-top:14px}
+ .training-hero-art{margin-top:-1px}
+ .training-motto{top:auto;bottom:10px;right:24px;font-size:10px;letter-spacing:1.5px;line-height:1.4}
+ .aircraft-caption{left:24px;right:auto;bottom:14px;font-size:10px;letter-spacing:1px}
+ .training-brief{grid-template-columns:1fr;padding-top:20px}
+ .training-rate{margin:0 0 4px;padding:24px 26px}.rate-amount{font-size:72px}.rate-unit{font-size:31px}.rate-note{font-size:15px}
+ .brief-item{display:grid;grid-template-columns:44px 1fr;column-gap:16px;padding:22px 8px;border-bottom:1px solid #38383c}
+ .brief-item+.brief-item:before{display:none}.brief-item .training-icon{grid-row:span 2;margin-top:4px}
+ .brief-item h2{font-size:25px;margin:0 0 8px}.brief-item h2 br{display:none}.brief-item p{font-size:15px;max-width:none}
+ .training-syllabus{grid-template-columns:1fr 1fr;padding-top:0;margin-top:18px}
+ .training-syllabus li{min-height:115px;padding:18px 10px;border-bottom:1px solid #444448}
+ .training-syllabus li:nth-child(even){border-right:0}.training-syllabus .training-icon{width:36px;height:36px}.training-syllabus span{font-size:14px}
+ .training-actions{width:100%;grid-template-columns:1fr;gap:14px;margin-top:24px}.training-button{min-height:58px;font-size:18px;padding:14px 16px}
+ .training-team{display:flex;flex-direction:column}.training-team:after{display:none}.training-team-copy{position:static;order:-1;width:100%;padding:30px 24px 8px}
+ .training-team h2{font-size:39px}.training-team-copy>p:not(.training-locations){font-size:15px;max-width:520px}
+ .training-locations{font-size:14px;margin-top:22px}.team-zia-mark{width:58px;height:58px}
+ .veteran-mark{position:static;align-self:flex-end;margin:0 20px 20px;padding:12px 16px}
+ .training-footer{flex-direction:column;text-align:center;padding-block:14px;gap:6px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.training-home *{animation:none!important;transition:none!important}}

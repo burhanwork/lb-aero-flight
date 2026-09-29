@@ -8,7 +8,7 @@ const racing = readFileSync(resolve(root, 'racing.html'), 'utf8');
 const home = readFileSync(resolve(root, 'index.html'), 'utf8');
 const experience = readFileSync(resolve(root, 'css/race-experience.css'), 'utf8');
 const player = readFileSync(resolve(root, 'js/race-experience.js'), 'utf8');
-assert.match(home, /team-zia-hero-compact-v3\.webp/, 'Homepage uses compact artwork');
+assert.match(home, /lucky-13-training-hero\.webp/, 'Business homepage uses approved training artwork');
 assert.match(racing, /team-zia-hero-compact-v3\.webp/, 'Race page uses compact artwork');
 assert.match(experience, /prefers-reduced-motion:\s*reduce/, 'Reduced-motion CSS exists');
 assert.match(player, /motion\.matches/, 'Animation respects reduced motion');
@@ -23,14 +23,14 @@ for (const attribute of ['controls', 'playsinline', 'preload="none"', 'aria-labe
 assert.ok(!/\bautoplay\b/.test(videoTag), 'Video never autoplays');
 assert.match(racing, /\.zia-video-frame video\s*\{[^}]*object-fit:\s*contain/, 'Video preserves full frame');
 assert.match(racing, /@media \(max-width: 1024px\)/, 'Tablet hero uses stacked layout');
-assert.match(home, /href="\/racing\/#race-week-films">WATCH THE FILMS/, 'Homepage points to current films through their clean URL');
+assert.ok(home.includes('href="/racing/"'), 'Homepage retains clean race program link');
 assert.match(racing, /id="race-week-films"/, 'Race-week film anchor exists');
 assert.match(racing, /id="announcement"/, 'Film anchor exists');
 assert.ok(!racing.includes('replacement promo and press conference will appear here'), 'Obsolete media placeholder removed');
 
 for (const page of ['index.html', 'racing.html']) {
   const html = readFileSync(resolve(root, page), 'utf8').replace(/<!--[\s\S]*?-->/g, '');
-  assert.match(html, /src="js\/race-experience\.js/, `${page}: player/motion enhancement loaded`);
+  if (page === 'racing.html') assert.match(html, /src="js\/race-experience\.js/, `${page}: player/motion enhancement loaded`);
   for (const match of html.matchAll(/(?:src|href|poster)="([^"#]+)"/g)) {
     const target = match[1].split(/[?#]/)[0];
     if (/^(https?:|mailto:|tel:|data:|\/)/.test(target)) continue;

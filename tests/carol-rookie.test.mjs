@@ -8,5 +8,5 @@ for(const value of ['controls playsinline preload="none"','Play Carol Rookie of 
 assert.ok(!/autoplay|drive\.google|separate player/.test(section));
 assert.equal(statSync(new URL('assets/video/carol-rookie-of-year.mp4',root)).size,31474948);
 assert.ok(statSync(new URL('assets/img/carol-rookie-of-year.jpg',root)).size>10000);
-assert.ok(readFileSync(new URL('index.html',root),'utf8').includes('/racing/#carol-rookie-of-year'));
-console.log('PASS: Carol award feature, intact original video, poster, homepage link and download');
+assert.ok(readFileSync(new URL('index.html',root),'utf8').includes('href="/racing/"'));
+console.log('PASS: Carol award feature, intact original video, poster, retained race program and download');
