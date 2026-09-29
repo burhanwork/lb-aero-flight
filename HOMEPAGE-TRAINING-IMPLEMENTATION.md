@@ -30,4 +30,4 @@ Prompts: clean aircraft-only photographic-style illustration, no baked-in page t
 - Screenshots: ../artifacts/training-home-2026-09-30/desktop.jpg and mobile.jpg.
 - Fresh Gmail refresh returned Scott's September 26 acknowledgement, no newer training requirements. Messages connector returned a permission-filtered result; this is NOT a successful empty/new-message check. Direct user-approved reference is implementation authority. No client message sent.
 
-Deployment verification is recorded in canonical PROJECT-STATUS.md once complete.
+Deployment: e39b5aab7402b6baaf2ff2b43772636f310cd598 pushed to main. Pages run 36631781365 completed successfully. Production root URL, hourly price, airports, hero and lower image visually verified on desktop/mobile; no console errors. Public evidence: ../artifacts/training-home-2026-09-30/desktop-live.jpg and mobile-live.jpg. Canonical PROJECT-STATUS.md and linked Obsidian website/decisions notes reconciled. No client communication sent.
