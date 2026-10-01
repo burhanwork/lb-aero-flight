@@ -9,18 +9,22 @@
 .carol-photo-lead img { object-fit: contain; }
 .carol-photo[data-carol-photo='6'] img { object-position: center 39%; }
 .carol-photo:hover img { filter: brightness(1.08); }
-.carol-bottom { display: grid; grid-template-columns: minmax(0, 1fr) 260px; align-items: center; gap: 36px; margin-top: 22px; }
-.carol-flightline { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); gap: 22px; align-items: center; padding: 20px; background: linear-gradient(110deg,#151b20,#0d1012); border: 1px solid #293139; border-radius: 4px; }
-.carol-flightline h3 { font: 500 17px/1.4 'Oswald',sans-serif; letter-spacing: .09em; text-transform: uppercase; margin: 0 0 14px; }
+.carol-bottom { width: 100%; margin: 24px 0 0; }
+.carol-flightline { display: grid; grid-template-columns: minmax(0,1fr) clamp(240px,21vw,280px); grid-template-areas: 'copy video' 'actions video'; gap: 24px 40px; align-items: center; padding: 28px 36px; background: linear-gradient(110deg,#151b20,#0d1012); border: 1px solid #293139; border-radius: 4px; }
+.carol-flightline-copy { grid-area: copy; align-self: end; }
+.carol-flightline h3 { font: 500 clamp(24px,2.4vw,32px)/1.25 'Oswald',sans-serif; letter-spacing: .045em; text-transform: uppercase; margin: 0 0 16px; }
 .carol-flightline h3::after { content: ''; display: block; width: 36px; height: 2px; background: #bb292b; margin-top: 12px; }
-.carol-flightline p { font-size: 14px; line-height: 1.6; color: #bbc1c8; margin: 0; }
-.carol-video { margin: 0; min-width: 0; }
-.carol-video .zia-video-frame { aspect-ratio: 16 / 9; width: 100%; }
+.carol-flightline p { font-size: 18px; line-height: 1.6; color: #d0d5db; margin: 0; max-width: 38ch; }
+.carol-video { grid-area: video; margin: 0; min-width: 0; }
+.carol-video .zia-video-frame { position: relative; overflow: hidden; aspect-ratio: 9 / 16; width: 100%; }
 .carol-video video { display: block; width: 100%; height: 100%; object-fit: contain; background: #080a0c; }
 .carol-film-cover { background: linear-gradient(0deg,rgba(0,0,0,.28),rgba(0,0,0,.12)),url('../assets/img/carol/video-poster.jpg') center/contain no-repeat; }
 .carol-film-cover .film-play-icon { width: 54px; height: 54px; box-shadow: none; }
 .carol-gallery-trigger { width: 100%; min-height: 54px; display: flex; justify-content: center; align-items: center; gap: 18px; cursor: pointer; }
 .carol-gallery-trigger[hidden] { display: none; }
+.carol-flightline-actions { grid-area: actions; align-self: start; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; width: min(100%,440px); }
+.carol-flightline-actions .btn { box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; min-width: 0; min-height: 52px; padding: 12px 16px; margin: 0; font-size: 15px; line-height: 1.25; letter-spacing: .055em; }
+.carol-flightline-actions .btn[hidden] { display: none; }
 .carol-update :focus-visible, .carol-gallery :focus-visible { outline: 3px solid white; outline-offset: 4px; }
 .carol-gallery { box-sizing: border-box; width: min(1100px,96vw); max-width: 96vw; max-height: 94dvh; border: 1px solid #424b54; border-radius: 8px; padding: 20px; color: white; background: #0c1014; overflow: auto; }
 .carol-gallery { margin: auto; }
@@ -45,11 +49,13 @@
   .carol-mosaic { grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: auto; aspect-ratio: auto; gap: 10px; }
   .carol-photo-lead { grid-column: 1/-1; grid-row: auto; aspect-ratio: 4/3; }
   .carol-photo:not(.carol-photo-lead) { aspect-ratio: 3/4; }
-  .carol-bottom { grid-template-columns: 1fr; gap: 18px; }
-  .carol-gallery-trigger { grid-row: 1; }
-  .carol-flightline { grid-template-columns: 1fr; text-align: center; gap: 16px; padding: 16px; }
+  .carol-flightline { grid-template-columns: minmax(0,1fr); grid-template-areas: 'copy' 'video' 'actions'; text-align: center; gap: 22px; padding: 24px 16px; }
+  .carol-flightline h3 { font-size: clamp(23px,6vw,30px); }
   .carol-flightline h3::after { margin-inline: auto; }
-  .carol-video { width: 100%; }
+  .carol-flightline p { font-size: 17px; margin-inline: auto; }
+  .carol-video { width: min(180px,100%); justify-self: center; }
+  .carol-flightline-actions { width: 100%; max-width: 440px; justify-self: center; gap: 8px; }
+  .carol-flightline-actions .btn { font-size: 14px; min-height: 50px; padding: 10px 6px; gap: 6px; letter-spacing: .015em; }
   .carol-gallery { padding: 12px; }
   .carol-gallery-top h2 { font-size: 20px; }
   .carol-gallery-stage { gap: 4px; grid-template-columns: 44px minmax(0,1fr) 44px; }

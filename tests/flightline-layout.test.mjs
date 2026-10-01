@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+const html = readFileSync(new URL('../racing.html', import.meta.url), 'utf8');
+const css = readFileSync(new URL('../css/carol-update.css', import.meta.url), 'utf8');
+const section = html.split('<div class="carol-bottom">')[1].split('</section>')[0];
+const actions = section.split('<div class="carol-flightline-actions"')[1];
+assert.ok(actions.includes('carol-gallery-trigger'));
+assert.ok(actions.includes('race-film-download'));
+assert.equal((section.match(/carol-gallery-trigger/g) || []).length, 1);
+assert.equal((section.match(/download="carol-flightline.mp4"/g) || []).length, 1);
+assert.ok(section.includes('width="720" height="1280"'));
+assert.match(css, /\.carol-bottom \{ width: 100%;/);
+assert.match(css, /\.carol-video \.zia-video-frame \{[^}]*aspect-ratio: 9 \/ 16/);
+assert.match(css, /\.carol-flightline-actions \{[^}]*grid-template-columns: repeat\(2,minmax\(0,1fr\)\)/);
+assert.ok(!section.includes('autoplay'));
+console.log('PASS: unified full-width flight-line card, portrait frame and paired media actions');
