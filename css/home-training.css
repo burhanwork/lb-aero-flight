@@ -16,7 +16,7 @@
 .training-button-outline{background:transparent;border-color:#a8a8aa}
 .training-button-outline:hover{background:#202023;border-color:white}
 .training-home .main-nav .header-book{min-height:52px;padding:12px 24px;font-size:16px;color:white;letter-spacing:1px}
-.training-hero{position:relative;max-width:1920px;margin:auto;background:#10141a}
+.training-hero{position:relative;width:100%;margin:auto;background:#10141a}
 .training-hero picture{display:block}
 .training-hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.55),transparent 85%);mask-image:linear-gradient(#000 0%,#000 42%,transparent 65%)}
 .training-hero-copy,.training-motto,.aircraft-caption{z-index:1}
@@ -46,7 +46,7 @@
 .training-syllabus .training-icon{flex-shrink:0;width:46px;height:46px}
 .training-syllabus span{font:500 clamp(12px,1.35vw,19px)/1.2 Oswald,sans-serif;letter-spacing:1.3px;text-transform:uppercase}
 .training-actions{display:grid;grid-template-columns:1fr 1fr;gap:28px;width:82%;margin:28px auto 0}
-.training-team{position:relative;color:#09090a;background:#f5f2ec;max-width:1920px;margin:auto}
+.training-team{position:relative;color:#09090a;background:#f5f2ec;width:100%;margin:auto}
 .training-team-art{display:block;width:100%;height:auto}
 .training-team:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#f5f2ec 0%,rgba(245,242,236,.94) 25%,rgba(245,242,236,.8) 35%,transparent 53%)}
 .training-team-copy{position:absolute;left:5%;top:7%;width:34%;z-index:1}
@@ -80,17 +80,17 @@
  .team-zia-mark{width:48px;height:48px;margin-top:14px}
 }
 @media(min-width:701px) and (max-width:900px){.training-team-copy>p:not(.training-locations){font-size:12px;margin-top:12px}.training-locations{font-size:11px;margin-top:12px}.team-zia-mark{width:42px;height:42px;margin-top:12px}}
-/* Fit complete desktop scenes to the usable browser height, not screen width.
-   The source artwork stays intact; no cropped aircraft or hidden content. */
+/* Full-width aircraft scenes retain their natural proportions and complete artwork.
+   Readable content has its own limit; viewport height must not narrow the panels. */
 @media(min-width:701px){
- .training-home{--header-h:72px;--training-stage-width:min(1200px,100%,max(720px,calc((100svh - 144px)*1.693)))}
- .training-home .header-inner{max-width:1320px;padding-inline:28px}
+ .training-home{--header-h:72px}
+ .training-home .header-inner{max-width:1640px;padding-inline:clamp(24px,3.4vw,56px)}
  .training-home .brand-mark{font-size:34px}
  .training-home .brand-jet{width:84px;top:-12px}
  .training-home .main-nav ul{gap:24px;align-items:center}
  .training-home .main-nav a{font-size:13px}
  .training-home .main-nav .header-book{min-height:44px;padding:10px 20px;margin-top:0;font-size:14px}
- .training-hero,.training-team{width:var(--training-stage-width);container-type:inline-size}
+ .training-hero,.training-team{width:100%;container-type:inline-size}
  .training-hero-copy{top:5.5%}
  .training-eyebrow{font-size:clamp(12px,1.65cqw,21px);letter-spacing:3px;margin-bottom:2cqw}
  .training-hero h1{font-size:clamp(38px,6.05cqw,73px)}
@@ -98,7 +98,7 @@
  .training-motto{font-size:clamp(12px,1.5cqw,18px);letter-spacing:2px}
  .aircraft-caption{font-size:clamp(12px,1.3cqw,16px)}
  .training-program{padding:18px 0 24px}
- .training-program>.training-width{width:min(1100px,100%);padding-inline:24px;container-type:inline-size}
+ .training-program>.training-width{width:min(1640px,100%);padding-inline:clamp(24px,3.4vw,56px);container-type:inline-size}
  .training-rate{padding:20px;margin-right:20px}
  .rate-amount{font-size:clamp(48px,6.9cqw,80px)}
  .rate-unit{font-size:clamp(20px,2.85cqw,32px)}
@@ -115,9 +115,9 @@
  .training-actions{width:90%;margin-top:20px;gap:20px}
  .training-button{min-height:50px;padding:10px 18px;font-size:17px}
  .training-team-art{min-height:400px;object-fit:contain}
- .training-team-copy{top:6%;width:39%}
+ .training-team-copy{top:6%;width:39%;max-width:560px}
  .training-team h2{font-size:clamp(26px,3.3cqw,40px)}
- .training-team-copy>p:not(.training-locations){font-size:16px;line-height:1.5;margin-top:14px}
+ .training-team-copy>p:not(.training-locations){font-size:16px;line-height:1.5;margin-top:14px;max-width:420px}
  .team-rule{width:42px;height:2px;margin-bottom:14px}
  .training-locations{font-size:clamp(12px,1.3cqw,14px);margin-top:14px;letter-spacing:1.5px}
  .team-zia-mark{width:44px;height:44px;margin-top:14px}
@@ -125,7 +125,7 @@
  .veteran-mark svg{width:34px;height:34px}
  .veteran-mark p{font-size:11px}
  .veteran-mark strong{font-size:13px}
- .training-footer{max-width:1200px;min-height:60px}
+ .training-footer{max-width:1640px;min-height:60px}
 }
 @media(min-width:701px) and (max-height:750px){.training-team-copy .team-zia-mark{display:none}}
 @media(min-width:1041px){.training-home .main-nav a{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}}
