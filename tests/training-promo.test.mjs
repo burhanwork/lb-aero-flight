@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const home = fs.readFileSync('index.html', 'utf8');
+assert.ok(home.includes('id="training-promo-video" controls playsinline preload="none"'));
+assert.ok(home.includes('silent overview with on-screen text'));
+assert.ok(home.includes('href="assets/video/lba-training-promo.mp4" download'));
+assert.ok(fs.statSync('assets/video/lba-training-promo.mp4').size > 100000);
+assert.ok(fs.existsSync('assets/img/lba-training-promo.jpg'));
+assert.ok(home.indexOf('class="training-promo training-width"') > home.indexOf('id="training"'));
+assert.ok(home.indexOf('class="training-promo training-width"') < home.indexOf('id="training-team"'));
+console.log('PASS: scoped real-footage training promo, honest silent label, native controls and download.');

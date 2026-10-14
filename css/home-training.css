@@ -159,3 +159,18 @@
  .training-footer{flex-direction:column;text-align:center;padding-block:14px;gap:6px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.training-home *{animation:none!important;transition:none!important}}
+/* Scoped short-film feature: retain the established homepage composition. */
+.training-promo { display:grid; grid-template-columns:minmax(0, .8fr) minmax(0, 1.2fr); gap:clamp(24px,4vw,64px); align-items:center; padding-block:48px; }
+.training-promo h2 { font-family:Oswald,sans-serif; font-size:clamp(30px,3vw,44px); line-height:1.15; text-transform:uppercase; margin:0 0 18px; }
+.training-promo p { font-size:16px; line-height:1.6; margin:0 0 14px; }
+.training-promo .training-promo-note { color:#bdc3ca; }
+.training-promo-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:24px; }
+.training-promo-actions .training-button { flex:1; white-space:nowrap; min-height:48px; }
+.training-promo-media { position:relative; min-width:0; }
+.training-promo video { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; background:#080b10; }
+.training-promo-play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:64px; height:64px; border:0; border-radius:50%; background:#c71119; color:#fff; cursor:pointer; display:grid; place-items:center; }
+.training-promo-play svg { width:28px; height:28px; }
+.training-promo-play[hidden] { display:none; }
+.training-promo-play:focus-visible { outline:3px solid white; outline-offset:4px; }
+@media(max-width:1040px) { .training-promo-actions .training-button { font-size:13px; letter-spacing:1px; padding-inline:8px; min-height:52px; } }
+@media(max-width:760px) { .training-promo { grid-template-columns:1fr; gap:24px; padding-block:32px; } .training-promo-copy { text-align:center; } .training-promo-actions { justify-content:center; } .training-promo-actions .training-button { padding-inline:12px; } }

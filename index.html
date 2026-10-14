@@ -19,7 +19,7 @@
   <link rel="preload" href="assets/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css?v=110">
-  <link rel="stylesheet" href="css/home-training.css?v=20261001-fullwidth">
+  <link rel="stylesheet" href="css/home-training.css?v=20261014-promo">
 </head>
 <body class="training-home">
   <a class="training-skip" href="#main-content">Skip to content</a>
@@ -79,6 +79,18 @@
         <div class="training-actions"><a class="training-button" href="/contact/?training=l29#contactForm">Schedule L-29 training <span aria-hidden="true">›</span></a><a class="training-button training-button-outline" href="/platform/">Learn about Lucky 13 <span aria-hidden="true">›</span></a></div>
       </div>
     </section>
+    <section class="training-promo training-width" aria-labelledby="training-promo-title">
+      <div class="training-promo-copy">
+        <h2 id="training-promo-title">Your next step<br>into jets.</h2>
+        <p>Explore L-29 training with LB AeroFlight in New Mexico.</p>
+        <p class="training-promo-note">Real team departure footage. A 30-second silent overview with on-screen text.</p>
+        <div class="training-promo-actions"><a class="training-button" href="/contact/?training=l29#contactForm">Schedule training</a><a class="training-button training-button-outline" href="assets/video/lba-training-promo.mp4" download>Download video</a></div>
+      </div>
+      <div class="training-promo-media">
+        <video id="training-promo-video" controls playsinline preload="none" width="1920" height="1080" poster="assets/img/lba-training-promo.jpg" aria-label="LB AeroFlight training overview, silent with on-screen text"><source src="assets/video/lba-training-promo.mp4" type="video/mp4">Your browser does not support video playback.</video>
+        <button class="training-promo-play" type="button" aria-label="Play the training overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4v16l13-8z" fill="currentColor"/></svg></button>
+      </div>
+    </section>
     <section class="training-team" id="training-team" aria-labelledby="training-team-title">
       <img class="training-team-art" src="assets/img/lucky-13-team-flight.webp" width="1839" height="855" loading="lazy" alt="Illustration of Lucky 13 and a second Team Zia L-29 flying over New Mexico mountains.">
       <div class="training-team-copy">
@@ -93,5 +105,6 @@
   </main>
   <footer class="training-footer training-width"><p>© 2026 LB AeroFlight.com. All rights reserved.</p><nav aria-label="Footer navigation"><a href="/team/">Meet the team</a><a href="/racing/">Team Zia race program</a><a href="/contact/">Contact</a></nav></footer>
   <script src="js/main.js?v=3" defer></script>
+  <script src="js/training-promo.js" defer></script>
 </body>
 </html>
